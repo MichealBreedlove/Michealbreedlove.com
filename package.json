@@ -1,0 +1,21 @@
+{
+  "name": "micheal-breedlove-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Micheal Breedlove - Cybersecurity Professional, Veteran, and Culinary Farmer",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static site - no build process required'",
+    "start": "echo 'Open index.html in your browser'",
+    "dev": "echo 'Open index.html in your browser'"
+  },
+  "keywords": [
+    "portfolio",
+    "cybersecurity",
+    "veteran",
+    "professional"
+  ],
+  "author": "Micheal Breedlove",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
