@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <meta name="description" content="Micheal Breedlove's AI cluster architecture — a 4-node homelab running local LLMs with SRE automation, Proxmox virtualization, and enterprise networking. Interactive infrastructure diagram." />
+        <meta name="author" content="Micheal Breedlove" />
+        <title>AI Cluster Architecture | Micheal Breedlove</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="assets/cluster/cluster-diagram.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100">
+        <main class="flex-shrink-0">
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Micheal Breedlove</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/resume.html">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/ai-cluster.html">AI Cluster</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Cluster Section -->
+            <section class="cluster-section" id="ai-cluster">
+                <div class="cluster-container">
+
+                    <!-- Header -->
+                    <div class="cluster-header">
+                        <h2>AI Cluster Architecture</h2>
+                        <p>A 4-node infrastructure running local LLM inference, SRE automation, and enterprise networking — built from scratch, operated like production.</p>
+                    </div>
+
+                    <!-- Stats Bar -->
+                    <div class="cluster-stats" id="cluster-stats"></div>
+
+                    <!-- What You're Seeing -->
+                    <div style="text-align: center; margin-bottom: 1.5rem;">
+                        <p style="font-size: 0.82rem; color: #5a6480; margin: 0;">Click any node to explore its role, hardware, services, and why it matters. Hover to see connections light up.</p>
+                    </div>
+
+                    <!-- Interactive Diagram -->
+                    <div class="cluster-diagram" id="cluster-diagram">
+                        <svg class="cluster-svg" id="cluster-svg" aria-hidden="true"></svg>
+                    </div>
+
+                    <!-- Legend -->
+                    <div class="cluster-legend">
+                        <div class="legend-item">
+                            <div class="legend-line control" style="border-top: 3px dashed #6C63FF; background: none; height: 0;"></div>
+                            <span>AI Orchestration (OpenClaw)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-line management"></div>
+                            <span>Config Management (Ansible)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-line storage"></div>
+                            <span>Storage / NFS Traffic</span>
+                        </div>
+                    </div>
+
+                    <!-- Detail Panel (populated by JS) -->
+                    <div class="detail-panel" id="detail-panel" role="region" aria-label="Node details"></div>
+
+                    <!-- Content Sections -->
+                    <div class="cluster-content">
+
+                        <h3>Key Technical Highlights</h3>
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-gpu-card"></i> Local AI Inference</h4>
+                                <p>RTX 4090 running Qwen 2.5 32B, DeepSeek Coder v2, and LLaMA 3.1 70B via Ollama — no cloud API dependencies for core inference.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-diagram-3"></i> SRE Pipeline</h4>
+                                <p>29 automation priorities: SLOs with burn rate tracking, incident management with postmortems, chaos testing, safety-gated actions.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-hdd-rack"></i> Proxmox Cluster</h4>
+                                <p>3-node Proxmox cluster (Nova + Mira + Orin) for VM and container management. Centralized storage via TrueNAS on Nova.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-shield-check"></i> Security Posture</h4>
+                                <p>OPNsense firewall, network segmentation, GitHub Actions secret scanning, credential hygiene policies, safety gates blocking risky automation.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-gear"></i> GitOps Workflow</h4>
+                                <p>All configs backed up to GitHub daily. Ansible manages node state. Changes tracked, tested, and documented automatically.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-bar-chart"></i> Monitoring & SLOs</h4>
+                                <p>SLO targets (99.9% gateway, 99.5% inference), error budgets, 5 rolling windows for burn rate, auto-incidents on threshold breach.</p>
+                            </div>
+                        </div>
+
+                        <h3>How It's Operated</h3>
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <h4>Monitoring</h4>
+                                <p>Custom dashboard with SLO burn rates, incident status, and node health. Automated health checks via Ansible every 6 hours.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4>Backups</h4>
+                                <p>Each node auto-commits sanitized state to GitHub daily via systemd timers (Linux) and scheduled tasks (Windows). Secret-scanned before push.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4>Incident Response</h4>
+                                <p>Auto-triggered incidents from SLO burn spikes or gatekeeper denials. Timeline tracking, evidence packs, and recruiter-grade postmortem generation.</p>
+                            </div>
+                        </div>
+
+                        <h3>Security Considerations</h3>
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <h4>Network Segmentation</h4>
+                                <p>OPNsense firewall with VLAN-segmented traffic. Management, storage, and inference traffic isolated. 2.5G and 10G network segments.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4>Least Privilege</h4>
+                                <p>SSH key-only auth between nodes. Ansible runs with minimal required permissions. OpenClaw agents operate within defined safety tiers.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4>Secrets Hygiene</h4>
+                                <p>GitHub Actions CI blocks any push containing API keys, tokens, or credentials. Sanitize scripts strip secrets before commit. No .env files in repos.</p>
+                            </div>
+                        </div>
+
+                        <!-- GitHub Callout -->
+                        <div class="github-callout">
+                            <p><i class="bi bi-github"></i>&nbsp; All infrastructure code, automation scripts, and documentation are open source.</p>
+                            <a href="https://github.com/MichealBreedlove/Lab" target="_blank">View on GitHub →</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove 2026</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="mailto:contact@michealbreedlove.com">Contact</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="https://www.linkedin.com/in/micheal-breedlove" target="_blank">LinkedIn</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="https://github.com/MichealBreedlove" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="assets/cluster/cluster-diagram.js"></script>
+    </body>
+</html>

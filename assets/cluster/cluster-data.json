@@ -1,0 +1,161 @@
+{
+  "nodes": [
+    {
+      "id": "jasper",
+      "name": "Jasper",
+      "role": "Primary Inference + Dev Workstation",
+      "os": "Windows 11 Pro",
+      "cpu": "Intel i9-13900K (24C/32T)",
+      "ram": "64 GB DDR5",
+      "gpu": "NVIDIA RTX 4090 24GB",
+      "network": "2.5GbE",
+      "color": "#6C63FF",
+      "icon": "gpu",
+      "services": [
+        "Ollama (GPU inference)",
+        "OpenClaw Gateway",
+        "VS Code / Dev Environment",
+        "Browser Relay"
+      ],
+      "storage_role": "Local NVMe for model weights + working data",
+      "responsibilities": "Runs all GPU-accelerated LLM inference (Qwen 32B, DeepSeek, LLaMA 70B). Hosts the OpenClaw gateway that orchestrates AI agents across all nodes. Primary development and monitoring workstation.",
+      "why_it_matters": "This is the brain of the cluster — a workstation-class GPU doing real AI inference, not just running Docker containers. It proves hands-on ML/AI ops experience with production-grade hardware."
+    },
+    {
+      "id": "nova",
+      "name": "Nova",
+      "role": "Services + Storage + Controller",
+      "os": "Proxmox VE (Debian)",
+      "cpu": "Intel N305 (8C/8T)",
+      "ram": "32 GB DDR5",
+      "gpu": "Integrated",
+      "network": "2.5GbE",
+      "color": "#00C9A7",
+      "icon": "server",
+      "services": [
+        "Proxmox hypervisor",
+        "TrueNAS (NFS/SMB)",
+        "Ansible controller",
+        "OpenClaw node",
+        "Homelab Controller (P1–P29)"
+      ],
+      "storage_role": "Primary NAS — shared datasets, model cache, backups, config state",
+      "responsibilities": "Ansible controller managing Mira and Orin. Hosts TrueNAS for centralized storage. Runs the homelab-controller automation (29 priorities: SLOs, incidents, chaos, evidence, gatekeeper). Serves as the 'ops brain' of the cluster.",
+      "why_it_matters": "Shows infrastructure-as-code discipline — Ansible playbooks, automated health checks, and a custom SRE pipeline that rivals what you'd see at a mid-size SaaS company."
+    },
+    {
+      "id": "mira",
+      "name": "Mira",
+      "role": "Utility Compute",
+      "os": "Proxmox VE (Debian)",
+      "cpu": "Intel i7-2600K (4C/8T)",
+      "ram": "16 GB DDR3",
+      "gpu": "Integrated",
+      "network": "1GbE",
+      "color": "#FF6B6B",
+      "icon": "compute",
+      "services": [
+        "Proxmox hypervisor",
+        "OpenClaw node",
+        "Lightweight VMs/CTs",
+        "Test workloads"
+      ],
+      "storage_role": "Local SSD for VM storage, NFS mount from Nova for shared data",
+      "responsibilities": "Runs utility VMs and containers — DNS, monitoring agents, test environments. Serves as a chaos testing target and resilience validation node. Managed via Ansible from Nova.",
+      "why_it_matters": "Demonstrates heterogeneous fleet management — not every node needs to be top-spec. Managing mixed hardware is a real-world skill that shows operational maturity."
+    },
+    {
+      "id": "orin",
+      "name": "Orin",
+      "role": "Server Workloads",
+      "os": "Proxmox VE (Debian)",
+      "cpu": "Dual Xeon E5-2667v4 (16C/32T)",
+      "ram": "16 GB DDR4 ECC",
+      "gpu": "None",
+      "network": "10GbE + 1GbE",
+      "color": "#FFA62B",
+      "icon": "rack",
+      "services": [
+        "Proxmox hypervisor",
+        "OpenClaw node",
+        "Heavy compute VMs",
+        "Server workloads"
+      ],
+      "storage_role": "Local RAID for VM storage, NFS mount from Nova",
+      "responsibilities": "Enterprise-grade Dell PowerEdge running heavy compute workloads. Dual Xeon processors for parallel tasks. 10GbE uplink for high-throughput data transfer. Managed via Ansible from Nova.",
+      "why_it_matters": "Real enterprise server hardware (PowerEdge R630) shows you can work with datacenter-class equipment, not just consumer PCs. ECC memory and redundant power prove reliability thinking."
+    }
+  ],
+  "connections": [
+    {
+      "from": "jasper",
+      "to": "nova",
+      "type": "control",
+      "label": "OpenClaw orchestration",
+      "bandwidth": "2.5 Gbps"
+    },
+    {
+      "from": "jasper",
+      "to": "mira",
+      "type": "control",
+      "label": "OpenClaw orchestration",
+      "bandwidth": "1 Gbps"
+    },
+    {
+      "from": "jasper",
+      "to": "orin",
+      "type": "control",
+      "label": "OpenClaw orchestration",
+      "bandwidth": "2.5 Gbps"
+    },
+    {
+      "from": "nova",
+      "to": "mira",
+      "type": "management",
+      "label": "Ansible SSH",
+      "bandwidth": "1 Gbps"
+    },
+    {
+      "from": "nova",
+      "to": "orin",
+      "type": "management",
+      "label": "Ansible SSH",
+      "bandwidth": "10 Gbps"
+    },
+    {
+      "from": "nova",
+      "to": "jasper",
+      "type": "storage",
+      "label": "NFS / model cache",
+      "bandwidth": "2.5 Gbps"
+    },
+    {
+      "from": "nova",
+      "to": "mira",
+      "type": "storage",
+      "label": "NFS shared data",
+      "bandwidth": "1 Gbps"
+    },
+    {
+      "from": "nova",
+      "to": "orin",
+      "type": "storage",
+      "label": "NFS shared data",
+      "bandwidth": "10 Gbps"
+    }
+  ],
+  "network": {
+    "firewall": "OPNsense (Qotom Q20342G9)",
+    "wifi": "UniFi U7 Pro XG",
+    "switches": "Managed switches (2.5G + 10G segments)",
+    "overlay": "Tailscale mesh VPN"
+  },
+  "stats": {
+    "total_cores": "52 cores / 80 threads",
+    "total_ram": "128 GB",
+    "gpu_vram": "24 GB (RTX 4090)",
+    "models_served": "Qwen 2.5 32B, DeepSeek Coder v2, LLaMA 3.1 70B",
+    "automation_priorities": 29,
+    "tests_passing": "100+"
+  }
+}
