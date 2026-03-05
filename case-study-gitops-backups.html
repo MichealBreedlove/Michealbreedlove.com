@@ -23,6 +23,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+            <!-- Analytics: uncomment and set domain for Plausible (privacy-friendly, no cookies) -->
+        <!-- <script defer data-domain="michealbreedlove.com" src="https://plausible.io/js/script.js"></script> -->
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
@@ -158,10 +160,33 @@
                                 </div>
                             </div>
 
+                            <!-- Evidence -->
+                            <div class="evidence-block mb-4">
+                                <h2 class="h5 fw-bolder mb-3">Evidence: Secret Scanning CI Gate (sanitized)</h2>
+                                <pre><code># .github/workflows/verify-no-secrets.yml (excerpt)
+- name: Scan for secrets
+  run: |
+    PATTERNS=(
+      'AKIA[0-9A-Z]{16}'           # AWS Access Key
+      'ghp_[a-zA-Z0-9]{36}'        # GitHub PAT
+      '-----BEGIN.*PRIVATE KEY-----' # Private keys
+      'sk-[a-zA-Z0-9]{48}'         # OpenAI API key
+      'token.*=.*[a-f0-9]{32,}'    # Generic tokens
+    )
+    # 11 patterns total — blocks push on match</code></pre>
+                                <div class="results-grid mt-3">
+                                    <div class="result-item"><div class="number">4</div><div class="label">Nodes backed up</div></div>
+                                    <div class="result-item"><div class="number">11</div><div class="label">Patterns blocked</div></div>
+                                    <div class="result-item"><div class="number">0</div><div class="label">Credential leaks</div></div>
+                                    <div class="result-item"><div class="number">24h</div><div class="label">Max data loss</div></div>
+                                    <div class="result-item"><div class="number">30m</div><div class="label">Node rebuild time</div></div>
+                                </div>
+                            </div>
+
                             <div class="d-flex gap-3 flex-wrap">
                                 <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-primary"><i class="bi bi-github me-2"></i>View Code on GitHub</a>
                                 <a href="/proof.html" class="btn btn-outline-primary"><i class="bi bi-folder me-2"></i>View Proof Pack</a>
-                                <a href="/case-study-sre-pipeline.html" class="btn btn-outline-dark">SRE Pipeline Case Study →</a>
+                                <a href="/case-study-sre-pipeline.html" class="btn btn-outline-dark">SRE Pipeline Case Study &rarr;</a>
                             </div>
                         </div>
                     </div>

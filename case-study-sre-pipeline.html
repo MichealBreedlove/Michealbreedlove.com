@@ -23,6 +23,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+            <!-- Analytics: uncomment and set domain for Plausible (privacy-friendly, no cookies) -->
+        <!-- <script defer data-domain="michealbreedlove.com" src="https://plausible.io/js/script.js"></script> -->
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
@@ -159,6 +161,30 @@
                                         <li>Integrate with Telegram for alert delivery</li>
                                         <li>Build a weekly SLO review report for trend analysis</li>
                                     </ul>
+                                </div>
+                            </div>
+
+                            <!-- Evidence -->
+                            <div class="evidence-block mb-4">
+                                <h2 class="h5 fw-bolder mb-3">Evidence: SLO Configuration (sanitized)</h2>
+                                <pre><code># slo_targets.yaml (excerpt)
+gateway_availability:
+  target: 0.999
+  windows: [1h, 6h, 24h, 7d, 30d]
+  burn_thresholds:
+    fast:   { rate: 14, window: 1h }
+    medium: { rate: 6,  window: 6h }
+    slow:   { rate: 2,  window: 24h }
+
+ollama_availability:
+  target: 0.995
+  windows: [1h, 6h, 24h, 7d, 30d]</code></pre>
+                                <div class="results-grid mt-3">
+                                    <div class="result-item"><div class="number">6</div><div class="label">SLOs tracked</div></div>
+                                    <div class="result-item"><div class="number">5</div><div class="label">Rolling windows</div></div>
+                                    <div class="result-item"><div class="number">38</div><div class="label">Tests passing</div></div>
+                                    <div class="result-item"><div class="number">13m</div><div class="label">Avg TTR</div></div>
+                                    <div class="result-item"><div class="number">0</div><div class="label">False positives</div></div>
                                 </div>
                             </div>
 
