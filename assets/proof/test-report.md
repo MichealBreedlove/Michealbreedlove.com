@@ -3,7 +3,7 @@
 Run date: 2026-03-04
 Runner: Nova (Ansible controller)
 
-## P27 SLO Tests: 18/18 passed ✅
+## SLO Tests: 18/18 passed ✅
 
 ```
 --- Config files ---
@@ -33,10 +33,10 @@ Runner: Nova (Ansible controller)
 --- Secret scan ---
   ✅ No secrets in SLO code
 
-P27 SLO Tests: 18/18 passed ✅
+SLO Tests: 18/18 passed ✅
 ```
 
-## P28 Incident Tests: 10/10 passed ✅
+## Incident Tests: 10/10 passed ✅
 
 ```
   ✅ Open creates JSON + latest pointer
@@ -50,10 +50,10 @@ P27 SLO Tests: 18/18 passed ✅
   ✅ All incidents have required JSON fields
   ✅ No secrets in incident code
 
-P28 Incident Tests: 10/10 passed ✅
+Incident Tests: 10/10 passed ✅
 ```
 
-## P29 Portfolio Tests: 10/10 passed ✅
+## Portfolio Tests: 10/10 passed ✅
 
 ```
   ✅ portfolio_policy.json valid
@@ -67,13 +67,13 @@ P28 Incident Tests: 10/10 passed ✅
   ✅ All 8 pipeline pages exist
   ✅ No secrets in site output
 
-P29 Portfolio Tests: 10/10 passed ✅
+Portfolio Tests: 10/10 passed ✅
 ```
 
 ## Summary
 | Suite | Passed | Total | Status |
 |---|---|---|---|
-| P27 SLO | 18 | 18 | ✅ |
-| P28 Incident | 10 | 10 | ✅ |
-| P29 Portfolio | 10 | 10 | ✅ |
+| SLO | 18 | 18 | ✅ |
+| Incident | 10 | 10 | ✅ |
+| Portfolio | 10 | 10 | ✅ |
 | **Total** | **38** | **38** | **✅ 100%** |
