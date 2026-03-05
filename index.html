@@ -32,7 +32,7 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index.html">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="/resume.html">Resume</a></li>
                             <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
                             <li class="nav-item"><a class="nav-link" href="/ai-cluster.html">AI Cluster</a></li>
@@ -52,9 +52,16 @@
                                 <p class="text-uppercase small fw-semibold text-muted mb-3" style="letter-spacing:0.08em;">Security &middot; Infrastructure &middot; SRE</p>
                                 <h1 class="display-3 fw-bolder mb-3"><span class="text-gradient d-inline">Micheal Breedlove</span></h1>
                                 <p class="fs-5 text-muted mb-4" style="max-width:32rem;">Security engineer building production-grade AI infrastructure, SRE automation, and enterprise networking from bare metal.</p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-4">
                                     <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="/projects.html">View Projects</a>
                                     <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="/ai-cluster.html">View Architecture</a>
+                                </div>
+                                <div class="proof-strip justify-content-center justify-content-xxl-start">
+                                    <a href="/ai-cluster.html">RTX 4090 inference</a>
+                                    <a href="/projects.html">SLOs + burn-rate gating</a>
+                                    <a href="/projects.html">100+ tests</a>
+                                    <a href="/projects.html">GitOps backups</a>
+                                    <a href="/ai-cluster.html">Proxmox cluster</a>
                                 </div>
                             </div>
                         </div>
@@ -191,43 +198,18 @@
                             <div class="text-center my-5">
                                 <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About</span></h2>
                                 <p class="lead fw-light mb-4">Army veteran transitioning into cybersecurity and infrastructure engineering.</p>
-                                <p class="text-muted">I bring a unique perspective to cybersecurity, combining military intelligence training (former 35N SIGINT; clearance expired 2022), culinary precision, and farming innovation. Currently pursuing a B.S. in Cybersecurity at WGU while running an enterprise-grade home lab: 4-node AI cluster with full SRE automation, Proxmox virtualization, OPNsense firewall, and 29 custom automation pipelines including SLO tracking, incident management, and chaos testing. CompTIA Tech+ certified, targeting Security+.</p>
-                                <div class="row mt-4">
-                                    <div class="col-md-4 mb-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
-                                                <i class="bi bi-shield-check"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-0">Security Focus</h6>
-                                                <small class="text-muted">Protecting digital assets</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
-                                                <i class="bi bi-gear"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-0">Automation</h6>
-                                                <small class="text-muted">Streamlining processes</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
-                                                <i class="bi bi-people"></i>
-                                            </div>
-                                            <div>
-                                                <h6 class="mb-0">Leadership</h6>
-                                                <small class="text-muted">Military experience</small>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="stacked-section text-start">
+                                    <p class="text-muted">I bring a unique perspective to cybersecurity, combining military intelligence training (former 35N SIGINT; clearance expired 2022), culinary precision, and farming innovation. Currently pursuing a B.S. in Cybersecurity at WGU while running an enterprise-grade home lab.</p>
+                                    <div class="divider mx-auto"></div>
+                                    <ul>
+                                        <li>4-node AI cluster with full SRE automation and SLO tracking</li>
+                                        <li>Proxmox virtualization, OPNsense firewall, VLAN segmentation</li>
+                                        <li>29 custom automation pipelines — incident management, chaos testing, safety gates</li>
+                                        <li>CompTIA Tech+ certified, targeting Security+</li>
+                                        <li>B.S. Cybersecurity &amp; Information Assurance at WGU (in progress)</li>
+                                    </ul>
                                 </div>
-                                <div class="d-flex justify-content-center fs-2 gap-4">
+                                <div class="d-flex justify-content-center fs-2 gap-4 mt-4">
                                     <a class="text-gradient" href="https://www.linkedin.com/in/micheal-breedlove" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
                                     <a class="text-gradient" href="https://github.com/MichealBreedlove" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
                                     <a class="text-gradient" href="https://www.instagram.com/mikebreedlove1/" target="_blank" title="Instagram"><i class="bi bi-instagram"></i></a>
@@ -297,38 +279,27 @@
                     </div>
                 </div>
             </section>
-            <!-- Skills Preview Section-->
+            <!-- Competencies Section -->
             <section class="py-5">
                 <div class="container px-5">
-                    <div class="text-center mb-5">
-                        <h2 class="display-6 fw-bolder mb-4"><span class="text-gradient d-inline">Competencies</span></h2>
+                    <div class="text-center mb-4">
+                        <h2 class="display-6 fw-bolder"><span class="text-gradient d-inline">Competencies</span></h2>
                     </div>
-                    <div class="row gx-5">
-                        <div class="col-lg-4 mb-5 mb-lg-0">
-                            <div class="text-center">
-                                <div class="feature bg-gradient-primary-to-secondary text-white rounded-3 mb-3 mx-auto" style="width: 4rem; height: 4rem; display: flex; align-items: center; justify-content: center;">
-                                    <i class="bi bi-shield-lock fs-2"></i>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="row gx-5">
+                                <div class="col-md-4 mb-4">
+                                    <h3 class="h4 fw-bolder mb-2">Security &amp; SRE</h3>
+                                    <p class="text-muted small mb-0">Network security, SLO-driven reliability, incident response, chaos testing, and safety-gated automation across a production cluster.</p>
                                 </div>
-                                <h3 class="h4 fw-bolder">Cybersecurity &amp; SRE</h3>
-                                <p class="text-muted mb-0">Network security, SLO-driven reliability, incident response, chaos testing, and safety-gated automation across a 4-node production cluster.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mb-5 mb-lg-0">
-                            <div class="text-center">
-                                <div class="feature bg-gradient-primary-to-secondary text-white rounded-3 mb-3 mx-auto" style="width: 4rem; height: 4rem; display: flex; align-items: center; justify-content: center;">
-                                    <i class="bi bi-code-slash fs-2"></i>
+                                <div class="col-md-4 mb-4">
+                                    <h3 class="h4 fw-bolder mb-2">Infrastructure &amp; AI</h3>
+                                    <p class="text-muted small mb-0">Ansible, Proxmox, local LLM inference, multi-node orchestration, and infrastructure-as-code with CI/CD pipelines.</p>
                                 </div>
-                                <h3 class="h4 fw-bolder">Infrastructure &amp; AI Ops</h3>
-                                <p class="text-muted mb-0">Ansible, Proxmox, local LLM inference (Ollama), multi-node AI orchestration, and infrastructure-as-code with CI/CD pipelines.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="text-center">
-                                <div class="feature bg-gradient-primary-to-secondary text-white rounded-3 mb-3 mx-auto" style="width: 4rem; height: 4rem; display: flex; align-items: center; justify-content: center;">
-                                    <i class="bi bi-award fs-2"></i>
+                                <div class="col-md-4 mb-4">
+                                    <h3 class="h4 fw-bolder mb-2">Leadership</h3>
+                                    <p class="text-muted small mb-0">Military intelligence discipline, operational precision from Michelin kitchens, and cross-functional team management.</p>
                                 </div>
-                                <h3 class="h4 fw-bolder">Military Leadership</h3>
-                                <p class="text-muted mb-0">Proven leadership, discipline, and problem-solving skills developed through military service and high-pressure environments.</p>
                             </div>
                         </div>
                     </div>

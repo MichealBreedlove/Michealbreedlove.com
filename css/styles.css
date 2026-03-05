@@ -11627,10 +11627,19 @@ a:hover {
 .card {
   border: 1px solid #e2e8f0 !important;
   box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04) !important;
+}
+
+/* Hover lift only on clickable cards */
+a .card,
+a.card,
+.card-clickable {
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-.card:hover {
+a .card:hover,
+a.card:hover,
+.card-clickable:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04) !important;
+  transform: translateY(-2px);
 }
 
 .rounded-4 {
@@ -11638,19 +11647,28 @@ a:hover {
 }
 
 /* --- Buttons --- */
+.btn {
+  transition: all 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
 .btn-primary {
   background-color: #2563eb !important;
   border-color: #2563eb !important;
   border-radius: 0.5rem;
   font-weight: 600;
   letter-spacing: 0;
-  transition: all 0.15s ease;
 }
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #1e40af !important;
-  border-color: #1e40af !important;
-  box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+  background-color: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
 }
 
 .btn-outline-primary {
@@ -11662,6 +11680,7 @@ a:hover {
 .btn-outline-primary:hover {
   background-color: #2563eb !important;
   color: #fff !important;
+  box-shadow: 0 4px 12px rgba(37,99,235,0.2);
 }
 
 .btn-outline-dark {
@@ -11706,10 +11725,15 @@ a:hover {
   color: #475569;
   padding: 0.5rem 0.9rem !important;
   transition: color 0.15s ease;
+  border-bottom: 2px solid transparent;
 }
-.navbar .nav-link:hover,
-.navbar .nav-link.active {
+.navbar .nav-link:hover {
   color: #2563eb;
+}
+.navbar .nav-link.active,
+.navbar .nav-link[aria-current="page"] {
+  color: #0f172a;
+  border-bottom-color: #2563eb;
 }
 
 /* --- Feature Icons --- */
@@ -11830,7 +11854,91 @@ section.bg-gradient-primary-to-secondary h2 {
   outline-offset: 2px;
 }
 
+/* --- Proof Strip --- */
+.proof-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.proof-strip a {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  letter-spacing: -0.01em;
+}
+.proof-strip a:hover {
+  color: #2563eb;
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+/* --- Typography Hierarchy --- */
+h2.display-5 { margin-bottom: 0.75rem; }
+h2.display-6 { margin-bottom: 0.5rem; }
+h3.h4 { font-size: 1.1rem; }
+
+.lead {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Spacing System --- */
+.section-tight { padding-top: 3rem; padding-bottom: 3rem; }
+.section-default { padding-top: 4rem; padding-bottom: 4rem; }
+
+.card-body.p-5 { padding: 2rem !important; }
+@media (min-width: 768px) {
+  .card-body.p-5 { padding: 2.5rem !important; }
+}
+
+/* --- Stacked Section (card-free) --- */
+.stacked-section {
+  max-width: 40rem;
+  margin: 0 auto;
+}
+.stacked-section .divider {
+  width: 3rem;
+  height: 2px;
+  background: #e2e8f0;
+  margin: 1.5rem 0;
+}
+.stacked-section ul {
+  list-style: none;
+  padding: 0;
+}
+.stacked-section ul li {
+  padding: 0.35rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+  color: #475569;
+  font-size: 0.95rem;
+}
+.stacked-section ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
 /* --- Smooth Scrolling --- */
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
+}
+
+/* --- Reduced motion: disable hover transforms --- */
+@media (prefers-reduced-motion: reduce) {
+  .btn:hover, a .card:hover { transform: none !important; }
 }
