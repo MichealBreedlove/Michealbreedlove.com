@@ -4,26 +4,19 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-        <meta
-            name="description"
-            content="Micheal Breedlove – Culinary farmer and Army veteran transitioning into cybersecurity and automation. Passionate about secure systems, scripting, and solving real-world problems through technology."
-        />
+        <meta name="description" content="Technical projects by Micheal Breedlove — AI cluster infrastructure, SRE automation pipelines, network security, Proxmox virtualization, and GitOps workflows." />
         <meta name="author" content="Micheal Breedlove" />
-        <title>Projects | Micheal Breedlove</title>
-        <!-- Favicon-->
+        <title>Projects | Micheal Breedlove — Security &amp; Infrastructure Engineer</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <!-- Bootstrap icons-->
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100 bg-light">
         <main class="flex-shrink-0">
-            <!-- Navigation-->
+            <!-- Navigation -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
                     <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Micheal Breedlove</span></a>
@@ -39,112 +32,225 @@
                     </div>
                 </div>
             </nav>
-            <!-- Projects Section-->
+            <!-- Projects Section -->
             <section class="py-5">
                 <div class="container px-5 mb-5">
                     <div class="text-center mb-5">
                         <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+                        <p class="lead fw-normal text-muted mt-3">Real infrastructure, real automation, real results. Each project solves a specific problem with measurable outcomes.</p>
                     </div>
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-11 col-xl-9 col-xxl-8">
-                            <!-- Project Card 1: Home Lab -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder">Enterprise Home Lab</h2>
-                                            <p>Built and manage a 4-node AI inference and SRE automation cluster. Runs local LLMs (Qwen 2.5 32B, DeepSeek, LLaMA 70B) with full site reliability engineering: SLO tracking, error budgets, automated incident management, chaos testing, and safety-gated action execution. Each node auto-commits sanitized state to GitHub daily.</p>
-                                            <ul class="small text-muted mb-3">
-                                                <li>i9-13900K + RTX 4090 gateway, 3 Ubuntu compute nodes</li>
-                                                <li>Proxmox cluster, TrueNAS, OPNsense, UniFi networking</li>
-                                                <li>29 automation priorities built (P1&ndash;P29), 100+ tests passing</li>
-                                                <li>Ansible config management, systemd services, CI/CD pipelines</li>
-                                            </ul>
-                                            <div class="d-flex gap-2 mb-3">
-                                                <span class="badge bg-primary">Python</span>
-                                                <span class="badge bg-danger">SRE</span>
-                                                <span class="badge bg-success">Ansible</span>
-                                                <span class="badge bg-info">AI/ML</span>
-                                                <span class="badge bg-warning">Proxmox</span>
-                                            </div>
-                                            <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-outline-primary btn-sm me-2">
-                                                <i class="bi bi-github me-1"></i>View on GitHub
-                                            </a>
-                                            <a href="https://michealbreedlove.github.io/Lab/" target="_blank" class="btn btn-outline-secondary btn-sm">
-                                                <i class="bi bi-globe me-1"></i>Live Documentation
-                                            </a>
-                                        </div>
+
+                            <!-- ====== PROJECT 1: AI Cluster (Flagship) ====== -->
+                            <div class="card shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <span class="badge bg-primary me-2">Flagship</span>
+                                        <span class="badge bg-dark">Live Infrastructure</span>
+                                    </div>
+                                    <h2 class="fw-bolder">4-Node AI Inference Cluster</h2>
+                                    <p class="text-muted mb-1"><strong>Problem:</strong> Cloud AI APIs are expensive, rate-limited, and create vendor lock-in for serious inference workloads.</p>
+                                    <p class="text-muted mb-1"><strong>Approach:</strong> Built a local 4-node cluster with GPU inference on an RTX 4090, centralized storage, and AI agent orchestration across all nodes.</p>
+                                    <p class="text-muted mb-3"><strong>Results:</strong> Running 3 LLMs locally (32B, 16B, 70B parameters), zero cloud inference cost, sub-second response times, 99.9% gateway availability target.</p>
+                                    <h6 class="fw-bolder text-primary mb-2">What I Built</h6>
+                                    <ul class="small text-muted mb-3">
+                                        <li>Jasper (i9-13900K, 64GB, RTX 4090) — GPU inference gateway running Ollama</li>
+                                        <li>Nova (N305, 32GB) — Proxmox + TrueNAS + Ansible controller</li>
+                                        <li>Mira (i7-2600K, 16GB) + Orin (Dual Xeon E5-2667v4, 16GB) — compute fleet</li>
+                                        <li>OpenClaw AI agent orchestration with multi-model routing</li>
+                                        <li>52 cores / 80 threads / 128 GB RAM / 24 GB VRAM total cluster resources</li>
+                                    </ul>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <span class="badge bg-primary">Python</span>
+                                        <span class="badge bg-danger">Proxmox</span>
+                                        <span class="badge bg-success">Ansible</span>
+                                        <span class="badge bg-info">Ollama</span>
+                                        <span class="badge bg-warning text-dark">CUDA</span>
+                                        <span class="badge bg-secondary">OpenClaw</span>
+                                    </div>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-github me-1"></i>GitHub</a>
+                                        <a href="/ai-cluster.html" class="btn btn-primary btn-sm"><i class="bi bi-diagram-3 me-1"></i>Interactive Diagram</a>
+                                        <a href="https://michealbreedlove.github.io/Lab/" target="_blank" class="btn btn-outline-secondary btn-sm"><i class="bi bi-book me-1"></i>Documentation</a>
+                                    </div>
+                                    <div class="bg-light rounded-3 p-3">
+                                        <small class="fw-bolder text-primary">Recruiter TL;DR:</small>
+                                        <small class="text-muted"> Built and operate a production-grade AI cluster from bare metal — GPU inference, config management, monitoring, and documentation that rivals what you'd see at a mid-size SaaS company.</small>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Project Card 2: OpenClaw AI Orchestration -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder">AI Agent Orchestration</h2>
-                                            <p>Deployed OpenClaw across all lab nodes to orchestrate autonomous AI agents. The system routes tasks to specialized models (code generation, deep reasoning, general chat), manages multi-node inference, and integrates with the SRE pipeline for self-monitoring and self-healing automation.</p>
-                                            <ul class="small text-muted mb-3">
-                                                <li>Multi-model routing: Qwen 32B (default), DeepSeek Coder, LLaMA 70B (deep)</li>
-                                                <li>Gateway + 3 paired compute nodes with real-time health monitoring</li>
-                                                <li>Ollama inference with OpenAI-compatible API + embeddings</li>
-                                                <li>Automated backup, secret scanning, and credential management</li>
-                                            </ul>
-                                            <div class="d-flex gap-2 mb-3">
-                                                <span class="badge bg-primary">Python</span>
-                                                <span class="badge bg-info">AI/ML</span>
-                                                <span class="badge bg-secondary">Node.js</span>
-                                                <span class="badge bg-success">Automation</span>
-                                            </div>
-                                        </div>
+
+                            <!-- ====== PROJECT 2: SRE Pipeline ====== -->
+                            <div class="card shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-5">
+                                    <h2 class="fw-bolder">SRE Automation Pipeline</h2>
+                                    <p class="text-muted mb-1"><strong>Problem:</strong> Manual monitoring and ad-hoc incident response don't scale, even for a homelab. Needed the same reliability practices used at Google/Netflix.</p>
+                                    <p class="text-muted mb-1"><strong>Approach:</strong> Built a complete SRE pipeline from scratch: SLO tracking, error budgets, burn rate alerting, incident management, and postmortem generation.</p>
+                                    <p class="text-muted mb-3"><strong>Results:</strong> 6 SLOs tracked across 5 rolling windows, automated incident creation on burn rate spikes, recruiter-grade postmortems auto-generated on resolution.</p>
+                                    <h6 class="fw-bolder text-primary mb-2">What I Built</h6>
+                                    <ul class="small text-muted mb-3">
+                                        <li>SLO engine: 6 objectives (gateway 99.9%, inference 99.5%, dashboard 99%)</li>
+                                        <li>Error budget tracking with 5 rolling windows (1h, 6h, 24h, 7d, 28d)</li>
+                                        <li>Multi-window burn rate alerting (fast/medium/slow thresholds)</li>
+                                        <li>Incident Commander: auto-trigger, timeline, evidence packs, postmortem markdown</li>
+                                        <li>Gatekeeper safety gates: deny risky actions when burn rate is high</li>
+                                        <li>100+ tests across the full pipeline</li>
+                                    </ul>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <span class="badge bg-primary">Python</span>
+                                        <span class="badge bg-danger">SRE</span>
+                                        <span class="badge bg-success">Bash</span>
+                                        <span class="badge bg-warning text-dark">Jinja2</span>
+                                    </div>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-github me-1"></i>View Code</a>
+                                    </div>
+                                    <div class="bg-light rounded-3 p-3">
+                                        <small class="fw-bolder text-primary">Recruiter TL;DR:</small>
+                                        <small class="text-muted"> Implemented Google-style SLOs and incident management for a homelab — the same practices used by SRE teams at scale, applied to real infrastructure.</small>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Project Card 3: SRE Pipeline -->
-                            <div class="card overflow-hidden shadow rounded-4 border-0">
-                                <div class="card-body p-0">
-                                    <div class="d-flex align-items-center">
-                                        <div class="p-5">
-                                            <h2 class="fw-bolder">SRE Automation Pipeline</h2>
-                                            <p>Designed and implemented a complete site reliability engineering pipeline: chaos injection to test resilience, SLO tracking with error budgets and burn rate alerts, automated incident management with postmortem generation, safety-gated action execution, and evidence pack collection for compliance.</p>
-                                            <ul class="small text-muted mb-3">
-                                                <li>SLOs: Gateway 99.9%, Ollama 99.5%, Dashboard 99%, Node connectivity 99.5%</li>
-                                                <li>Burn rate alerting across 5 rolling windows (1h to 28d)</li>
-                                                <li>Incident Commander with auto-trigger, timeline, and recruiter-grade postmortems</li>
-                                                <li>Gatekeeper safety gates blocking risky actions during high burn</li>
-                                            </ul>
-                                            <div class="d-flex gap-2 mb-3">
-                                                <span class="badge bg-danger">SRE</span>
-                                                <span class="badge bg-primary">Python</span>
-                                                <span class="badge bg-success">Bash</span>
-                                                <span class="badge bg-warning">GitHub Actions</span>
-                                            </div>
-                                            <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-outline-primary btn-sm">
-                                                <i class="bi bi-github me-1"></i>View Code
-                                            </a>
-                                        </div>
+
+                            <!-- ====== PROJECT 3: GitOps Backup System ====== -->
+                            <div class="card shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-5">
+                                    <h2 class="fw-bolder">GitOps Backup &amp; Secret Scanning</h2>
+                                    <p class="text-muted mb-1"><strong>Problem:</strong> Infrastructure configs scattered across nodes with no audit trail, backup, or secret leak prevention.</p>
+                                    <p class="text-muted mb-1"><strong>Approach:</strong> Automated daily state collection from every node, sanitized before commit, with CI-based secret scanning as a hard gate.</p>
+                                    <p class="text-muted mb-3"><strong>Results:</strong> 4 nodes auto-committing daily, 11 secret patterns blocked by CI, zero credential leaks since deployment.</p>
+                                    <h6 class="fw-bolder text-primary mb-2">What I Built</h6>
+                                    <ul class="small text-muted mb-3">
+                                        <li>Per-node backup scripts: systemd timers (Linux) + scheduled tasks (Windows)</li>
+                                        <li>Sanitize pipeline stripping API keys, tokens, emails, phone numbers before commit</li>
+                                        <li>GitHub Actions workflow scanning every push for 11 secret patterns</li>
+                                        <li>Credential policy documentation and incident response runbook</li>
+                                        <li>Segregated repo structure: each node owns its folder</li>
+                                    </ul>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <span class="badge bg-success">Bash</span>
+                                        <span class="badge bg-info">PowerShell</span>
+                                        <span class="badge bg-warning text-dark">GitHub Actions</span>
+                                        <span class="badge bg-secondary">systemd</span>
+                                    </div>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-github me-1"></i>View Code</a>
+                                    </div>
+                                    <div class="bg-light rounded-3 p-3">
+                                        <small class="fw-bolder text-primary">Recruiter TL;DR:</small>
+                                        <small class="text-muted"> Automated compliance-grade backups with secret scanning — the kind of secrets hygiene you'd expect from a security-conscious engineering team.</small>
                                     </div>
                                 </div>
                             </div>
+
+                            <!-- ====== PROJECT 4: Proxmox Cluster ====== -->
+                            <div class="card shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-5">
+                                    <h2 class="fw-bolder">Proxmox Virtualization Cluster</h2>
+                                    <p class="text-muted mb-1"><strong>Problem:</strong> Needed isolated environments for services, testing, and development without buying more hardware.</p>
+                                    <p class="text-muted mb-1"><strong>Approach:</strong> 3-node Proxmox cluster with centralized TrueNAS storage, Ansible-managed VM provisioning, and automated health checks.</p>
+                                    <p class="text-muted mb-3"><strong>Results:</strong> Running 10+ VMs/containers across heterogeneous hardware (N305, i7-2600K, Dual Xeon), managed via IaC.</p>
+                                    <h6 class="fw-bolder text-primary mb-2">What I Built</h6>
+                                    <ul class="small text-muted mb-3">
+                                        <li>3-node Proxmox VE cluster (Nova + Mira + Orin)</li>
+                                        <li>TrueNAS on Nova: NFS/SMB shares for centralized VM storage</li>
+                                        <li>Ansible playbooks for VM provisioning and configuration</li>
+                                        <li>Automated health checks every 6 hours</li>
+                                        <li>Mixed hardware fleet: consumer to enterprise (Dell PowerEdge R630)</li>
+                                    </ul>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <span class="badge bg-danger">Proxmox</span>
+                                        <span class="badge bg-success">Ansible</span>
+                                        <span class="badge bg-info">TrueNAS</span>
+                                        <span class="badge bg-secondary">NFS</span>
+                                    </div>
+                                    <div class="bg-light rounded-3 p-3">
+                                        <small class="fw-bolder text-primary">Recruiter TL;DR:</small>
+                                        <small class="text-muted"> Enterprise virtualization on heterogeneous hardware — from mini-PCs to rackmount servers — all managed as code.</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ====== PROJECT 5: Network Security ====== -->
+                            <div class="card shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-5">
+                                    <h2 class="fw-bolder">Network Security &amp; Segmentation</h2>
+                                    <p class="text-muted mb-1"><strong>Problem:</strong> A flat network with mixed workloads (AI inference, storage, management) creates unnecessary blast radius for security incidents.</p>
+                                    <p class="text-muted mb-1"><strong>Approach:</strong> Deployed OPNsense on dedicated hardware with VLAN segmentation, firewall rules, and Tailscale overlay for secure remote access.</p>
+                                    <p class="text-muted mb-3"><strong>Results:</strong> Traffic isolated between management, storage, and inference planes. SSH key-only auth, no password-based access to any system.</p>
+                                    <h6 class="fw-bolder text-primary mb-2">What I Built</h6>
+                                    <ul class="small text-muted mb-3">
+                                        <li>OPNsense firewall on Qotom Q20342G9 dedicated appliance</li>
+                                        <li>VLAN segmentation: management, storage, inference, IoT</li>
+                                        <li>UniFi U7 Pro XG access point (WiFi 7)</li>
+                                        <li>Tailscale mesh VPN for zero-trust remote access</li>
+                                        <li>2.5GbE + 10GbE network segments for performance-sensitive traffic</li>
+                                        <li>SSH key-only authentication across all nodes</li>
+                                    </ul>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <span class="badge bg-danger">OPNsense</span>
+                                        <span class="badge bg-info">VLANs</span>
+                                        <span class="badge bg-success">Tailscale</span>
+                                        <span class="badge bg-secondary">UniFi</span>
+                                    </div>
+                                    <div class="bg-light rounded-3 p-3">
+                                        <small class="fw-bolder text-primary">Recruiter TL;DR:</small>
+                                        <small class="text-muted"> Enterprise-grade network security at home — segmentation, zero-trust access, and dedicated firewall hardware. Not a consumer router with port forwarding.</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ====== PROJECT 6: Chaos Testing + Resilience ====== -->
+                            <div class="card shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-5">
+                                    <h2 class="fw-bolder">Chaos Testing &amp; Resilience Engineering</h2>
+                                    <p class="text-muted mb-1"><strong>Problem:</strong> You can't trust your infrastructure until you've intentionally broken it and watched it recover.</p>
+                                    <p class="text-muted mb-1"><strong>Approach:</strong> Built a chaos injection framework that kills services, saturates resources, and partitions networks — then validates recovery automatically.</p>
+                                    <p class="text-muted mb-3"><strong>Results:</strong> 95% chaos test success rate target, resilience score tracking, regression gates that block deploys if reliability drops.</p>
+                                    <h6 class="fw-bolder text-primary mb-2">What I Built</h6>
+                                    <ul class="small text-muted mb-3">
+                                        <li>Chaos injection framework (P19): service kills, resource saturation, network partitions</li>
+                                        <li>Resilience score engine (P20): quantified reliability with regression gates</li>
+                                        <li>Automatic recovery validation after each chaos experiment</li>
+                                        <li>Integration with SLO pipeline — chaos failures trigger incident management</li>
+                                        <li>Evidence pack collection for post-chaos analysis</li>
+                                    </ul>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <span class="badge bg-primary">Python</span>
+                                        <span class="badge bg-danger">Chaos Engineering</span>
+                                        <span class="badge bg-success">Bash</span>
+                                        <span class="badge bg-secondary">Ansible</span>
+                                    </div>
+                                    <div class="d-flex gap-2 flex-wrap mb-3">
+                                        <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-outline-primary btn-sm"><i class="bi bi-github me-1"></i>View Code</a>
+                                    </div>
+                                    <div class="bg-light rounded-3 p-3">
+                                        <small class="fw-bolder text-primary">Recruiter TL;DR:</small>
+                                        <small class="text-muted"> Netflix-style chaos engineering applied to a homelab. If you want someone who tests failure scenarios before they happen in production, this is the proof.</small>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Call to action section-->
+            <!-- CTA -->
             <section class="py-5 bg-gradient-primary-to-secondary text-white">
                 <div class="container px-5 my-5">
                     <div class="text-center">
                         <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/contact.html">Contact me</a>
+                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="/contact.html">Contact Me</a>
                     </div>
                 </div>
             </section>
         </main>
-        <!-- Footer-->
+        <!-- Footer -->
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove 2026</div></div>
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove <script>document.write(new Date().getFullYear())</script></div></div>
                     <div class="col-auto">
                         <a class="small" href="mailto:contact@michealbreedlove.com">Contact</a>
                         <span class="mx-1">&middot;</span>
@@ -155,9 +261,7 @@
                 </div>
             </div>
         </footer>
-        <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
     </body>
 </html>
