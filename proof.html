@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Evidence pack — real artifacts from Micheal Breedlove's AI cluster and SRE pipeline. SLO dashboards, incident postmortems, test reports, security policies." />
+        <meta name="author" content="Micheal Breedlove" />
+        <title>Proof Pack | Micheal Breedlove — Security &amp; Infrastructure Engineer</title>
+        <link rel="canonical" href="https://www.michealbreedlove.com/proof.html" />
+        <meta property="og:title" content="Evidence Pack — Micheal Breedlove" />
+        <meta property="og:description" content="Real artifacts: SLO dashboards, incident postmortems, test reports, security policies from a 4-node AI cluster." />
+        <meta property="og:url" content="https://www.michealbreedlove.com/proof.html" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Micheal Breedlove</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/resume.html">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/ai-cluster.html">AI Cluster</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/proof.html">Proof</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="text-center mb-5">
+                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Proof Pack</span></h1>
+                        <p class="lead fw-normal text-muted mt-3">Real artifacts from real infrastructure. Not mockups — these are sanitized exports from the live cluster.</p>
+                    </div>
+                    <div class="row gx-5 justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="row gx-4 gy-4">
+
+                                <!-- 1: SLO Dashboard -->
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3" style="width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-bar-chart-fill"></i></div>
+                                                <h3 class="h5 fw-bolder mb-0">SLO Dashboard</h3>
+                                            </div>
+                                            <p class="small text-muted mb-3">Live dashboard tracking 6 SLOs across 5 rolling windows. Budget bars, burn rate table, alert feed. Auto-refreshes every 5 minutes.</p>
+                                            <span class="badge bg-success mb-2">Live on cluster</span>
+                                            <div><a href="/ai-cluster.html" class="small text-decoration-none">View architecture →</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 2: Incident Timeline -->
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3" style="width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-clock-history"></i></div>
+                                                <h3 class="h5 fw-bolder mb-0">Incident Timeline</h3>
+                                            </div>
+                                            <p class="small text-muted mb-3">Auto-generated timeline from a real SEV2 incident: Ollama latency spike caused by VRAM contention. 13-minute resolution.</p>
+                                            <span class="badge bg-info mb-2">Real incident</span>
+                                            <div><a href="/assets/proof/incident-timeline.md" class="small text-decoration-none">View timeline →</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 3: Postmortem -->
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3" style="width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-file-earmark-medical"></i></div>
+                                                <h3 class="h5 fw-bolder mb-0">Postmortem</h3>
+                                            </div>
+                                            <p class="small text-muted mb-3">Recruiter-grade postmortem with root cause, impact, timeline, lessons learned, and action items. Auto-generated by the Incident Commander.</p>
+                                            <span class="badge bg-info mb-2">Auto-generated</span>
+                                            <div><a href="/assets/proof/postmortem-example.md" class="small text-decoration-none">View postmortem →</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 4: Sanitized Config -->
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3" style="width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-shield-lock"></i></div>
+                                                <h3 class="h5 fw-bolder mb-0">Secret Sanitization</h3>
+                                            </div>
+                                            <p class="small text-muted mb-3">Before/after showing how 11 secret patterns are stripped before commit. CI gate blocks any push containing credentials.</p>
+                                            <span class="badge bg-warning text-dark mb-2">Security</span>
+                                            <div><a href="/assets/proof/sanitized-config.md" class="small text-decoration-none">View example →</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 5: Test Report -->
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3" style="width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-check2-square"></i></div>
+                                                <h3 class="h5 fw-bolder mb-0">Test Report</h3>
+                                            </div>
+                                            <p class="small text-muted mb-3">38/38 tests passing across SLO, Incident, and Portfolio pipelines. Config validation, math verification, secret scanning, import checks.</p>
+                                            <span class="badge bg-success mb-2">38/38 passing</span>
+                                            <div><a href="/assets/proof/test-report.md" class="small text-decoration-none">View report →</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 6: Architecture Diagram -->
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3" style="width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-diagram-3"></i></div>
+                                                <h3 class="h5 fw-bolder mb-0">Architecture Diagram</h3>
+                                            </div>
+                                            <p class="small text-muted mb-3">Interactive SVG diagram with clickable nodes, animated connections, detail panels, and "Why This Matters" recruiter explanations.</p>
+                                            <span class="badge bg-primary mb-2">Interactive</span>
+                                            <div><a href="/ai-cluster.html" class="small text-decoration-none">Explore diagram →</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 7: GitOps Policy -->
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3" style="width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-git"></i></div>
+                                                <h3 class="h5 fw-bolder mb-0">GitOps Backup Policy</h3>
+                                            </div>
+                                            <p class="small text-muted mb-3">Automated daily backups from 4 nodes to GitHub. Schedule, retention, restore procedure, and CI-enforced secret scanning.</p>
+                                            <span class="badge bg-secondary mb-2">Policy doc</span>
+                                            <div><a href="/assets/proof/gitops-policy.md" class="small text-decoration-none">View policy →</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- 8: Security Segmentation -->
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3" style="width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-hdd-network"></i></div>
+                                                <h3 class="h5 fw-bolder mb-0">Security Segmentation</h3>
+                                            </div>
+                                            <p class="small text-muted mb-3">VLAN architecture, firewall rules, access control, WiFi isolation, and Tailscale zero-trust overlay. OPNsense on dedicated hardware.</p>
+                                            <span class="badge bg-warning text-dark mb-2">Security</span>
+                                            <div><a href="/assets/proof/security-segmentation.md" class="small text-decoration-none">View summary →</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- GitHub callout -->
+                            <div class="card shadow border-0 rounded-4 mt-5" style="background: linear-gradient(135deg, #0a0e27, #1a1f3a);">
+                                <div class="card-body p-4 d-flex align-items-center justify-content-between flex-wrap gap-3">
+                                    <div>
+                                        <h5 class="fw-bolder mb-1" style="color: #ccd6f6;"><i class="bi bi-github me-2"></i>All code is open source</h5>
+                                        <p class="mb-0 small" style="color: #8892b0;">29 automation priorities, 100+ tests, full SRE pipeline — browse the actual code.</p>
+                                    </div>
+                                    <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-light fw-bolder">View on GitHub →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove <script>document.write(new Date().getFullYear())</script></div></div>
+                    <div class="col-auto">
+                        <a class="small" href="mailto:contact@michealbreedlove.com">Contact</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="https://www.linkedin.com/in/micheal-breedlove" target="_blank">LinkedIn</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="https://github.com/MichealBreedlove" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

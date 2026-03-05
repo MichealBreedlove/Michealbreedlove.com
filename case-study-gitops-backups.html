@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Case study: GitOps backup system with automated secret scanning for a 4-node homelab. Daily commits, 11 secret patterns blocked, zero credential leaks." />
+        <meta name="author" content="Micheal Breedlove" />
+        <title>Case Study: GitOps Backups | Micheal Breedlove</title>
+        <link rel="canonical" href="https://www.michealbreedlove.com/case-study-gitops-backups.html" />
+        <meta property="og:title" content="Case Study: GitOps Backups — Micheal Breedlove" />
+        <meta property="og:description" content="Automated daily backups with secret scanning for a 4-node homelab. 11 patterns blocked, zero leaks." />
+        <meta property="og:url" content="https://www.michealbreedlove.com/case-study-gitops-backups.html" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Micheal Breedlove</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/resume.html">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/ai-cluster.html">AI Cluster</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/proof.html">Proof</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10 col-xl-8">
+                            <div class="mb-4">
+                                <a href="/projects.html" class="text-decoration-none small"><i class="bi bi-arrow-left me-1"></i>Back to Projects</a>
+                            </div>
+                            <span class="badge bg-danger mb-3">Flagship Case Study</span>
+                            <h1 class="display-5 fw-bolder mb-3">GitOps Backup &amp; Secret Scanning</h1>
+                            <p class="lead text-muted">Automated compliance-grade backups with CI-enforced secrets hygiene — because one leaked API key can ruin your week.</p>
+
+                            <div class="card shadow border-0 rounded-4 mb-4">
+                                <div class="card-body p-5">
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Problem</h2>
+                                    <p>Infrastructure configs were scattered across 4 nodes with no central backup, no change history, and no protection against accidentally committing secrets. If a node died, recreation would require remembering what was installed and configured — a disaster recovery nightmare.</p>
+                                    <p class="mb-0 text-muted"><strong>Real constraint:</strong> Mixed OS fleet (Windows + Linux). No enterprise backup solution budget. Must work with GitHub free tier. Must never leak credentials even if someone (me) makes a mistake.</p>
+                                </div>
+                            </div>
+
+                            <div class="card shadow border-0 rounded-4 mb-4">
+                                <div class="card-body p-5">
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-diagram-3 me-2"></i>Architecture</h2>
+                                    <div class="bg-light rounded-4 p-4 mb-3" style="font-family: monospace; font-size: 0.85rem; line-height: 1.8;">
+                                        Each Node (daily timer) → Collect State → Sanitize Secrets → Git Commit<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Git Push → GitHub Actions CI Gate<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Merge &nbsp;&nbsp;&nbsp;🚫 Block + Alert
+                                    </div>
+                                    <p class="small text-muted">Two layers of defense: the sanitize script strips secrets <em>before</em> commit, and the CI gate catches anything that slips through.</p>
+                                </div>
+                            </div>
+
+                            <div class="card shadow border-0 rounded-4 mb-4">
+                                <div class="card-body p-5">
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-gear me-2"></i>Implementation</h2>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bolder">Linux Nodes (Nova/Mira/Orin)</h6>
+                                            <ul class="small text-muted">
+                                                <li><code>lab-backup.sh</code> — Collect system + OpenClaw state</li>
+                                                <li><code>lab-sanitize.sh</code> — Regex-based secret stripping</li>
+                                                <li><code>lab-git-push.sh</code> — Lightweight hourly sync</li>
+                                                <li><code>install_timer.sh</code> — systemd user timer setup</li>
+                                                <li>Daily full backup at 02:30 + hourly delta sync</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6 class="fw-bolder">Windows Node (Jasper)</h6>
+                                            <ul class="small text-muted">
+                                                <li><code>LabBackup.ps1</code> — Collect OS, GPU, OpenClaw state</li>
+                                                <li><code>Sanitize.ps1</code> — PowerShell secret stripping</li>
+                                                <li><code>SetupScheduledTask.ps1</code> — Task Scheduler setup</li>
+                                                <li>Daily backup at 02:30 AM</li>
+                                            </ul>
+                                            <h6 class="fw-bolder mt-3">CI Gate</h6>
+                                            <ul class="small text-muted">
+                                                <li><code>verify-no-secrets.yml</code> — GitHub Actions workflow</li>
+                                                <li>11 regex patterns (API keys, tokens, private keys, etc.)</li>
+                                                <li>Filename blocklist (.env, auth-profiles.json)</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card shadow border-0 rounded-4 mb-4">
+                                <div class="card-body p-5">
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-graph-up me-2"></i>Results</h2>
+                                    <div class="row row-cols-2 row-cols-md-4 g-3 mb-3">
+                                        <div class="col text-center">
+                                            <div class="display-6 fw-bolder text-primary">4</div>
+                                            <small class="text-muted">Nodes backed up</small>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="display-6 fw-bolder text-primary">11</div>
+                                            <small class="text-muted">Secret patterns blocked</small>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="display-6 fw-bolder text-primary">0</div>
+                                            <small class="text-muted">Credential leaks</small>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="display-6 fw-bolder text-primary">24h</div>
+                                            <small class="text-muted">Max data loss window</small>
+                                        </div>
+                                    </div>
+                                    <ul class="small text-muted">
+                                        <li>Full disaster recovery: clone repo → follow runbook → 30 minutes to rebuild a node</li>
+                                        <li>Audit trail: every config change tracked in Git with timestamps</li>
+                                        <li>Cross-platform: works identically on Windows and Linux</li>
+                                        <li>Self-documenting: each backup includes system specs, services, and health data</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card shadow border-0 rounded-4 mb-4">
+                                <div class="card-body p-5">
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-lightbulb me-2"></i>Lessons Learned</h2>
+                                    <ul class="text-muted">
+                                        <li><strong>Defense in depth for secrets.</strong> One layer isn't enough. The sanitize script catches known patterns locally; the CI gate catches anything that evolves past the local filter.</li>
+                                        <li><strong>Windows and Linux need different tooling, same policy.</strong> PowerShell and Bash scripts look different but enforce identical backup and sanitization rules.</li>
+                                        <li><strong>Backups you don't test aren't backups.</strong> The restore runbook is tested by actually rebuilding nodes from the repo.</li>
+                                        <li><strong>Git as a backup medium is underrated.</strong> Free, versioned, diffable, hosted offsite, with built-in CI hooks.</li>
+                                    </ul>
+                                    <h6 class="fw-bolder mt-4">Next Steps</h6>
+                                    <ul class="small text-muted">
+                                        <li>Add automated restore testing (monthly dry-run rebuild)</li>
+                                        <li>Expand to backup VM snapshots metadata from Proxmox</li>
+                                        <li>Add Slack/Telegram notification on backup failure</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-3 flex-wrap">
+                                <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-primary"><i class="bi bi-github me-2"></i>View Code on GitHub</a>
+                                <a href="/proof.html" class="btn btn-outline-primary"><i class="bi bi-folder me-2"></i>View Proof Pack</a>
+                                <a href="/case-study-sre-pipeline.html" class="btn btn-outline-dark">SRE Pipeline Case Study →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove <script>document.write(new Date().getFullYear())</script></div></div>
+                    <div class="col-auto">
+                        <a class="small" href="mailto:contact@michealbreedlove.com">Contact</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="https://www.linkedin.com/in/micheal-breedlove" target="_blank">LinkedIn</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="https://github.com/MichealBreedlove" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
