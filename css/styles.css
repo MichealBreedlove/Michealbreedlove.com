@@ -11549,186 +11549,288 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+/* ============================================================
+   PROFESSIONAL DESIGN SYSTEM — Micheal Breedlove Portfolio
+   ============================================================
+   Fonts:    Plus Jakarta Sans (400, 500, 600, 700)
+   Primary:  #2563eb (clean blue)
+   Accent:   #1e40af (deep blue)
+   Neutral:  #0f172a (headings), #475569 (body), #94a3b8 (muted)
+   BG:       #ffffff (primary), #f8fafc (light sections)
+   Radius:   0.75rem (cards), 0.5rem (buttons/badges)
+   Shadow:   0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04)
+   ============================================================ */
+
 body,
 html {
   height: 100%;
 }
 
+/* --- Color Overrides --- */
+:root {
+  --bs-primary: #2563eb;
+  --bs-primary-rgb: 37, 99, 235;
+  --bs-secondary: #64748b;
+  --bs-secondary-rgb: 100, 116, 139;
+}
+
+/* --- Typography --- */
+body {
+  color: #334155;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5, h6,
+.fw-bolder {
+  color: #0f172a;
+  letter-spacing: -0.02em;
+}
+
+.display-3 { font-size: calc(1.5rem + 2.5vw) !important; line-height: 1.15; }
+.display-5 { font-size: calc(1.3rem + 1.5vw) !important; line-height: 1.2; }
+.display-6 { font-size: calc(1.2rem + 0.8vw) !important; line-height: 1.25; }
+
+.lead { font-size: 1.1rem; color: #64748b; }
+
+.text-muted { color: #64748b !important; }
+
+p { max-width: 68ch; }
+section p, .card-body p { max-width: none; }
+
+/* --- Gradient / Accent (toned down) --- */
 .bg-gradient-primary-to-secondary {
-  background: #1e30f3;
-  background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+  background: #2563eb !important;
 }
 
 .text-gradient {
-  background: -webkit-linear-gradient(315deg, #1e30f3 0%, #e21e80 100%);
+  background: #2563eb;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-primary {
+  color: #2563eb !important;
+}
+
+/* --- Links --- */
+a {
+  color: #2563eb;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: #1e40af;
+}
+
+/* --- Cards (modern SaaS style) --- */
+.card {
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04) !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04) !important;
 }
 
 .rounded-4 {
-  border-radius: 1rem !important;
+  border-radius: 0.75rem !important;
 }
 
+/* --- Buttons --- */
+.btn-primary {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  transition: all 0.15s ease;
+}
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #1e40af !important;
+  border-color: #1e40af !important;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+}
+
+.btn-outline-primary {
+  color: #2563eb !important;
+  border-color: #2563eb !important;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+.btn-outline-primary:hover {
+  background-color: #2563eb !important;
+  color: #fff !important;
+}
+
+.btn-outline-dark {
+  border-radius: 0.5rem;
+  font-weight: 600;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+.btn-outline-dark:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #94a3b8 !important;
+  color: #0f172a !important;
+}
+
+.btn-lg {
+  padding: 0.75rem 2rem !important;
+  font-size: 0.95rem !important;
+}
+
+/* --- Badges --- */
+.badge {
+  font-weight: 500;
+  letter-spacing: 0;
+  border-radius: 0.375rem;
+  padding: 0.35em 0.65em;
+}
+
+.badge.bg-primary { background-color: #2563eb !important; }
+
+/* --- Navigation (tighter, cleaner) --- */
+.navbar {
+  border-bottom: 1px solid #f1f5f9;
+}
+.navbar-brand .fw-bolder {
+  font-weight: 700 !important;
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+.navbar .nav-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #475569;
+  padding: 0.5rem 0.9rem !important;
+  transition: color 0.15s ease;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #2563eb;
+}
+
+/* --- Feature Icons --- */
 .feature {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 3rem;
-  width: 3rem;
-  font-size: 1.5rem;
+  height: 2.75rem;
+  width: 2.75rem;
+  font-size: 1.25rem;
+  border-radius: 0.5rem;
+  background: #eff6ff !important;
+  color: #2563eb !important;
 }
 
+/* Contact card feature icons keep solid bg */
+.card .feature.bg-primary {
+  background: #2563eb !important;
+  color: #fff !important;
+}
+
+/* --- Profile Image (cleaner) --- */
 .profile {
   position: relative;
   height: 75vw;
   width: 75vw;
-  border-radius: 5vw;
-  margin-top: 5vw;
-  max-height: 40rem;
-  max-width: 40rem;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  max-height: 28rem;
+  max-width: 28rem;
+  background: #eff6ff !important;
+  border: 2px solid #e2e8f0;
 }
 .profile .profile-img {
   height: 80vw;
-  max-height: 45rem;
+  max-height: 32rem;
   position: absolute;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 }
-.profile .dots-1 {
-  position: absolute;
-  width: 3vw;
-  right: 1.5vw;
-  top: 4vw;
-}
-.profile .dots-1 svg {
-  fill: #fff;
-}
-.profile .dots-2 {
-  position: absolute;
-  width: 3vw;
-  right: -4vw;
-  top: 6.05vw;
-}
-.profile .dots-2 svg {
-  fill: #1e30f3;
-}
-.profile .dots-3 {
-  position: absolute;
-  width: 3vw;
-  left: 1.5vw;
-  bottom: 6.05vw;
-}
-.profile .dots-3 svg {
-  fill: #fff;
-}
+/* Hide decorative dots for cleaner look */
+.profile .dots-1,
+.profile .dots-2,
+.profile .dots-3,
 .profile .dots-4 {
-  position: absolute;
-  width: 3vw;
-  left: -4vw;
-  bottom: 4vw;
-}
-.profile .dots-4 svg {
-  fill: #1e30f3;
+  display: none;
 }
 
 @media (min-width: 576px) {
-  .profile {
-    height: 60vw;
-    width: 60vw;
-  }
-  .profile .profile-img {
-    height: 65vw;
-  }
-  .profile .dots-1 {
-    width: 3vw;
-    right: 1.5vw;
-  }
-  .profile .dots-2 {
-    width: 3vw;
-    right: -4vw;
-  }
-  .profile .dots-3 {
-    width: 3vw;
-    left: 1.5vw;
-  }
-  .profile .dots-4 {
-    width: 3vw;
-    left: -4vw;
-  }
+  .profile { height: 50vw; width: 50vw; }
+  .profile .profile-img { height: 55vw; }
 }
 @media (min-width: 768px) {
-  .profile {
-    height: 50vw;
-    width: 50vw;
-  }
-  .profile .profile-img {
-    height: 55vw;
-  }
-  .profile .dots-1 {
-    width: 3vw;
-    right: 1.5vw;
-  }
-  .profile .dots-2 {
-    width: 3vw;
-    right: -4vw;
-  }
-  .profile .dots-3 {
-    width: 3vw;
-    left: 1.5vw;
-  }
-  .profile .dots-4 {
-    width: 3vw;
-    left: -4vw;
-  }
+  .profile { height: 40vw; width: 40vw; }
+  .profile .profile-img { height: 45vw; }
 }
 @media (min-width: 992px) {
-  .profile {
-    height: 40vw;
-    width: 40vw;
-  }
-  .profile .profile-img {
-    height: 45vw;
-  }
-  .profile .dots-1 {
-    width: 1.5vw;
-    right: 0.75vw;
-  }
-  .profile .dots-2 {
-    width: 1.5vw;
-    right: -2vw;
-  }
-  .profile .dots-3 {
-    width: 1.5vw;
-    left: 0.75vw;
-  }
-  .profile .dots-4 {
-    width: 1.5vw;
-    left: -2vw;
-  }
+  .profile { height: 30vw; width: 30vw; }
+  .profile .profile-img { height: 35vw; }
 }
 @media (min-width: 1200px) {
-  .profile {
-    height: 35vw;
-    width: 35vw;
-  }
-  .profile .profile-img {
-    height: 40vw;
-  }
-  .profile .dots-1 {
-    width: 1.5vw;
-    right: 0.75vw;
-  }
-  .profile .dots-2 {
-    width: 1.5vw;
-    right: -2vw;
-  }
-  .profile .dots-3 {
-    width: 1.5vw;
-    left: 0.75vw;
-  }
-  .profile .dots-4 {
-    width: 1.5vw;
-    left: -2vw;
-  }
+  .profile { height: 25vw; width: 25vw; }
+  .profile .profile-img { height: 30vw; }
+}
+
+/* --- Footer --- */
+footer {
+  border-top: 1px solid #f1f5f9;
+}
+footer a {
+  color: #64748b;
+  text-decoration: none;
+}
+footer a:hover {
+  color: #2563eb;
+}
+
+/* --- Section Spacing --- */
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* --- Light Background Sections --- */
+.bg-light {
+  background-color: #f8fafc !important;
+}
+
+/* --- Skill Pills (resume page) --- */
+.bg-light.rounded-4.p-3 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+  background-color: #f1f5f9 !important;
+  border: 1px solid #e2e8f0;
+}
+
+/* --- Recruiter TL;DR Callout (subtle) --- */
+.bg-light.rounded-3.p-3 {
+  background-color: #f8fafc !important;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #2563eb;
+}
+
+/* --- CTA Section (projects page) --- */
+section.bg-gradient-primary-to-secondary {
+  background: #0f172a !important;
+}
+section.bg-gradient-primary-to-secondary h2 {
+  color: #fff;
+  font-size: calc(1.3rem + 1vw);
+}
+
+/* --- Focus States --- */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* --- Smooth Scrolling --- */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
 }
