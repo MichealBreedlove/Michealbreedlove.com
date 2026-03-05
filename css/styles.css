@@ -11896,21 +11896,21 @@ section.bg-gradient-primary-to-secondary h2 {
 }
 .proof-strip a {
   display: inline-block;
-  padding: 0.4rem 1rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #475569;
-  background: #f1f5f9;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #94a3b8;
+  background: transparent;
   border: 1px solid #e2e8f0;
   border-radius: 2rem;
   text-decoration: none;
   transition: all 0.15s ease;
-  letter-spacing: -0.01em;
+  letter-spacing: 0;
 }
 .proof-strip a:hover {
   color: #2563eb;
-  border-color: #2563eb;
-  background: #eff6ff;
+  border-color: #cbd5e1;
+  background: #f8fafc;
 }
 
 /* --- Typography Hierarchy --- */
