@@ -1,0 +1,61 @@
+{
+  "knowledge": {
+    "shared_documents": 11,
+    "cluster_configs": 5
+  },
+  "cluster_status": "Healthy",
+  "queue": {
+    "completed_24h": 2,
+    "active": 0,
+    "pending": 0
+  },
+  "last_updated": "2026-03-06T22:17:11",
+  "nodes": [
+    {
+      "name": "Jasper",
+      "role": "Coordinator & AI Inference",
+      "status": "Online"
+    },
+    {
+      "name": "Nova",
+      "role": "Automation & Monitoring",
+      "status": "Online"
+    },
+    {
+      "name": "Mira",
+      "role": "Network Analysis & Auditing",
+      "status": "Online"
+    },
+    {
+      "name": "Orin",
+      "role": "Deep Analysis & Validation",
+      "status": "Online"
+    }
+  ],
+  "orchestrator": {
+    "adaptive_routing_enabled": true,
+    "autonomous_tasks_enabled": true,
+    "status": "Active"
+  },
+  "capabilities": [
+    "Health-aware job orchestration across four compute nodes",
+    "Adaptive routing based on observed node performance",
+    "Autonomous task generation with approval gates for risky operations",
+    "Shared Markdown memory corpus with local semantic indexing per node",
+    "Nightly automated knowledge curation and archival",
+    "Weekly cluster health snapshots",
+    "Monthly disaster recovery validation drills",
+    "Portable recovery bundle for rapid cluster rebuilds",
+    "Self-healing runtime watchdog with automated incident response",
+    "File-based durable job queue with retry and timeout handling",
+    "ZFS snapshot-backed storage with 15-minute, daily, and weekly retention"
+  ],
+  "reliability": {
+    "last_weekly_snapshot": "2026-03-06",
+    "recovery_bundle": true,
+    "last_dr_drill": "2026-03-06",
+    "snapshots_active": true
+  },
+  "nodes_online": 4,
+  "nodes_total": 4
+}
