@@ -85,6 +85,14 @@
                                     <img src="assets/diagrams/cluster-architecture-layered.svg" alt="Five-plane platform architecture diagram showing Control, Compute, Knowledge, Reliability, and Observability planes" class="img-fluid" style="width:100%;" />
                                 </div>
                             </div>
+                            <!-- Platform Overview -->
+                            <div class="d-flex flex-wrap gap-3 mb-4 justify-content-center">
+                                <span class="badge rounded-pill px-3 py-2" style="background:rgba(108,99,255,0.12);color:#6C63FF;font-size:0.8rem;">4-Node Cluster</span>
+                                <span class="badge rounded-pill px-3 py-2" style="background:rgba(0,201,167,0.12);color:#00C9A7;font-size:0.8rem;">Distributed Orchestration</span>
+                                <span class="badge rounded-pill px-3 py-2" style="background:rgba(255,215,0,0.12);color:#d4a800;font-size:0.8rem;">Shared Knowledge Corpus</span>
+                                <span class="badge rounded-pill px-3 py-2" style="background:rgba(255,107,107,0.12);color:#FF6B6B;font-size:0.8rem;">Adaptive Routing</span>
+                                <span class="badge rounded-pill px-3 py-2" style="background:rgba(0,168,255,0.12);color:#00A8FF;font-size:0.8rem;">Recovery Validation</span>
+                            </div>
                             <div class="row gx-4 gy-3">
                                 <div class="col-md-4">
                                     <h6 class="fw-bolder" style="color:#6C63FF;"><i class="bi bi-cpu me-1"></i>Control Plane</h6>
@@ -395,6 +403,60 @@
                                         <div class="card-body p-4">
                                             <h6 class="fw-bolder"><i class="bi bi-shield-check text-primary me-2"></i>Security Posture</h6>
                                             <p class="text-muted small mb-0">OPNsense firewall, VLAN segmentation, SSH key-only authentication, CI-enforced secret scanning, and credential hygiene policies.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Engineering Outcomes -->
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Engineering Outcomes</span></h2>
+                            <p class="text-muted mb-4">Beyond the technical implementation, this platform solves real engineering problems — reducing operational friction, improving system resilience, and creating a foundation that can be extended without fragility.</p>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-arrow-repeat text-primary me-2"></i>Reliable Automation at Scale</h6>
+                                            <p class="text-muted small mb-0">Distributed orchestration with adaptive routing removes the operator from the dispatch loop. Tasks are assigned to the best available node based on role fitness, health status, and observed success rates. As execution history builds, routing decisions improve without manual tuning — reducing operational overhead while increasing reliability.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-shield-check text-primary me-2"></i>Recovery-First Infrastructure</h6>
+                                            <p class="text-muted small mb-0">The system is designed to survive its own failures. Runtime watchdogs detect degradation and restore from verified backups without operator intervention. A portable recovery bundle means the entire orchestrator can be rebuilt on clean infrastructure. Monthly DR drills validate this capability in a sandboxed environment — recovery is tested, not assumed.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-journal-text text-primary me-2"></i>Shared Operational Knowledge</h6>
+                                            <p class="text-muted small mb-0">Operational knowledge is captured in a shared Markdown corpus on ZFS-backed storage, accessible to all nodes. Each node maintains a local semantic index for fast retrieval without shared database dependencies. Nightly curation promotes durable facts and archives noise — the knowledge base improves over time rather than growing unbounded.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-robot text-primary me-2"></i>Safe Autonomous Operations</h6>
+                                            <p class="text-muted small mb-0">The platform generates its own maintenance work by evaluating cluster health signals against a rule engine. Safe operations execute without intervention. Risky or potentially destructive actions are routed to an approval queue for human review. Cooldown tracking prevents duplicate task creation — the system self-regulates without task storms.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-clipboard-check text-primary me-2"></i>Continuous System Validation</h6>
+                                            <p class="text-muted small mb-0">Weekly operational snapshots capture node health, queue state, archive growth, and curation metrics across the cluster — creating a historical record that surfaces trends before they become incidents. Monthly disaster recovery drills validate the recovery bundle end-to-end in a sandboxed environment, confirming the live system can be rebuilt from backup without touching production state. Together, these create a validation loop: the system doesn't just run — it continuously proves it can recover.</p>
                                         </div>
                                     </div>
                                 </div>
