@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" fill="none">
+  <rect width="800" height="400" rx="12" fill="#0f172a"/>
+  <rect x="24" y="24" width="752" height="32" rx="6" fill="#1e293b"/>
+  <circle cx="44" cy="40" r="6" fill="#ef4444"/>
+  <circle cx="64" cy="40" r="6" fill="#eab308"/>
+  <circle cx="84" cy="40" r="6" fill="#22c55e"/>
+  <text x="400" y="45" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="13">GitHub Actions — verify-no-secrets</text>
+  <!-- Status header -->
+  <rect x="40" y="76" width="720" height="48" rx="8" fill="#14532d" opacity="0.4"/>
+  <circle cx="72" cy="100" r="14" fill="#22c55e"/>
+  <text x="66" y="105" fill="#0f172a" font-family="sans-serif" font-size="16" font-weight="bold">✓</text>
+  <text x="100" y="104" fill="#f0fdf4" font-family="sans-serif" font-size="14" font-weight="bold">All checks passed — 0 secrets detected</text>
+  <text x="680" y="104" text-anchor="end" fill="#4ade80" font-family="monospace" font-size="12">11 patterns scanned</text>
+  <!-- Pattern list -->
+  <text x="40" y="156" fill="#cbd5e1" font-family="sans-serif" font-size="13" font-weight="bold">Secret Patterns Enforced</text>
+  <text x="56" y="180" fill="#22c55e" font-family="monospace" font-size="11">✓ AKIA[0-9A-Z]{16}</text>
+  <text x="300" y="180" fill="#64748b" font-family="sans-serif" font-size="11">AWS Access Key</text>
+  <text x="56" y="200" fill="#22c55e" font-family="monospace" font-size="11">✓ ghp_[a-zA-Z0-9]{36}</text>
+  <text x="300" y="200" fill="#64748b" font-family="sans-serif" font-size="11">GitHub PAT</text>
+  <text x="56" y="220" fill="#22c55e" font-family="monospace" font-size="11">✓ -----BEGIN.*PRIVATE KEY-----</text>
+  <text x="300" y="220" fill="#64748b" font-family="sans-serif" font-size="11">Private Keys</text>
+  <text x="56" y="240" fill="#22c55e" font-family="monospace" font-size="11">✓ sk-[a-zA-Z0-9]{48}</text>
+  <text x="300" y="240" fill="#64748b" font-family="sans-serif" font-size="11">OpenAI API Key</text>
+  <text x="56" y="260" fill="#22c55e" font-family="monospace" font-size="11">✓ token.*=.*[a-f0-9]{32,}</text>
+  <text x="300" y="260" fill="#64748b" font-family="sans-serif" font-size="11">Generic Tokens</text>
+  <text x="56" y="280" fill="#64748b" font-family="monospace" font-size="11">  + 6 more patterns</text>
+  <!-- Node backup status -->
+  <text x="520" y="156" fill="#cbd5e1" font-family="sans-serif" font-size="13" font-weight="bold">Node Backup Status</text>
+  <rect x="520" y="168" width="230" height="36" rx="6" fill="#1e293b"/>
+  <circle cx="540" cy="186" r="5" fill="#22c55e"/>
+  <text x="554" y="190" fill="#94a3b8" font-family="sans-serif" font-size="12">Jasper</text>
+  <text x="740" y="190" text-anchor="end" fill="#64748b" font-family="monospace" font-size="10">02:30 today</text>
+  <rect x="520" y="210" width="230" height="36" rx="6" fill="#1e293b"/>
+  <circle cx="540" cy="228" r="5" fill="#22c55e"/>
+  <text x="554" y="232" fill="#94a3b8" font-family="sans-serif" font-size="12">Nova</text>
+  <text x="740" y="232" text-anchor="end" fill="#64748b" font-family="monospace" font-size="10">02:30 today</text>
+  <rect x="520" y="252" width="230" height="36" rx="6" fill="#1e293b"/>
+  <circle cx="540" cy="270" r="5" fill="#22c55e"/>
+  <text x="554" y="274" fill="#94a3b8" font-family="sans-serif" font-size="12">Mira</text>
+  <text x="740" y="274" text-anchor="end" fill="#64748b" font-family="monospace" font-size="10">02:30 today</text>
+  <rect x="520" y="294" width="230" height="36" rx="6" fill="#1e293b"/>
+  <circle cx="540" cy="312" r="5" fill="#22c55e"/>
+  <text x="554" y="316" fill="#94a3b8" font-family="sans-serif" font-size="12">Orin</text>
+  <text x="740" y="316" text-anchor="end" fill="#64748b" font-family="monospace" font-size="10">02:30 today</text>
+  <!-- Footer -->
+  <text x="40" y="360" fill="#475569" font-family="monospace" font-size="10">Run #247 · Branch: main · Commit: ab3f91c · Duration: 8s · 0 blocked files</text>
+  <text x="40" y="380" fill="#334155" font-family="monospace" font-size="10">Redacted sample (structure accurate; sensitive values removed).</text>
+</svg>

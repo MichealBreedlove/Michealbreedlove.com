@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+        <meta name="description" content="Infrastructure status — 4-node AI cluster with SRE monitoring, SLO tracking, and backup verification." />
+        <meta name="author" content="Micheal Breedlove" />
+        <title>Status | Micheal Breedlove - Security &amp; Infrastructure Engineer</title>
+        <link rel="canonical" href="https://www.michealbreedlove.com/status.html" />
+        <meta property="og:title" content="Infrastructure Status - Micheal Breedlove" />
+        <meta property="og:description" content="Live infrastructure metrics for a 4-node AI cluster with SRE automation." />
+        <meta property="og:url" content="https://www.michealbreedlove.com/status.html" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-default.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Infrastructure Status - Micheal Breedlove" />
+        <meta name="twitter:description" content="Live infrastructure metrics for a 4-node AI cluster with SRE automation." />
+        <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-default.png" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Micheal Breedlove</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/resume.html">Resume</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/ai-cluster.html">AI Cluster</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/proof.html">Proof</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/now.html">Now</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/status.html">Status</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- Open to roles -->
+            <div class="subnav-strip">
+                <div class="container">
+                    Open to Security Engineer / DevSecOps / Platform / SRE roles — Fairfield, CA (remote/hybrid). <a href="/contact.html">Get in touch →</a>
+                </div>
+            </div>
+
+            <!-- Status Content -->
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Infrastructure Status</span></h1>
+                    <p class="lead fw-light text-muted mt-2">Operational metrics for a 4-node AI and infrastructure cluster.</p>
+                    <p class="small text-muted">Last updated: 2026-03-05</p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+
+                        <!-- Overall Status -->
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4 text-center">
+                                <span class="d-inline-block rounded-circle bg-success me-2" style="width:12px;height:12px;"></span>
+                                <span class="fw-bolder">All Systems Operational</span>
+                            </div>
+                        </div>
+
+                        <!-- Infrastructure -->
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4">
+                                <h2 class="h5 fw-bolder mb-4"><i class="bi bi-hdd-rack text-primary me-2"></i>Infrastructure</h2>
+                                <div class="row g-3">
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">4</div>
+                                        <div class="small text-muted">Nodes</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">52</div>
+                                        <div class="small text-muted">CPU Cores</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">128</div>
+                                        <div class="small text-muted">GB RAM</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">24</div>
+                                        <div class="small text-muted">GB VRAM (RTX 4090)</div>
+                                    </div>
+                                </div>
+                                <hr class="my-3" />
+                                <div class="row g-2 small">
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between py-1">
+                                            <span><span class="d-inline-block rounded-circle bg-success me-2" style="width:8px;height:8px;"></span>Jasper</span>
+                                            <span class="text-muted">i9-13900K · RTX 4090 · 64 GB</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between py-1">
+                                            <span><span class="d-inline-block rounded-circle bg-success me-2" style="width:8px;height:8px;"></span>Nova</span>
+                                            <span class="text-muted">N305 · 32 GB DDR5</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between py-1">
+                                            <span><span class="d-inline-block rounded-circle bg-success me-2" style="width:8px;height:8px;"></span>Mira</span>
+                                            <span class="text-muted">i7-2600K · 16 GB</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between py-1">
+                                            <span><span class="d-inline-block rounded-circle bg-success me-2" style="width:8px;height:8px;"></span>Orin</span>
+                                            <span class="text-muted">2× Xeon E5-2667v4 · 16 GB ECC</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Reliability -->
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4">
+                                <h2 class="h5 fw-bolder mb-4"><i class="bi bi-shield-check text-primary me-2"></i>Reliability</h2>
+                                <div class="row g-3">
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">6</div>
+                                        <div class="small text-muted">SLOs Monitored</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">100+</div>
+                                        <div class="small text-muted">Acceptance Tests</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-success">0</div>
+                                        <div class="small text-muted">Active Incidents</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">13m</div>
+                                        <div class="small text-muted">Avg TTR</div>
+                                    </div>
+                                </div>
+                                <hr class="my-3" />
+                                <div class="small">
+                                    <div class="d-flex justify-content-between py-1">
+                                        <span>Gateway Availability</span>
+                                        <span class="text-success fw-semibold">99.97% <span class="text-muted fw-normal">(target: 99.9%)</span></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between py-1">
+                                        <span>Ollama Inference</span>
+                                        <span class="text-success fw-semibold">99.52% <span class="text-muted fw-normal">(target: 99.5%)</span></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between py-1">
+                                        <span>Dashboard</span>
+                                        <span class="text-success fw-semibold">99.12% <span class="text-muted fw-normal">(target: 99.0%)</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Security & Backups -->
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4">
+                                <h2 class="h5 fw-bolder mb-4"><i class="bi bi-lock text-primary me-2"></i>Security &amp; Backups</h2>
+                                <div class="row g-3">
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">11</div>
+                                        <div class="small text-muted">Secret Patterns Scanned</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-success">0</div>
+                                        <div class="small text-muted">Credential Leaks</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">4/4</div>
+                                        <div class="small text-muted">Nodes Backed Up</div>
+                                    </div>
+                                    <div class="col-6 col-md-3 text-center">
+                                        <div class="display-6 fw-bolder text-primary">30m</div>
+                                        <div class="small text-muted">Node Rebuild Time</div>
+                                    </div>
+                                </div>
+                                <hr class="my-3" />
+                                <div class="small text-muted">
+                                    Daily automated backups with CI-enforced secret scanning. Last backup: 2026-03-05 02:30 UTC.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Repos & Activity -->
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4">
+                                <h2 class="h5 fw-bolder mb-4"><i class="bi bi-github text-primary me-2"></i>Repositories</h2>
+                                <div class="row g-3 small">
+                                    <div class="col-md-6">
+                                        <a href="https://github.com/MichealBreedlove/Lab" class="text-decoration-none d-block p-2 rounded-3 mb-2" style="background:#f8fafc;">
+                                            <span class="fw-semibold text-dark">Lab</span>
+                                            <span class="text-muted ms-2">Core infrastructure</span>
+                                        </a>
+                                        <a href="https://github.com/MichealBreedlove/sre-reliability-pipeline" class="text-decoration-none d-block p-2 rounded-3 mb-2" style="background:#f8fafc;">
+                                            <span class="fw-semibold text-dark">sre-reliability-pipeline</span>
+                                            <span class="text-muted ms-2">SLOs + incidents</span>
+                                        </a>
+                                        <a href="https://github.com/MichealBreedlove/gitops-backup-system" class="text-decoration-none d-block p-2 rounded-3 mb-2" style="background:#f8fafc;">
+                                            <span class="fw-semibold text-dark">gitops-backup-system</span>
+                                            <span class="text-muted ms-2">Backups + scanning</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <a href="https://github.com/MichealBreedlove/security-toolkit" class="text-decoration-none d-block p-2 rounded-3 mb-2" style="background:#f8fafc;">
+                                            <span class="fw-semibold text-dark">security-toolkit</span>
+                                            <span class="text-muted ms-2">Security utilities</span>
+                                        </a>
+                                        <a href="https://github.com/MichealBreedlove/homelab-sre-starter" class="text-decoration-none d-block p-2 rounded-3 mb-2" style="background:#f8fafc;">
+                                            <span class="fw-semibold text-dark">homelab-sre-starter</span>
+                                            <span class="text-muted ms-2">Starter kit (MIT)</span>
+                                        </a>
+                                        <a href="https://github.com/MichealBreedlove/Michealbreedlove.com" class="text-decoration-none d-block p-2 rounded-3 mb-2" style="background:#f8fafc;">
+                                            <span class="fw-semibold text-dark">Michealbreedlove.com</span>
+                                            <span class="text-muted ms-2">This portfolio</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Links -->
+                        <div class="text-center">
+                            <div class="proof-line justify-content-center">
+                                <a href="/ai-cluster.html">AI Cluster Architecture</a>
+                                <span class="proof-sep">&middot;</span>
+                                <a href="/case-study-sre-pipeline.html">SRE Case Study</a>
+                                <span class="proof-sep">&middot;</span>
+                                <a href="/case-study-gitops-backups.html">GitOps Case Study</a>
+                                <span class="proof-sep">&middot;</span>
+                                <a href="/proof.html">Proof Pack</a>
+                            </div>
+                            <p class="small text-muted mt-3">Metrics reflect lab measurements. Sensitive details redacted.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer-->
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove 2026</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="/contact.html">Contact</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="/now.html">Now</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="/proof.html">Proof</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

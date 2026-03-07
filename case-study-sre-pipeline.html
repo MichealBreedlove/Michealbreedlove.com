@@ -40,11 +40,18 @@
                             <li class="nav-item"><a class="nav-link" href="/ai-cluster.html">AI Cluster</a></li>
                             <li class="nav-item"><a class="nav-link" href="/proof.html">Proof</a></li>
                             <li class="nav-item"><a class="nav-link" href="/now.html">Now</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/status.html">Status</a></li>
                             <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
                         </ul>
                     </div>
                 </div>
             </nav>
+            <!-- Open to roles -->
+            <div class="subnav-strip">
+                <div class="container">
+                    Open to Security Engineer / DevSecOps / Platform / SRE roles — Fairfield, CA (remote/hybrid). <a href="/contact.html">Get in touch →</a>
+                </div>
+            </div>
 
             <section class="py-5">
                 <div class="container px-5">
@@ -53,8 +60,13 @@
                             <div class="mb-4">
                                 <a href="/projects.html" class="text-decoration-none small"><i class="bi bi-arrow-left me-1"></i>Back to Projects</a>
                             </div>
-                            <span class="badge bg-danger mb-3">Flagship Case Study</span>
-                            <h1 class="display-5 fw-bolder mb-3">SRE Automation Pipeline</h1>
+                            <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
+                                <div>
+                                    <span class="badge bg-danger mb-3">Flagship Case Study</span>
+                                    <h1 class="display-5 fw-bolder mb-3">SRE Automation Pipeline</h1>
+                                </div>
+                                <button class="btn-copy-link mt-2" onclick="copyPageLink(this)" aria-label="Copy link to this case study"><i class="bi bi-link-45deg me-1"></i>Copy link</button>
+                            </div>
                             <p class="lead text-muted">Google-style site reliability engineering applied to a 4-node homelab — because even personal infrastructure deserves production-grade reliability.</p>
 
                             <!-- Problem -->
@@ -71,7 +83,7 @@
                                 <div class="card-body p-5">
                                     <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-diagram-3 me-2"></i>Architecture</h2>
                                     <div class="bg-light rounded-4 p-4 mb-3" style="font-family: monospace; font-size: 0.85rem; line-height: 1.8;">
-                                        Snapshots (P24) → SLI Sources → SLI Compute → Error Budget<br>
+                                        Snapshots → SLI Sources → SLI Compute → Error Budget<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Burn Rate → Alerts → Incidents<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
@@ -164,6 +176,13 @@
                                 </div>
                             </div>
 
+                            <!-- Screenshot -->
+                            <div class="mb-4">
+                                <img src="/assets/proof/sre-dashboard.svg" alt="SRE dashboard showing SLO status bars, burn-rate gauges, and incident count for a 4-node homelab cluster" class="img-fluid rounded-4 border" style="border-color: #e2e8f0 !important;" loading="lazy" />
+                                <p class="small text-muted mt-2 mb-1">Redacted sample (structure accurate; sensitive values removed).</p>
+                                <p class="small text-muted mb-0"><strong>What to look at:</strong> SLO budget bars per service, burn-rate gauges across alert windows, and active incident count with average TTR.</p>
+                            </div>
+
                             <!-- Evidence -->
                             <div class="evidence-block mb-4">
                                 <h2 class="h5 fw-bolder mb-3">Evidence: SLO Configuration (sanitized)</h2>
@@ -186,6 +205,7 @@ ollama_availability:
                                     <div class="result-item"><div class="number">13m</div><div class="label">Avg TTR</div></div>
                                     <div class="result-item"><div class="number">0</div><div class="label">False positives</div></div>
                                 </div>
+                                <p class="small text-muted mt-3 mb-0">Related artifacts: <a href="/proof.html" class="text-decoration-none">Proof Pack →</a></p>
                             </div>
 
                             <div class="d-flex gap-3 flex-wrap">

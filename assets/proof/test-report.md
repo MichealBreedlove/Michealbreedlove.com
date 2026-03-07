@@ -3,7 +3,7 @@
 Run date: 2026-03-04
 Runner: Nova (Ansible controller)
 
-## SLO Tests: 18/18 passed ✅
+## SLO Pipeline — All Passed ✅
 
 ```
 --- Config files ---
@@ -32,11 +32,9 @@ Runner: Nova (Ansible controller)
   ✅ Budget computation correct
 --- Secret scan ---
   ✅ No secrets in SLO code
-
-SLO Tests: 18/18 passed ✅
 ```
 
-## Incident Tests: 10/10 passed ✅
+## Incident Pipeline — All Passed ✅
 
 ```
   ✅ Open creates JSON + latest pointer
@@ -49,11 +47,9 @@ SLO Tests: 18/18 passed ✅
   ✅ Evidence paths contain no secrets
   ✅ All incidents have required JSON fields
   ✅ No secrets in incident code
-
-Incident Tests: 10/10 passed ✅
 ```
 
-## Portfolio Tests: 10/10 passed ✅
+## Portfolio Pipeline — All Passed ✅
 
 ```
   ✅ portfolio_policy.json valid
@@ -66,14 +62,11 @@ Incident Tests: 10/10 passed ✅
   ✅ portfolio_pages.yml workflow exists
   ✅ All 8 pipeline pages exist
   ✅ No secrets in site output
-
-Portfolio Tests: 10/10 passed ✅
 ```
 
 ## Summary
-| Suite | Passed | Total | Status |
-|---|---|---|---|
-| SLO | 18 | 18 | ✅ |
-| Incident | 10 | 10 | ✅ |
-| Portfolio | 10 | 10 | ✅ |
-| **Total** | **38** | **38** | **✅ 100%** |
+| Suite | Status |
+|---|---|
+| SLO Pipeline | ✅ All checks passed |
+| Incident Pipeline | ✅ All checks passed |
+| Portfolio Pipeline | ✅ All checks passed |

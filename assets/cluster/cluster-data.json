@@ -37,10 +37,10 @@
         "TrueNAS (NFS/SMB)",
         "Ansible controller",
         "OpenClaw node",
-        "Homelab Controller (P1–P29)"
+        "Homelab Controller"
       ],
       "storage_role": "Primary NAS — shared datasets, model cache, backups, config state",
-      "responsibilities": "Ansible controller managing Mira and Orin. Hosts TrueNAS for centralized storage. Runs the homelab-controller automation (29 priorities: SLOs, incidents, chaos, evidence, gatekeeper). Serves as the 'ops brain' of the cluster.",
+      "responsibilities": "Ansible controller managing Mira and Orin. Hosts TrueNAS for centralized storage. Runs the homelab-controller automation platform (SLOs, incidents, chaos, evidence, gatekeeper). Serves as the 'ops brain' of the cluster.",
       "why_it_matters": "Shows infrastructure-as-code discipline — Ansible playbooks, automated health checks, and a custom SRE pipeline that rivals what you'd see at a mid-size SaaS company."
     },
     {
