@@ -9,13 +9,13 @@
         <title>AI Cluster Architecture | Micheal Breedlove</title>
                 <link rel="canonical" href="https://www.michealbreedlove.com/ai-cluster.html" />
         <meta property="og:title" content="AI Cluster Architecture — Micheal Breedlove" />
-        <meta property="og:description" content="Interactive 4-node AI inference cluster diagram. RTX 4090, Proxmox, SRE automation, 29 priorities built." />
+        <meta property="og:description" content="Interactive 4-node AI inference cluster with adaptive orchestration, shared memory, and self-healing infrastructure." />
         <meta property="og:url" content="https://www.michealbreedlove.com/ai-cluster.html" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-default.png" />
         <meta name="twitter:card" content="summary_large_image" />        
         <meta name="twitter:title" content="AI Cluster Architecture — Micheal Breedlove" />
-        <meta name="twitter:description" content="Interactive 4-node AI inference cluster diagram. RTX 4090, Proxmox, SRE automation, 29 priorities built." />
+        <meta name="twitter:description" content="Interactive 4-node AI inference cluster with adaptive orchestration, shared memory, and self-healing infrastructure." />
         <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-default.png" />
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -108,7 +108,7 @@
                             </div>
                             <div class="highlight-card">
                                 <h4><i class="bi bi-diagram-3"></i> SRE Pipeline</h4>
-                                <p>29 automation priorities: SLOs with burn rate tracking, incident management with postmortems, chaos testing, safety-gated actions.</p>
+                                <p>Full SRE automation suite: SLOs with burn rate tracking, incident management with postmortems, chaos testing, and safety-gated actions.</p>
                             </div>
                             <div class="highlight-card">
                                 <h4><i class="bi bi-hdd-rack"></i> Proxmox Cluster</h4>
@@ -157,6 +157,82 @@
                             <div class="highlight-card">
                                 <h4>Secrets Hygiene</h4>
                                 <p>GitHub Actions CI blocks any push containing API keys, tokens, or credentials. Sanitize scripts strip secrets before commit. No .env files in repos.</p>
+                            </div>
+                        </div>
+
+                        <h3>Distributed Orchestration</h3>
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-signpost-split"></i> Adaptive Task Routing</h4>
+                                <p>The coordinator assigns work based on node health, role specialization, and observed task performance. Routing adapts over time as execution data accumulates — faster, more reliable nodes are preferred automatically.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-inbox"></i> Durable Job Queue</h4>
+                                <p>A file-based queue system on shared storage handles job dispatch, tracking, completion, and failure recovery. Jobs move through pending, running, done, and failed states with retry logic and stale-job detection.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-robot"></i> Autonomous Task Generation</h4>
+                                <p>The orchestrator continuously monitors cluster health and creates maintenance or remediation tasks when issues are detected. High-risk actions require human approval before execution; safe operations run automatically.</p>
+                            </div>
+                        </div>
+
+                        <h3>Shared Memory Architecture</h3>
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-journal-text"></i> Markdown Knowledge Corpus</h4>
+                                <p>A shared Markdown corpus on NAS-backed storage serves as the cluster's durable memory. Each node contributes daily observations; the coordinator curates these into long-term knowledge documents overnight.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-database"></i> Local Semantic Indexes</h4>
+                                <p>Each node maintains its own local SQLite search index for fast retrieval. Shared knowledge stays in text files on network storage — never as shared databases — eliminating corruption risk and lock contention.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-clock-history"></i> Nightly Curation</h4>
+                                <p>An automated curation process reviews daily notes, classifies content by type (infrastructure, incidents, decisions, topology), promotes durable facts to curated documents, and archives old notes by week.</p>
+                            </div>
+                        </div>
+
+                        <h3>Reliability & Recovery</h3>
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-heart-pulse"></i> Self-Healing Watchdog</h4>
+                                <p>A runtime watchdog runs every five minutes, checking service health, mount integrity, and database consistency. When degradation is detected, automated recovery workflows quarantine bad state and restore from verified backups.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-box-seam"></i> Portable Recovery Bundle</h4>
+                                <p>The entire orchestration system — routing policy, worker scripts, queue structure, scheduling, and architecture documentation — is packaged into a portable recovery bundle on shared storage, ready for rapid rebuilds.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-calendar-check"></i> Monthly DR Drills</h4>
+                                <p>Automated disaster recovery drills run monthly in a sandboxed environment. Each drill validates the recovery bundle, confirms all components would restore correctly, verifies the live system was not modified, then cleans up.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-camera-reels"></i> ZFS Snapshots</h4>
+                                <p>Storage is backed by ZFS with automated snapshot policies: every 15 minutes (retained 24 hours), daily (retained 30 days), and weekly (retained 12 weeks). Combined with preflight guards that block startup on corrupted state.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-bar-chart-steps"></i> Weekly Health Snapshots</h4>
+                                <p>A comprehensive weekly report captures node health, mount status, queue state, archive growth, orchestrator activity, and curation metrics — providing a historical record of cluster operational health.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-shield-lock"></i> Conservative Safety Model</h4>
+                                <p>All automated actions follow a conservative safety policy: prefer quarantine over deletion, require preflight checks before service restart, never auto-execute destructive changes, and gate risky operations behind human approval.</p>
+                            </div>
+                        </div>
+
+                        <h3>What This Demonstrates</h3>
+                        <div class="highlight-grid">
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-lightbulb"></i> Systems Thinking</h4>
+                                <p>The cluster is designed as a cohesive system — not a collection of scripts. Routing, health, memory, curation, recovery, and orchestration all interact through well-defined interfaces on shared storage.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-tools"></i> Reliability Engineering</h4>
+                                <p>Multiple layers of defense protect against data loss and service degradation: preflight guards, runtime watchdogs, automated recovery, snapshot-backed storage, and recurring DR validation.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <h4><i class="bi bi-pencil-square"></i> Documentation Discipline</h4>
+                                <p>Every subsystem has architecture documentation, scheduling references, and clear rollback procedures. Operational knowledge is curated automatically, not left in chat logs or memory.</p>
                             </div>
                         </div>
 
