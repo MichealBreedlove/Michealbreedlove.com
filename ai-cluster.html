@@ -4,28 +4,27 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-        <meta name="description" content="Micheal Breedlove's AI cluster architecture — a 4-node homelab running local LLMs with SRE automation, Proxmox virtualization, and enterprise networking. Interactive infrastructure diagram." />
+        <meta name="description" content="AI Cluster Orchestration Platform — a self-healing distributed control plane with adaptive routing, shared knowledge, and automated reliability workflows." />
         <meta name="author" content="Micheal Breedlove" />
-        <title>AI Cluster Architecture | Micheal Breedlove</title>
-                <link rel="canonical" href="https://www.michealbreedlove.com/ai-cluster.html" />
-        <meta property="og:title" content="AI Cluster Architecture — Micheal Breedlove" />
-        <meta property="og:description" content="Interactive 4-node AI inference cluster with adaptive orchestration, shared memory, and self-healing infrastructure." />
+        <title>Platform Architecture | Micheal Breedlove</title>
+        <link rel="canonical" href="https://www.michealbreedlove.com/ai-cluster.html" />
+        <meta property="og:title" content="Platform Architecture — Micheal Breedlove" />
+        <meta property="og:description" content="AI Cluster Orchestration Platform — adaptive routing, shared knowledge, self-healing infrastructure, and automated disaster recovery." />
         <meta property="og:url" content="https://www.michealbreedlove.com/ai-cluster.html" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-default.png" />
-        <meta name="twitter:card" content="summary_large_image" />        
-        <meta name="twitter:title" content="AI Cluster Architecture — Micheal Breedlove" />
-        <meta name="twitter:description" content="Interactive 4-node AI inference cluster with adaptive orchestration, shared memory, and self-healing infrastructure." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Platform Architecture — Micheal Breedlove" />
+        <meta name="twitter:description" content="AI Cluster Orchestration Platform — adaptive routing, shared knowledge, self-healing infrastructure, and automated disaster recovery." />
         <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-default.png" />
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link href="assets/cluster/cluster-diagram.css" rel="stylesheet" />
-            <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com","sameAs":["https://github.com/MichealBreedlove","https://www.linkedin.com/in/micheal-breedlove"],"jobTitle":"Security & Infrastructure Engineer","alumniOf":"Western Governors University","knowsAbout":["Cybersecurity","SRE","AI Infrastructure","Proxmox","Ansible"]}</script>            <!-- Analytics: uncomment and set domain for Plausible (privacy-friendly, no cookies) -->
-        <!-- <script defer data-domain="michealbreedlove.com" src="https://plausible.io/js/script.js"></script> -->
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com","sameAs":["https://github.com/MichealBreedlove","https://www.linkedin.com/in/micheal-breedlove"],"jobTitle":"Infrastructure & Reliability Engineer","alumniOf":"Western Governors University","knowsAbout":["Infrastructure Automation","Distributed Systems","Reliability Engineering","AI Orchestration","Proxmox"]}</script>
     </head>
     <body class="d-flex flex-column h-100">
         <main class="flex-shrink-0">
@@ -39,7 +38,7 @@
                             <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="/resume.html">Resume</a></li>
                             <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/ai-cluster.html">AI Cluster</a></li>
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/ai-cluster.html">Architecture</a></li>
                             <li class="nav-item"><a class="nav-link" href="/proof.html">Proof</a></li>
                             <li class="nav-item"><a class="nav-link" href="/now.html">Now</a></li>
                             <li class="nav-item"><a class="nav-link" href="/status.html">Status</a></li>
@@ -55,193 +54,373 @@
                 </div>
             </div>
 
-            <!-- Cluster Section -->
-            <section class="cluster-section" id="ai-cluster">
+            <!-- Section 1 — Overview -->
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <p class="text-uppercase small fw-semibold text-muted mb-2" style="letter-spacing:0.08em;">Platform Architecture</p>
+                            <h1 class="display-5 fw-bolder mb-3"><span class="text-gradient d-inline">AI Cluster Orchestration Platform</span></h1>
+                            <p class="lead fw-light text-muted mb-4" style="max-width:52rem;">An AI-assisted orchestration platform built to automate infrastructure tasks, coordinate distributed worker nodes, and maintain a shared operational knowledge system across a 4-node homelab cluster.</p>
+                            <p class="text-muted" style="max-width:52rem;">The platform is designed around five architectural planes — control, compute, knowledge, reliability, and observability — each with clear responsibilities and well-defined interfaces. Every subsystem is built for independent operation: nodes can function when the coordinator is unavailable, shared knowledge survives individual node failures, and the entire orchestrator can be rebuilt from a portable recovery bundle.</p>
+                            <div class="d-flex flex-wrap gap-2 mt-4">
+                                <a href="/status.html" class="btn btn-primary btn-sm px-4"><i class="bi bi-activity me-1"></i>Live Status</a>
+                                <a href="/proof.html" class="btn btn-outline-primary btn-sm px-4">Proof Pack</a>
+                                <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn btn-outline-dark btn-sm px-4"><i class="bi bi-github me-1"></i>GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2 — Platform Architecture Diagram -->
+            <section class="py-4 bg-light">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Platform Architecture</span></h2>
+                            <p class="text-muted mb-4">The system is organized into five planes, each responsible for a distinct operational concern. This layered model keeps responsibilities clear and allows each plane to evolve independently.</p>
+                            <div class="card shadow border-0 rounded-4 overflow-hidden mb-4">
+                                <div class="card-body p-3 p-lg-4" style="background: linear-gradient(135deg, #0a0e27, #141833);">
+                                    <img src="assets/diagrams/cluster-architecture-layered.svg" alt="Five-plane platform architecture diagram showing Control, Compute, Knowledge, Reliability, and Observability planes" class="img-fluid" style="width:100%;" />
+                                </div>
+                            </div>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-4">
+                                    <h6 class="fw-bolder" style="color:#6C63FF;"><i class="bi bi-cpu me-1"></i>Control Plane</h6>
+                                    <p class="text-muted small mb-0">Coordinates routing decisions, job dispatch, autonomous task generation, and scheduled maintenance across the cluster.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="fw-bolder" style="color:#00C9A7;"><i class="bi bi-hdd-stack me-1"></i>Compute Plane</h6>
+                                    <p class="text-muted small mb-0">Distributed worker nodes poll for assigned tasks, execute them within their role specialization, and report results back to shared storage.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="fw-bolder" style="color:#FFD700;"><i class="bi bi-journal-text me-1"></i>Knowledge Plane</h6>
+                                    <p class="text-muted small mb-0">Shared Markdown corpus on NAS-backed storage provides durable operational knowledge. Each node maintains a local semantic index for fast retrieval.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="fw-bolder" style="color:#FF6B6B;"><i class="bi bi-heart-pulse me-1"></i>Reliability Plane</h6>
+                                    <p class="text-muted small mb-0">Protects system integrity through automated watchdogs, recovery workflows, snapshot-backed storage, portable recovery bundles, and recurring DR validation.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="fw-bolder" style="color:#00A8FF;"><i class="bi bi-bar-chart me-1"></i>Observability Plane</h6>
+                                    <p class="text-muted small mb-0">Surfaces cluster health, queue state, node performance metrics, and weekly operational snapshots through dashboards and structured reports.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6 class="fw-bolder text-muted"><i class="bi bi-layers me-1"></i>Design Principle</h6>
+                                    <p class="text-muted small mb-0">Each plane operates independently. The compute plane functions when the coordinator is offline. Knowledge survives node failures. The system can be rebuilt from the recovery bundle alone.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Node Diagram (existing) -->
+            <section class="cluster-section" id="node-diagram">
                 <div class="cluster-container">
-
-                    <!-- Header -->
                     <div class="cluster-header">
-                        <h2>AI Cluster Architecture</h2>
-                        <p>A 4-node infrastructure running local LLM inference, SRE automation, and enterprise networking — built from scratch, operated like production.</p>
+                        <h2>Node Topology</h2>
+                        <p>Click any node to explore its role, hardware, and services.</p>
                     </div>
-
-                    <!-- Stats Bar -->
                     <div class="cluster-stats" id="cluster-stats"></div>
-
-                    <!-- What You're Seeing -->
-                    <div style="text-align: center; margin-bottom: 1.5rem;">
-                        <p style="font-size: 0.82rem; color: #5a6480; margin: 0;">Click any node to explore its role, hardware, services, and why it matters. Hover to see connections light up.</p>
-                    </div>
-
-                    <!-- Interactive Diagram -->
                     <div class="cluster-diagram" id="cluster-diagram">
                         <svg class="cluster-svg" id="cluster-svg" aria-hidden="true"></svg>
                     </div>
-
-                    <!-- Legend -->
                     <div class="cluster-legend">
                         <div class="legend-item">
                             <div class="legend-line control" style="border-top: 3px dashed #6C63FF; background: none; height: 0;"></div>
-                            <span>AI Orchestration (OpenClaw)</span>
+                            <span>AI Orchestration</span>
                         </div>
                         <div class="legend-item">
                             <div class="legend-line management"></div>
-                            <span>Config Management (Ansible)</span>
+                            <span>Config Management</span>
                         </div>
                         <div class="legend-item">
                             <div class="legend-line storage"></div>
-                            <span>Storage / NFS Traffic</span>
+                            <span>Storage / NFS</span>
                         </div>
                     </div>
-
-                    <!-- Detail Panel (populated by JS) -->
                     <div class="detail-panel" id="detail-panel" role="region" aria-label="Node details"></div>
+                </div>
+            </section>
 
-                    <!-- Content Sections -->
-                    <div class="cluster-content">
-
-                        <h3>Key Technical Highlights</h3>
-                        <div class="highlight-grid">
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-gpu-card"></i> Local AI Inference</h4>
-                                <p>RTX 4090 running Qwen 2.5 32B, DeepSeek Coder v2, and LLaMA 3.1 70B via Ollama — no cloud API dependencies for core inference.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-diagram-3"></i> SRE Pipeline</h4>
-                                <p>Full SRE automation suite: SLOs with burn rate tracking, incident management with postmortems, chaos testing, and safety-gated actions.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-hdd-rack"></i> Proxmox Cluster</h4>
-                                <p>3-node Proxmox cluster (Nova + Mira + Orin) for VM and container management. Centralized storage via TrueNAS on Nova.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-shield-check"></i> Security Posture</h4>
-                                <p>OPNsense firewall, network segmentation, GitHub Actions secret scanning, credential hygiene policies, safety gates blocking risky automation.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-gear"></i> GitOps Workflow</h4>
-                                <p>All configs backed up to GitHub daily. Ansible manages node state. Changes tracked, tested, and documented automatically.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-bar-chart"></i> Monitoring & SLOs</h4>
-                                <p>SLO targets (99.9% gateway, 99.5% inference), error budgets, 5 rolling windows for burn rate, auto-incidents on threshold breach.</p>
+            <!-- Section 3 — Distributed Orchestration -->
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Distributed Orchestration</span></h2>
+                            <p class="text-muted mb-4">The orchestrator runs a continuous four-phase loop: check node health, dispatch queued jobs to the best available node, ingest completed results, and update cluster status. This cycle repeats on a fixed schedule, keeping the system responsive without requiring persistent connections between nodes.</p>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-signpost-split text-primary me-2"></i>Adaptive Routing</h6>
+                                            <p class="text-muted small mb-0">Each task is scored against candidate nodes using a blend of static role fitness, historical success rate, average execution time, and recency of last assignment. The routing model improves automatically as execution data accumulates — nodes that consistently complete certain task types faster and more reliably receive higher scores.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-inbox text-primary me-2"></i>Durable Job Queue</h6>
+                                            <p class="text-muted small mb-0">Jobs are represented as individual JSON files on shared storage, moving through pending, running, done, and failed directories. This file-based approach eliminates shared database dependencies, prevents lock contention across nodes, and provides natural crash recovery — incomplete jobs are detected by stale-job timeout and returned to the queue.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <h3>How It's Operated</h3>
-                        <div class="highlight-grid">
-                            <div class="highlight-card">
-                                <h4>Monitoring</h4>
-                                <p>Custom dashboard with SLO burn rates, incident status, and node health. Automated health checks via Ansible every 6 hours.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4>Backups</h4>
-                                <p>Each node auto-commits sanitized state to GitHub daily via systemd timers (Linux) and scheduled tasks (Windows). Secret-scanned before push.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4>Incident Response</h4>
-                                <p>Auto-triggered incidents from SLO burn spikes or gatekeeper denials. Timeline tracking, evidence packs, and recruiter-grade postmortem generation.</p>
+            <!-- Section 4 — Shared Knowledge Architecture -->
+            <section class="py-5 bg-light">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Shared Knowledge Architecture</span></h2>
+                            <p class="text-muted mb-4">The cluster maintains a shared operational knowledge system designed around two principles: durable knowledge belongs in plain text on shared storage, and fast retrieval uses local indexes that can be rebuilt from the source at any time.</p>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-journal-text text-primary me-2"></i>Markdown Corpus</h6>
+                                            <p class="text-muted small mb-0">A NAS-backed Markdown corpus serves as the cluster's durable memory. Each node contributes daily observations. The coordinator is the primary curator, maintaining long-term knowledge documents and cluster-wide context.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-database text-primary me-2"></i>Local Semantic Indexes</h6>
+                                            <p class="text-muted small mb-0">Each node maintains its own local SQLite search index for fast retrieval. Shared knowledge stays in text files on network storage — never as shared databases — eliminating corruption risk and lock contention.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-clock-history text-primary me-2"></i>Nightly Curation</h6>
+                                            <p class="text-muted small mb-0">An automated curation process reviews daily notes, classifies content by type, promotes durable facts to curated documents, and archives old notes by week. Knowledge is refined, not accumulated.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <h3>Security Considerations</h3>
-                        <div class="highlight-grid">
-                            <div class="highlight-card">
-                                <h4>Network Segmentation</h4>
-                                <p>OPNsense firewall with VLAN-segmented traffic. Management, storage, and inference traffic isolated. 2.5G and 10G network segments.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4>Least Privilege</h4>
-                                <p>SSH key-only auth between nodes. Ansible runs with minimal required permissions. OpenClaw agents operate within defined safety tiers.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4>Secrets Hygiene</h4>
-                                <p>GitHub Actions CI blocks any push containing API keys, tokens, or credentials. Sanitize scripts strip secrets before commit. No .env files in repos.</p>
+            <!-- Section 5 — Reliability and Recovery -->
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Reliability &amp; Recovery</span></h2>
+                            <p class="text-muted mb-4">The reliability plane implements defense in depth: multiple independent systems protect against different failure modes, from transient service disruptions to complete coordinator loss.</p>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-heart-pulse text-primary me-2"></i>Self-Healing Watchdog</h6>
+                                            <p class="text-muted small mb-0">A runtime watchdog checks service health, mount integrity, and database consistency on a recurring schedule. When degradation is detected, automated recovery workflows quarantine bad state and restore from verified backups.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-box-seam text-primary me-2"></i>Recovery Bundle</h6>
+                                            <p class="text-muted small mb-0">The entire orchestration system — routing policy, worker configuration, queue structure, scheduling, and architecture documentation — is packaged into a portable recovery bundle on shared storage, ready for rapid rebuilds.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-calendar-check text-primary me-2"></i>Monthly DR Drills</h6>
+                                            <p class="text-muted small mb-0">Automated disaster recovery drills run monthly in a sandboxed environment. Each drill validates the recovery bundle, confirms components would restore correctly, verifies the live system was not modified, then cleans up.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-camera-reels text-primary me-2"></i>ZFS Snapshots</h6>
+                                            <p class="text-muted small mb-0">Storage is backed by ZFS with automated snapshot policies at three tiers: frequent snapshots retained for hours, daily snapshots retained for weeks, and weekly snapshots retained for months.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-shield-lock text-primary me-2"></i>Conservative Safety Model</h6>
+                                            <p class="text-muted small mb-0">All automated actions follow a conservative policy: prefer quarantine over deletion, require preflight checks before service restart, never auto-execute destructive changes, and gate risky operations behind human approval.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-bar-chart-steps text-primary me-2"></i>Weekly Snapshots</h6>
+                                            <p class="text-muted small mb-0">Comprehensive weekly reports capture node health, mount status, queue state, archive growth, and curation metrics — providing a historical record of cluster operational health over time.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <h3>Distributed Orchestration</h3>
-                        <div class="highlight-grid">
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-signpost-split"></i> Adaptive Task Routing</h4>
-                                <p>The coordinator assigns work based on node health, role specialization, and observed task performance. Routing adapts over time as execution data accumulates — faster, more reliable nodes are preferred automatically.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-inbox"></i> Durable Job Queue</h4>
-                                <p>A file-based queue system on shared storage handles job dispatch, tracking, completion, and failure recovery. Jobs move through pending, running, done, and failed states with retry logic and stale-job detection.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-robot"></i> Autonomous Task Generation</h4>
-                                <p>The orchestrator continuously monitors cluster health and creates maintenance or remediation tasks when issues are detected. High-risk actions require human approval before execution; safe operations run automatically.</p>
+            <!-- Section 6 — Automation and Self-Healing -->
+            <section class="py-5 bg-light">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Automation &amp; Self-Healing</span></h2>
+                            <p class="text-muted mb-4">The platform generates its own maintenance work. Rather than relying on manual intervention to detect and remediate issues, the orchestrator continuously monitors cluster health signals and creates appropriate tasks when action is needed.</p>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-robot text-primary me-2"></i>Autonomous Task Generation</h6>
+                                            <p class="text-muted small mb-0">A rule engine evaluates cluster health signals — node availability, mount integrity, queue health, and performance trends — against a set of detection rules. When a rule triggers, it creates a task with appropriate classification: safe operations go directly to the queue, risky actions are placed in an approval queue for human review, and advisory-only detections are logged without creating tasks.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-check2-circle text-primary me-2"></i>Approval Gates</h6>
+                                            <p class="text-muted small mb-0">Tasks classified as potentially destructive or high-impact are routed to a separate approval queue rather than executing automatically. This creates a clear boundary between what the system can do safely on its own and what requires human judgment. Cooldown tracking prevents duplicate task creation when the same condition is detected repeatedly.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <h3>Shared Memory Architecture</h3>
-                        <div class="highlight-grid">
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-journal-text"></i> Markdown Knowledge Corpus</h4>
-                                <p>A shared Markdown corpus on NAS-backed storage serves as the cluster's durable memory. Each node contributes daily observations; the coordinator curates these into long-term knowledge documents overnight.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-database"></i> Local Semantic Indexes</h4>
-                                <p>Each node maintains its own local SQLite search index for fast retrieval. Shared knowledge stays in text files on network storage — never as shared databases — eliminating corruption risk and lock contention.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-clock-history"></i> Nightly Curation</h4>
-                                <p>An automated curation process reviews daily notes, classifies content by type (infrastructure, incidents, decisions, topology), promotes durable facts to curated documents, and archives old notes by week.</p>
+            <!-- Section 7 — What This Demonstrates -->
+            <section class="py-5">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">What This Demonstrates</span></h2>
+                            <p class="text-muted mb-4">This platform is a working demonstration of the engineering practices and design thinking I bring to infrastructure work.</p>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-lightbulb text-primary me-2"></i>Systems Thinking</h6>
+                                            <p class="text-muted small mb-0">The cluster is designed as a cohesive system — not a collection of scripts. Routing, health, memory, curation, recovery, and orchestration all interact through well-defined interfaces on shared storage.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-shield-check text-primary me-2"></i>Reliability Engineering</h6>
+                                            <p class="text-muted small mb-0">Multiple layers of defense protect against data loss and service degradation: preflight guards, runtime watchdogs, automated recovery, snapshot-backed storage, and recurring DR validation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-gear text-primary me-2"></i>Infrastructure Automation</h6>
+                                            <p class="text-muted small mb-0">Every recurring operation is automated and scheduled. Manual intervention is reserved for approval decisions and architecture changes — not for keeping the lights on.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-diagram-3 text-primary me-2"></i>Distributed Systems Design</h6>
+                                            <p class="text-muted small mb-0">Shared-nothing memory architecture, file-based coordination, health-aware dispatch, and graceful degradation — built for the real failure modes of multi-node infrastructure.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-pencil-square text-primary me-2"></i>Operational Documentation</h6>
+                                            <p class="text-muted small mb-0">Every subsystem has architecture documentation, scheduling references, and clear rollback procedures. Operational knowledge is curated automatically, not left in chat logs or memory.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-arrows-collapse text-primary me-2"></i>Recovery-First Design</h6>
+                                            <p class="text-muted small mb-0">The system is designed to be rebuilt, not just maintained. Portable recovery bundles, validated DR drills, and conservative safety policies ensure resilience isn't just a feature — it's the foundation.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <h3>Reliability & Recovery</h3>
-                        <div class="highlight-grid">
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-heart-pulse"></i> Self-Healing Watchdog</h4>
-                                <p>A runtime watchdog runs every five minutes, checking service health, mount integrity, and database consistency. When degradation is detected, automated recovery workflows quarantine bad state and restore from verified backups.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-box-seam"></i> Portable Recovery Bundle</h4>
-                                <p>The entire orchestration system — routing policy, worker scripts, queue structure, scheduling, and architecture documentation — is packaged into a portable recovery bundle on shared storage, ready for rapid rebuilds.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-calendar-check"></i> Monthly DR Drills</h4>
-                                <p>Automated disaster recovery drills run monthly in a sandboxed environment. Each drill validates the recovery bundle, confirms all components would restore correctly, verifies the live system was not modified, then cleans up.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-camera-reels"></i> ZFS Snapshots</h4>
-                                <p>Storage is backed by ZFS with automated snapshot policies: every 15 minutes (retained 24 hours), daily (retained 30 days), and weekly (retained 12 weeks). Combined with preflight guards that block startup on corrupted state.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-bar-chart-steps"></i> Weekly Health Snapshots</h4>
-                                <p>A comprehensive weekly report captures node health, mount status, queue state, archive growth, orchestrator activity, and curation metrics — providing a historical record of cluster operational health.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-shield-lock"></i> Conservative Safety Model</h4>
-                                <p>All automated actions follow a conservative safety policy: prefer quarantine over deletion, require preflight checks before service restart, never auto-execute destructive changes, and gate risky operations behind human approval.</p>
+            <!-- Additional Technical Details -->
+            <section class="py-4 bg-light">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Infrastructure Details</span></h2>
+                            <div class="row gx-4 gy-3">
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-gpu-card text-primary me-2"></i>Local AI Inference</h6>
+                                            <p class="text-muted small mb-0">RTX 4090 running multiple large language models via Ollama — no cloud API dependencies for core inference workloads.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-hdd-rack text-primary me-2"></i>Proxmox Cluster</h6>
+                                            <p class="text-muted small mb-0">3-node Proxmox cluster for VM management. Centralized storage via TrueNAS with ZFS. Network segmentation via OPNsense.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-shield-check text-primary me-2"></i>Security Posture</h6>
+                                            <p class="text-muted small mb-0">OPNsense firewall, VLAN segmentation, SSH key-only authentication, CI-enforced secret scanning, and credential hygiene policies.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        <h3>What This Demonstrates</h3>
-                        <div class="highlight-grid">
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-lightbulb"></i> Systems Thinking</h4>
-                                <p>The cluster is designed as a cohesive system — not a collection of scripts. Routing, health, memory, curation, recovery, and orchestration all interact through well-defined interfaces on shared storage.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-tools"></i> Reliability Engineering</h4>
-                                <p>Multiple layers of defense protect against data loss and service degradation: preflight guards, runtime watchdogs, automated recovery, snapshot-backed storage, and recurring DR validation.</p>
-                            </div>
-                            <div class="highlight-card">
-                                <h4><i class="bi bi-pencil-square"></i> Documentation Discipline</h4>
-                                <p>Every subsystem has architecture documentation, scheduling references, and clear rollback procedures. Operational knowledge is curated automatically, not left in chat logs or memory.</p>
+            <!-- GitHub Callout -->
+            <section class="py-4">
+                <div class="container px-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="card shadow border-0 rounded-4 overflow-hidden" style="background: linear-gradient(135deg, #0a0e27, #1a1f3a); border: 1px solid rgba(108,99,255,0.2) !important;">
+                                <div class="card-body p-4 text-center">
+                                    <p style="color: #a8b2d1; margin-bottom: 0.75rem;"><i class="bi bi-github" style="font-size: 1.5rem;"></i></p>
+                                    <p style="color: #a8b2d1; margin-bottom: 1rem;">All infrastructure code, automation, and documentation are open source.</p>
+                                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                                        <a href="https://github.com/MichealBreedlove/Lab" target="_blank" class="btn px-4 py-2" style="background: #6C63FF; color: #fff; border: none;">View on GitHub →</a>
+                                        <a href="/status.html" class="btn px-4 py-2" style="background: rgba(255,255,255,0.1); color: #a8b2d1; border: 1px solid rgba(255,255,255,0.15);">Live Status →</a>
+                                        <a href="/contact.html" class="btn px-4 py-2" style="background: rgba(255,255,255,0.1); color: #a8b2d1; border: 1px solid rgba(255,255,255,0.15);">Get in Touch →</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <!-- GitHub Callout -->
-                        <div class="github-callout">
-                            <p><i class="bi bi-github"></i>&nbsp; All infrastructure code, automation scripts, and documentation are open source.</p>
-                            <a href="https://github.com/MichealBreedlove/Lab" target="_blank">View on GitHub →</a>
-                        </div>
-
                     </div>
                 </div>
             </section>
