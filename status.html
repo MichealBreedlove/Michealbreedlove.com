@@ -6,17 +6,17 @@
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="description" content="Infrastructure status — 4-node AI cluster with SRE monitoring, SLO tracking, and backup verification." />
         <meta name="author" content="Micheal Breedlove" />
-        <title>Status | Micheal Breedlove - Security &amp; Infrastructure Engineer</title>
+        <title>Status | Micheal Breedlove — Security &amp; Infrastructure Engineer</title>
         <link rel="canonical" href="https://www.michealbreedlove.com/status.html" />
         <meta property="og:title" content="Infrastructure Status - Micheal Breedlove" />
         <meta property="og:description" content="Live infrastructure metrics for a 4-node AI cluster with SRE automation." />
         <meta property="og:url" content="https://www.michealbreedlove.com/status.html" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-default.png" />
+        <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-status.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Infrastructure Status - Micheal Breedlove" />
         <meta name="twitter:description" content="Live infrastructure metrics for a 4-node AI cluster with SRE automation." />
-        <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-default.png" />
+        <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-status.png" />
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +36,7 @@
                             <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="/resume.html">Resume</a></li>
                             <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="/ai-cluster.html">AI Cluster</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/ai-cluster.html">Architecture</a></li>
                             <li class="nav-item"><a class="nav-link" href="/proof.html">Proof</a></li>
                             <li class="nav-item"><a class="nav-link" href="/now.html">Now</a></li>
                             <li class="nav-item"><a class="nav-link" href="/status.html">Status</a></li>
@@ -57,7 +57,7 @@
                 <div class="text-center mb-5">
                     <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Infrastructure Status</span></h1>
                     <p class="lead fw-light text-muted mt-2">Operational metrics for a 4-node AI and infrastructure cluster.</p>
-                    <p class="small text-muted">Last updated: 2026-03-05</p>
+                    <p class="small text-muted">Last updated: <span id="page-updated">—</span> <span id="page-updated-age"></span></p>
                 </div>
 
                 <div class="row justify-content-center">
@@ -129,7 +129,7 @@
                                         <div class="small text-muted">SLOs Monitored</div>
                                     </div>
                                     <div class="col-6 col-md-3 text-center">
-                                        <div class="display-6 fw-bolder text-primary">100+</div>
+                                        <div class="display-6 fw-bolder text-primary">200+</div>
                                         <div class="small text-muted">Acceptance Tests</div>
                                     </div>
                                     <div class="col-6 col-md-3 text-center">
@@ -183,7 +183,7 @@
                                 </div>
                                 <hr class="my-3" />
                                 <div class="small text-muted">
-                                    Daily automated backups with CI-enforced secret scanning. Last backup: 2026-03-05 02:30 UTC.
+                                    Daily automated backups with CI-enforced secret scanning. Last verified weekly snapshot: <span id="backup-snapshot">—</span>.
                                 </div>
                             </div>
                         </div>
@@ -324,6 +324,19 @@
             fetch('/assets/cluster/dashboard-data.json')
                 .then(r => r.json())
                 .then(d => {
+                    if (d.last_updated) {
+                        const snapDate = d.last_updated.slice(0, 10);
+                        document.getElementById('page-updated').textContent = snapDate;
+                        const ageDays = Math.floor((Date.now() - new Date(d.last_updated + 'Z').getTime()) / 86400000);
+                        if (ageDays >= 0) {
+                            document.getElementById('page-updated-age').textContent =
+                                ageDays === 0 ? '(snapshot from today)' :
+                                ageDays === 1 ? '(snapshot 1 day old)' :
+                                '(snapshot ' + ageDays + ' days old)';
+                        }
+                    }
+                    document.getElementById('backup-snapshot').textContent =
+                        (d.reliability && d.reliability.last_weekly_snapshot) || 'N/A';
                     document.getElementById('cluster-dash-loading').style.display = 'none';
                     document.getElementById('cluster-dash').style.display = 'block';
                     document.getElementById('cd-nodes').textContent = d.nodes_online + '/' + d.nodes_total;
@@ -350,6 +363,8 @@
                         d.capabilities.map(c => '<li>' + c + '</li>').join('') + '</ul>';
                 })
                 .catch(() => {
+                    document.getElementById('page-updated').textContent = 'unavailable';
+                    document.getElementById('backup-snapshot').textContent = 'unavailable';
                     document.getElementById('cluster-dash-loading').innerHTML = '<span class="text-muted">Cluster data unavailable.</span>';
                 });
         })();
