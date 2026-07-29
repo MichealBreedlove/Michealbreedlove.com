@@ -9,23 +9,24 @@
         <title>Status | Micheal Breedlove — Security &amp; Infrastructure Engineer</title>
         <link rel="canonical" href="https://www.michealbreedlove.com/status.html" />
         <meta property="og:title" content="Infrastructure Status - Micheal Breedlove" />
-        <meta property="og:description" content="Live infrastructure metrics for a 4-node AI cluster with SRE automation." />
+        <meta property="og:description" content="Infrastructure metrics for a 4-node AI cluster with SRE automation — node health, SLOs, backups, and orchestration status." />
         <meta property="og:url" content="https://www.michealbreedlove.com/status.html" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-status.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Infrastructure Status - Micheal Breedlove" />
-        <meta name="twitter:description" content="Live infrastructure metrics for a 4-node AI cluster with SRE automation." />
+        <meta name="twitter:description" content="Infrastructure metrics for a 4-node AI cluster with SRE automation — node health, SLOs, backups, and orchestration status." />
         <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-status.png" />
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body class="d-flex flex-column h-100 bg-light">
-        <main class="flex-shrink-0">
+        <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 p-2 bg-white rounded" href="#page-main">Skip to content</a>
+        <main class="flex-shrink-0" id="page-main">
             <!-- Navigation -->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
@@ -48,7 +49,7 @@
             <!-- Open to roles -->
             <div class="subnav-strip">
                 <div class="container">
-                    Infrastructure · Automation · Reliability Engineering — Fairfield, CA. <a href="/contact.html">Get in touch →</a>
+                    Security · Infrastructure · Reliability Engineering — Fairfield, CA. <a href="/contact.html">Get in touch →</a>
                 </div>
             </div>
 
@@ -66,8 +67,9 @@
                         <!-- Overall Status -->
                         <div class="card shadow border-0 rounded-4 mb-4">
                             <div class="card-body p-4 text-center">
-                                <span class="d-inline-block rounded-circle bg-success me-2" style="width:12px;height:12px;"></span>
-                                <span class="fw-bolder">All Systems Operational</span>
+                                <span id="overall-dot" class="d-inline-block rounded-circle bg-success me-2" style="width:12px;height:12px;"></span>
+                                <span id="overall-status" class="fw-bolder">All Systems Operational</span>
+                                <div id="overall-note" class="small text-muted mt-1" style="display:none;"></div>
                             </div>
                         </div>
 
@@ -305,7 +307,7 @@
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove 2026</div></div>
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove <span data-year>2026</span></div></div>
                     <div class="col-auto">
                         <a class="small" href="/contact.html">Contact</a>
                         <span class="mx-1">&middot;</span>
@@ -333,6 +335,14 @@
                                 ageDays === 0 ? '(snapshot from today)' :
                                 ageDays === 1 ? '(snapshot 1 day old)' :
                                 '(snapshot ' + ageDays + ' days old)';
+                        }
+                        // Honest banner: don't claim "operational" from a stale snapshot
+                        if (ageDays > 21) {
+                            document.getElementById('overall-dot').className = 'd-inline-block rounded-circle bg-secondary me-2';
+                            document.getElementById('overall-status').textContent = 'Archived Snapshot';
+                            const note = document.getElementById('overall-note');
+                            note.textContent = 'Metrics below reflect the last published cluster snapshot (' + snapDate + '), not live state.';
+                            note.style.display = 'block';
                         }
                     }
                     document.getElementById('backup-snapshot').textContent =

@@ -22,16 +22,17 @@
         <!-- Custom Google font-->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-            <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com","sameAs":["https://github.com/MichealBreedlove","https://www.linkedin.com/in/micheal-breedlove"],"jobTitle":"Security & Infrastructure Engineer","alumniOf":"Western Governors University","knowsAbout":["Cybersecurity","SRE","AI Infrastructure","Proxmox","Ansible"]}</script>            <!-- Analytics: uncomment and set domain for Plausible (privacy-friendly, no cookies) -->
+            <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com","sameAs":["https://github.com/MichealBreedlove","https://www.linkedin.com/in/micheal-breedlove"],"jobTitle":"Security & Infrastructure Engineer","alumniOf":{"@type":"CollegeOrUniversity","name":"Western Governors University"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"CompTIA Tech+","credentialCategory":"certification"}],"knowsAbout":["Cybersecurity","Network Segmentation","Incident Response","SRE","AI Infrastructure","Proxmox","Ansible","Linux","Zero Trust"]}</script>            <!-- Analytics: uncomment and set domain for Plausible (privacy-friendly, no cookies) -->
         <!-- <script defer data-domain="michealbreedlove.com" src="https://plausible.io/js/script.js"></script> -->
     </head>
     <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
+        <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 p-2 bg-white rounded" href="#page-main">Skip to content</a>
+        <main class="flex-shrink-0" id="page-main">
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
                 <div class="container px-5">
@@ -54,7 +55,7 @@
             <!-- Open to roles -->
             <div class="subnav-strip">
                 <div class="container">
-                    Infrastructure · Automation · Reliability Engineering — Fairfield, CA. <a href="/contact.html">Get in touch →</a>
+                    Security · Infrastructure · Reliability Engineering — Fairfield, CA. <a href="/contact.html">Get in touch →</a>
                 </div>
             </div>
             <!-- Header-->
@@ -64,7 +65,7 @@
                         <div class="col-xxl-5">
                             <!-- Header text content-->
                             <div class="text-center text-xxl-start">
-                                <p class="text-uppercase small fw-semibold text-muted mb-3" style="letter-spacing:0.08em;">Infrastructure &middot; Automation &middot; Reliability</p>
+                                <p class="text-uppercase small fw-semibold text-muted mb-3" style="letter-spacing:0.08em;">Security &middot; Infrastructure &middot; Automation &middot; Reliability</p>
                                 <h1 class="display-3 fw-bolder mb-3"><span class="text-gradient d-inline">Micheal Breedlove</span></h1>
                                 <p class="fs-5 text-muted mb-4" style="max-width:34rem;">Building resilient infrastructure, distributed automation systems, and AI-assisted operational platforms.</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-4">
@@ -86,7 +87,8 @@
                                     <strong>Security &amp; infrastructure engineer.</strong><br>
                                     Designed a self-healing AI cluster orchestration platform with adaptive routing, shared memory, and automated disaster recovery.<br>
                                     <strong>Seeking:</strong> Security Engineer / DevSecOps / Platform / SRE roles.<br>
-                                    <strong>Clearance:</strong> Prior TS/SCI (expired 2022).<br>
+                                    <strong>Clearance:</strong> Prior TS/SCI (expired 2022) — eligible for reinvestigation.<br>
+                                    <strong>Credentials:</strong> CompTIA Tech+ &middot; Security+ (in progress) &middot; B.S. Cybersecurity, WGU (in progress).<br>
                                     <div class="d-flex gap-2 mt-3">
                                         <a class="btn btn-primary btn-sm px-3" href="/contact.html">Get in Touch</a>
                                         <a class="btn btn-outline-dark btn-sm px-3" href="/assets/Micheal-Breedlove-Resume.pdf" download><i class="bi bi-download me-1"></i>Resume PDF</a>
@@ -100,7 +102,10 @@
                                 <div class="profile bg-gradient-primary-to-secondary">
                                     <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
                                     <!-- Watch a tutorial on how to do this on YouTube (link)-->
-                                    <img class="profile-img" src="assets/profile.png" alt="Micheal Breedlove — profile photo" />
+                                    <picture>
+                                        <source type="image/webp" srcset="assets/profile-800.webp" />
+                                        <img class="profile-img" src="assets/profile-800.png" fetchpriority="high" alt="Micheal Breedlove — profile photo" />
+                                    </picture>
                                     <div class="dots-1">
                                         <!-- SVG Dots-->
                                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4" xml:space="preserve">
@@ -234,6 +239,7 @@
                                         <li>Self-healing AI cluster orchestration platform with adaptive routing and shared memory</li>
                                         <li>Distributed task queue with health-aware dispatch and automated failure recovery</li>
                                         <li>Proxmox virtualization, OPNsense firewall, ZFS-backed storage with snapshot policies</li>
+                                        <li>Network segmentation and zero-trust remote access (VLAN isolation, Tailscale mesh), with CI-enforced secret scanning across all repos — zero credential leaks</li>
                                         <li>SRE automation: SLO tracking, incident management, automated curation and DR drills</li>
                                         <li>CompTIA Tech+ certified, targeting Security+ · B.S. Cybersecurity at WGU (in progress)</li>
                                     </ul>
@@ -390,7 +396,7 @@
                                 <div class="card shadow border-0 rounded-4 h-100">
                                     <div class="card-body">
                                         <h6 class="fw-bolder">Infrastructure Status</h6>
-                                        <p>Live operational dashboard with node health, SLO metrics, queue activity, and cluster orchestration status — updated automatically.</p>
+                                        <p>Operational dashboard with node health, SLO metrics, queue activity, and cluster orchestration status — built from published cluster snapshots.</p>
                                         <span class="view-link">View Status &rarr;</span>
                                     </div>
                                 </div>
@@ -412,7 +418,11 @@
                     </div>
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-10">
-                            <div class="row gx-4 gy-4">
+                            <div class="row gx-4 gy-4 justify-content-center">
+                                <div class="col-md-4">
+                                    <h3 class="h5 fw-bolder mb-2"><i class="bi bi-shield-lock text-primary me-2"></i>Security Engineering</h3>
+                                    <p class="text-muted small mb-0">Network segmentation, zero-trust remote access, dedicated firewall (OPNsense), CI-enforced secret scanning, and audit-ready operational records.</p>
+                                </div>
                                 <div class="col-md-4">
                                     <h3 class="h5 fw-bolder mb-2"><i class="bi bi-gear text-primary me-2"></i>Infrastructure Automation</h3>
                                     <p class="text-muted small mb-0">Ansible, Proxmox, systemd, scheduled tasks, and infrastructure-as-code with CI/CD pipelines and GitOps workflows.</p>
@@ -448,7 +458,7 @@
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-8 text-center">
                             <p class="text-uppercase small fw-semibold text-muted mb-3" style="letter-spacing:0.08em;">What This Demonstrates</p>
-                            <p class="text-muted" style="line-height:1.8;">These projects show how I approach real infrastructure problems: design for failure, automate recovery, observe everything, and document decisions. I build systems that heal themselves, route work intelligently, and produce clear operational records — the same principles that matter at production scale.</p>
+                            <p class="text-muted" style="line-height:1.8;">These projects show how I approach real infrastructure problems: design for failure, automate recovery, observe everything, secure by default, and document decisions. I build systems that heal themselves, route work intelligently, keep secrets out of version control, and produce clear operational records — the same principles that matter at production scale.</p>
                             <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
                                 <a href="/ai-cluster.html" class="btn btn-primary btn-sm px-4">Architecture</a>
                                 <a href="/status.html" class="btn btn-outline-primary btn-sm px-4">Live Status</a>
@@ -464,7 +474,7 @@
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove <script>document.write(new Date().getFullYear())</script></div></div>
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Micheal Breedlove <span data-year>2026</span></div></div>
                     <div class="col-auto">
                         <a class="small" href="mailto:mikejohnbreedlove@gmail.com">Email</a>
                         <span class="mx-1">&middot;</span>

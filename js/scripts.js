@@ -21,3 +21,8 @@ function copyPageLink(btn) {
         window.prompt('Copy this link:', url);
     }
 }
+
+// Keep footer year current
+document.querySelectorAll('[data-year]').forEach(function (el) {
+    el.textContent = new Date().getFullYear();
+});
