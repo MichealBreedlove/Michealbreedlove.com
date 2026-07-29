@@ -1,0 +1,17 @@
+{
+  "repo_path": "C:\\Users\\mikej\\Michealbreedlove.com",
+  "nodes": [
+    { "name": "Jasper", "role": "Coordinator & AI Inference",  "host": "localhost" },
+    { "name": "Nova",   "role": "Automation & Monitoring",     "host": "nova" },
+    { "name": "Mira",   "role": "Network Analysis & Auditing", "host": "mira" },
+    { "name": "Orin",   "role": "Deep Analysis & Validation",  "host": "orin" }
+  ],
+  "paths": {
+    "queue_pending": null,
+    "queue_active": null,
+    "queue_completed": null,
+    "knowledge_docs": null,
+    "cluster_configs": null,
+    "dr_drill_marker": null
+  }
+}
