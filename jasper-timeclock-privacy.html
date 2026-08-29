@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta name="description" content="Privacy Policy for Jasper Timeclock MFA, including Gmail read-only access, local storage, retention, sharing, and revocation." />
+    <meta name="author" content="Micheal Breedlove" />
+    <title>Privacy Policy | Jasper Timeclock MFA</title>
+    <link rel="canonical" href="https://www.michealbreedlove.com/jasper-timeclock-privacy.html" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 p-2 bg-white rounded" href="#page-main">Skip to content</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container px-5">
+            <a class="navbar-brand" href="/jasper-timeclock.html"><span class="fw-bolder text-primary">Jasper Timeclock MFA</span></a>
+            <div class="ms-auto d-flex gap-3 small fw-bolder">
+                <a class="nav-link" href="/jasper-timeclock.html">App information</a>
+                <a class="nav-link" href="/jasper-timeclock-terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-grow-1" id="page-main">
+        <section class="py-5 bg-light">
+            <div class="container px-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-xl-8">
+                        <h1 class="display-5 fw-bolder mb-3"><span class="text-gradient d-inline">Privacy Policy</span></h1>
+                        <p class="text-muted mb-0">Jasper Timeclock MFA &middot; Effective August 29, 2026</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-5">
+            <div class="container px-5">
+                <div class="row justify-content-center">
+                    <article class="col-lg-9 col-xl-8">
+                        <h2 class="h4 fw-bolder mt-2">Overview</h2>
+                        <p>Jasper Timeclock MFA is a private, locally operated automation owned by Micheal Breedlove. It uses Google OAuth solely to retrieve a recent ExponentHR multifactor-authentication email after the operator deliberately requests a code.</p>
+
+                        <h2 class="h4 fw-bolder mt-5">Google user data accessed</h2>
+                        <p>The app requests <code>https://www.googleapis.com/auth/gmail.readonly</code>. This scope permits viewing Gmail messages and settings. The app’s implemented use is narrower: it searches for up to ten recent messages matching an ExponentHR sender and MFA-related terms, checks their timestamp, reads matching message content, and extracts a one-time verification code.</p>
+                        <p>The app does not send, modify, label, archive, or delete Gmail data.</p>
+
+                        <h2 class="h4 fw-bolder mt-5">How Google user data is used</h2>
+                        <p>Matching message data is used only to identify the current ExponentHR verification code and complete the authentication step associated with the operator’s timeclock request. It is not used for advertising, analytics, credit decisions, profiling, or unrelated automation.</p>
+
+                        <h2 class="h4 fw-bolder mt-5">Storage and retention</h2>
+                        <ul>
+                            <li>OAuth client configuration and the refresh token are stored in a local, git-ignored configuration file on the operator’s Windows computer.</li>
+                            <li>Fetched Gmail message content and the extracted code are processed in memory and are not intentionally written to the app’s logs or debug artifacts.</li>
+                            <li>Operational logs record success or failure events without intentionally recording the email body or MFA code.</li>
+                            <li>The refresh token is retained until it is replaced, revoked, or no longer needed.</li>
+                        </ul>
+
+                        <h2 class="h4 fw-bolder mt-5">Sharing and transfer</h2>
+                        <p>Google user data is not sold, rented, shared with advertisers, or disclosed to data brokers. The app communicates directly with Google’s OAuth and Gmail API endpoints from the operator’s local computer. The extracted one-time code is supplied only to ExponentHR for the authentication flow that caused the code to be sent.</p>
+
+                        <h2 class="h4 fw-bolder mt-5">Security</h2>
+                        <p>Access is limited to the operator’s local Windows account and the minimum OAuth scope used by the workflow. Secret configuration is excluded from version control. The automation fails closed if OAuth refresh, MFA retrieval, login state, or page state is uncertain.</p>
+
+                        <h2 class="h4 fw-bolder mt-5">Revoking access</h2>
+                        <p>The operator can revoke the app’s Google access at any time from <a href="https://myaccount.google.com/connections" target="_blank" rel="noopener">Google Account third-party connections</a>. Revocation prevents future Gmail API access until a new authorization is granted.</p>
+
+                        <h2 class="h4 fw-bolder mt-5">Google API Services User Data Policy</h2>
+                        <p>Jasper Timeclock MFA’s use and transfer of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including its Limited Use requirements.</p>
+
+                        <h2 class="h4 fw-bolder mt-5">Changes</h2>
+                        <p>This policy will be updated if the app’s data access or handling changes. The effective date above identifies the current version.</p>
+
+                        <h2 class="h4 fw-bolder mt-5">Contact</h2>
+                        <p>Questions about this policy or Google data handling may be sent to <a href="mailto:mikejohnbreedlove@gmail.com">the app operator</a>.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-white py-4 mt-auto">
+        <div class="container px-5 d-flex flex-wrap justify-content-between gap-2 small">
+            <span>Copyright &copy; Micheal Breedlove 2026</span>
+            <span><a href="/jasper-timeclock.html">App information</a> &middot; <a href="/jasper-timeclock-terms.html">Terms</a> &middot; <a href="/contact.html">Contact</a></span>
+        </div>
+    </footer>
+</body>
+</html>

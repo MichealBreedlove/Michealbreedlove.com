@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta name="description" content="Jasper Timeclock MFA is a private, local automation that reads recent ExponentHR MFA emails through Gmail read-only access." />
+    <meta name="author" content="Micheal Breedlove" />
+    <title>Jasper Timeclock MFA | App Information</title>
+    <link rel="canonical" href="https://www.michealbreedlove.com/jasper-timeclock.html" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 p-2 bg-white rounded" href="#page-main">Skip to content</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+        <div class="container px-5">
+            <a class="navbar-brand" href="/index.html"><span class="fw-bolder text-primary">Micheal Breedlove</span></a>
+            <div class="ms-auto d-flex gap-3 small fw-bolder">
+                <a class="nav-link" href="/jasper-timeclock-privacy.html">Privacy</a>
+                <a class="nav-link" href="/jasper-timeclock-terms.html">Terms</a>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-grow-1" id="page-main">
+        <section class="py-5 bg-light">
+            <div class="container px-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-xl-8">
+                        <p class="text-uppercase small fw-semibold text-muted mb-2" style="letter-spacing:0.08em;">Private local automation</p>
+                        <h1 class="display-5 fw-bolder mb-3"><span class="text-gradient d-inline">Jasper Timeclock MFA</span></h1>
+                        <p class="lead text-muted">A personal safety-focused helper that retrieves a recent ExponentHR one-time verification code from Gmail after an MFA request.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-5">
+            <div class="container px-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 col-xl-8">
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4 p-lg-5">
+                                <h2 class="h3 fw-bolder">What the app does</h2>
+                                <p>Jasper Timeclock MFA runs on the operator’s Windows computer as part of a private ExponentHR timeclock workflow. When ExponentHR requests multifactor authentication, the app searches for a recent message from <code>exponenthr.com</code>, reads the matching message, extracts the one-time code, and uses that code only to complete the requested authentication step.</p>
+                                <p class="mb-0">The app is not a general email client and is not offered as a public service.</p>
+                            </div>
+                        </div>
+                        <div class="card shadow border-0 rounded-4 mb-4">
+                            <div class="card-body p-4 p-lg-5">
+                                <h2 class="h3 fw-bolder">Google data access</h2>
+                                <p>The app requests only the Gmail read-only OAuth scope:</p>
+                                <p><code>https://www.googleapis.com/auth/gmail.readonly</code></p>
+                                <ul class="text-muted">
+                                    <li>It does not send, modify, label, archive, or delete email.</li>
+                                    <li>It searches for recent ExponentHR MFA messages and reads only matching results needed for the authentication attempt.</li>
+                                    <li>It does not use Google data for advertising, profiling, or sale.</li>
+                                </ul>
+                                <p class="mb-0">See the <a href="/jasper-timeclock-privacy.html">Privacy Policy</a> for retention, sharing, security, and revocation details.</p>
+                            </div>
+                        </div>
+                        <div class="card shadow border-0 rounded-4">
+                            <div class="card-body p-4 p-lg-5">
+                                <h2 class="h3 fw-bolder">Operator and support</h2>
+                                <p>Jasper Timeclock MFA is operated by Micheal Breedlove for personal use.</p>
+                                <p class="mb-0">Questions: <a href="mailto:mikejohnbreedlove@gmail.com">contact the operator</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-white py-4 mt-auto">
+        <div class="container px-5 d-flex flex-wrap justify-content-between gap-2 small">
+            <span>Copyright &copy; Micheal Breedlove 2026</span>
+            <span><a href="/jasper-timeclock-privacy.html">Privacy</a> &middot; <a href="/jasper-timeclock-terms.html">Terms</a> &middot; <a href="/contact.html">Contact</a></span>
+        </div>
+    </footer>
+</body>
+</html>
