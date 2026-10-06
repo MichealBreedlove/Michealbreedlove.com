@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Case study: GitOps backup system with automated secret scanning for a 4-node homelab. Daily commits, 11 secret patterns blocked, zero credential leaks." />
+        <meta name="description" content="STAR case study: GitOps configuration-state capture for a mixed Windows/Linux fleet with two-layer secrets control — pre-commit sanitization plus a CI secret-scanning gate. 11 patterns blocked, zero credential exposure, 30-minute node rebuild." />
         <meta name="author" content="Micheal Breedlove" />
-        <title>Case Study: GitOps Backups | Micheal Breedlove</title>
+        <title>Case Study: GitOps State Capture &amp; CI Secrets Control (STAR) | Micheal Breedlove</title>
         <link rel="canonical" href="https://www.michealbreedlove.com/case-study-gitops-backups.html" />
         <meta property="og:title" content="Case Study: GitOps Backups — Micheal Breedlove" />
-        <meta property="og:description" content="Automated daily backups with secret scanning for a 4-node homelab. 11 patterns blocked, zero leaks." />
+        <meta property="og:description" content="GitOps state capture with CI-enforced secrets control for a four-node private cloud. 11 patterns blocked, zero credential exposure." />
         <meta property="og:url" content="https://www.michealbreedlove.com/case-study-gitops-backups.html" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-case-gitops.png" />
         <meta name="twitter:card" content="summary_large_image" />
         
         <meta name="twitter:title" content="Case Study: GitOps Backups — Micheal Breedlove" />
-        <meta name="twitter:description" content="Automated daily backups with secret scanning for a 4-node homelab. 11 patterns blocked, zero leaks." />
+        <meta name="twitter:description" content="GitOps state capture with CI-enforced secrets control for a four-node private cloud. 11 patterns blocked, zero credential exposure." />
         <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-case-gitops.png" />
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,6 +23,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://www.michealbreedlove.com/case-study-gitops-backups.html#article","url":"https://www.michealbreedlove.com/case-study-gitops-backups.html","headline":"GitOps State Capture & CI-Enforced Secrets Control (STAR Case Study)","description":"Versioned infrastructure state for a mixed Windows/Linux fleet with two-layer secrets control: pre-commit sanitization and a GitHub Actions gate enforcing 11 secret patterns. Zero credential exposure, 30-minute node rebuild (RTO), 24-hour RPO, full Git audit trail.","author":{"@type":"Person","@id":"https://www.michealbreedlove.com/#person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com/"},"publisher":{"@type":"Person","@id":"https://www.michealbreedlove.com/#person","name":"Micheal Breedlove"},"inLanguage":"en-US","dateModified":"2026-10-06","about":["DevSecOps","GitOps","Secret Scanning","CI/CD Security Gates","Disaster Recovery","Infrastructure as Code","Configuration Management"],"isPartOf":{"@type":"WebSite","@id":"https://www.michealbreedlove.com/#website"}}</script>
             <!-- Analytics: uncomment and set domain for Plausible (privacy-friendly, no cookies) -->
         <!-- <script defer data-domain="michealbreedlove.com" src="https://plausible.io/js/script.js"></script> -->
     </head>
@@ -50,7 +51,7 @@
             <!-- Open to roles -->
             <div class="subnav-strip">
                 <div class="container">
-                    Security · Infrastructure · Reliability Engineering — Fairfield, CA. <a href="/contact.html">Get in touch →</a>
+                    Actively seeking DevSecOps · SRE · Security Engineering roles &nbsp;·&nbsp; Prior TS/SCI (eligible for reinvestigation) &nbsp;·&nbsp; Fairfield, CA / Remote &nbsp;·&nbsp; <a href="/contact.html">Get in touch →</a>
                 </div>
             </div>
 
@@ -64,40 +65,58 @@
                             <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
                                 <div>
                                     <span class="badge bg-danger mb-3">Flagship Case Study</span>
-                                    <h1 class="display-5 fw-bolder mb-3">GitOps Backup &amp; Secret Scanning</h1>
+                                    <h1 class="display-5 fw-bolder mb-3">GitOps State Capture &amp; CI-Enforced Secrets Control</h1>
                                 </div>
                                 <button class="btn-copy-link mt-2" onclick="copyPageLink(this)" aria-label="Copy link to this case study"><i class="bi bi-link-45deg me-1"></i>Copy link</button>
                             </div>
-                            <p class="lead text-muted">Automated compliance-grade backups with CI-enforced secrets hygiene — because one leaked API key can ruin your week.</p>
+                            <p class="lead text-muted">Versioned, auditable infrastructure state for a mixed Windows/Linux fleet, protected by two independent secrets controls — pre-commit sanitization and a CI gate that blocks the merge. Zero credential exposure since deployment.</p>
 
+                            <!-- STAR: Situation -->
                             <div class="card shadow border-0 rounded-4 mb-4">
                                 <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Problem</h2>
-                                    <p>Infrastructure configs were scattered across 4 nodes with no central backup, no change history, and no protection against accidentally committing secrets. If a node died, recreation would require remembering what was installed and configured — a disaster recovery nightmare.</p>
-                                    <p class="mb-0 text-muted"><strong>Real constraint:</strong> Mixed OS fleet (Windows + Linux). No enterprise backup solution budget. Must work with GitHub free tier. Must never leak credentials even if someone (me) makes a mistake.</p>
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Situation</h2>
+                                    <p>Configuration state for a four-node fleet lived only on the nodes themselves: no central capture, no change history, and no control preventing a credential from landing in version control. Losing a node meant rebuilding it from memory — an unbounded recovery time and an unauditable one.</p>
+                                    <p class="mb-0 text-muted"><strong>Constraints:</strong> mixed operating systems (Windows and Linux), no budget for an enterprise backup product, GitHub free tier only, and a hard requirement that a credential can never be exposed even when the operator makes a mistake.</p>
                                 </div>
                             </div>
 
+                            <!-- STAR: Task -->
                             <div class="card shadow border-0 rounded-4 mb-4">
                                 <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-diagram-3 me-2"></i>Architecture</h2>
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-bullseye me-2"></i>Task</h2>
+                                    <ul class="mb-0 star-list">
+                                        <li>Capture every node's configuration and service state as code on a daily cadence, with a full audit trail.</li>
+                                        <li>Sanitize secrets before commit and enforce the same rule in CI so nothing that slips the local filter can merge.</li>
+                                        <li>Apply one policy across Windows and Linux with platform-native tooling.</li>
+                                        <li>Deliver a tested rebuild path with a bounded recovery time objective.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- STAR: Action -->
+                            <div class="card shadow border-0 rounded-4 mb-4">
+                                <div class="card-body p-5">
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-diagram-3 me-2"></i>Action</h2>
                                     <div class="bg-light rounded-4 p-4 mb-3" style="font-family: monospace; font-size: 0.85rem; line-height: 1.8;">
                                         Each Node (daily timer) → Collect State → Sanitize Secrets → Git Commit<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Git Push → GitHub Actions CI Gate<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Merge &nbsp;&nbsp;&nbsp;🚫 Block + Alert
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Merge&nbsp;&nbsp;&nbsp;&nbsp;🚫 Block + Alert
                                     </div>
-                                    <p class="small text-muted">Two layers of defense: the sanitize script strips secrets <em>before</em> commit, and the CI gate catches anything that slips through.</p>
-                                </div>
-                            </div>
-
-                            <div class="card shadow border-0 rounded-4 mb-4">
-                                <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-gear me-2"></i>Implementation</h2>
+                                    <p class="small text-muted">Defense in depth: the sanitizer strips secrets <em>before</em> commit, and the CI gate independently rejects anything that slips through.</p>
+                                    <ul class="text-muted star-list">
+                                        <li><strong>Linux collection (Nova, Mira, Orin).</strong> systemd user timers run a full state capture daily at 02:30 plus an hourly delta sync; Bash collectors gather system and service state.</li>
+                                        <li><strong>Windows collection (Jasper).</strong> PowerShell collectors capture OS, GPU, and service state via Task Scheduler on the same daily cadence — different tooling, identical policy.</li>
+                                        <li><strong>Pre-commit sanitization.</strong> Regex-based stripping of API keys, tokens, private keys, emails, and phone numbers on both platforms.</li>
+                                        <li><strong>CI secret-scanning gate.</strong> A GitHub Actions workflow scans every push against 11 secret patterns and a filename blocklist (<code>.env</code>, <code>auth-profiles.json</code>) and blocks the merge on any match.</li>
+                                        <li><strong>Segregated repository layout.</strong> Each node owns its directory, so a compromised or misbehaving node cannot overwrite another's state.</li>
+                                        <li><strong>Runbooks.</strong> Credential policy documentation, an incident-response runbook for a suspected leak, and a tested node-rebuild procedure.</li>
+                                    </ul>
+                                    <h6 class="fw-bolder mt-4 mb-3">Implementation</h6>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h6 class="fw-bolder">Linux Nodes (Nova/Mira/Orin)</h6>
+                                            <h6 class="fw-bolder small text-uppercase text-muted">Linux Nodes (Nova/Mira/Orin)</h6>
                                             <ul class="small text-muted">
                                                 <li><code>lab-backup.sh</code> — Collect system + OpenClaw state</li>
                                                 <li><code>lab-sanitize.sh</code> — Regex-based secret stripping</li>
@@ -107,14 +126,14 @@
                                             </ul>
                                         </div>
                                         <div class="col-md-6">
-                                            <h6 class="fw-bolder">Windows Node (Jasper)</h6>
+                                            <h6 class="fw-bolder small text-uppercase text-muted">Windows Node (Jasper)</h6>
                                             <ul class="small text-muted">
                                                 <li><code>LabBackup.ps1</code> — Collect OS, GPU, OpenClaw state</li>
                                                 <li><code>Sanitize.ps1</code> — PowerShell secret stripping</li>
                                                 <li><code>SetupScheduledTask.ps1</code> — Task Scheduler setup</li>
                                                 <li>Daily backup at 02:30 AM</li>
                                             </ul>
-                                            <h6 class="fw-bolder mt-3">CI Gate</h6>
+                                            <h6 class="fw-bolder small text-uppercase text-muted mt-3">CI Gate</h6>
                                             <ul class="small text-muted">
                                                 <li><code>verify-no-secrets.yml</code> — GitHub Actions workflow</li>
                                                 <li>11 regex patterns (API keys, tokens, private keys, etc.)</li>
@@ -125,44 +144,47 @@
                                 </div>
                             </div>
 
+                            <!-- STAR: Result -->
                             <div class="card shadow border-0 rounded-4 mb-4">
                                 <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-graph-up me-2"></i>Results</h2>
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-graph-up me-2"></i>Result</h2>
                                     <div class="row row-cols-2 row-cols-md-4 g-3 mb-3">
                                         <div class="col text-center">
-                                            <div class="display-6 fw-bolder text-primary">4</div>
-                                            <small class="text-muted">Nodes backed up</small>
+                                            <div class="display-6 fw-bolder text-primary">0</div>
+                                            <small class="text-muted">Credential exposures</small>
                                         </div>
                                         <div class="col text-center">
                                             <div class="display-6 fw-bolder text-primary">11</div>
-                                            <small class="text-muted">Secret patterns blocked</small>
+                                            <small class="text-muted">Secret patterns enforced</small>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="display-6 fw-bolder text-primary">0</div>
-                                            <small class="text-muted">Credential leaks</small>
+                                            <div class="display-6 fw-bolder text-primary">30m</div>
+                                            <small class="text-muted">Node rebuild (RTO)</small>
                                         </div>
                                         <div class="col text-center">
                                             <div class="display-6 fw-bolder text-primary">24h</div>
-                                            <small class="text-muted">Max data loss window</small>
+                                            <small class="text-muted">Max data loss (RPO)</small>
                                         </div>
                                     </div>
-                                    <ul class="small text-muted">
-                                        <li>Full disaster recovery: clone repo → follow runbook → 30 minutes to rebuild a node</li>
-                                        <li>Audit trail: every config change tracked in Git with timestamps</li>
-                                        <li>Cross-platform: works identically on Windows and Linux</li>
-                                        <li>Self-documenting: each backup includes system specs, services, and health data</li>
+                                    <ul class="text-muted star-list mb-0">
+                                        <li><strong>Recovery:</strong> clone the repository, follow the runbook, and a node is rebuilt in 30 minutes — a bounded, tested RTO instead of an unknown.</li>
+                                        <li><strong>Security:</strong> zero credential exposures since deployment, with two independent controls between an operator mistake and the remote.</li>
+                                        <li><strong>Auditability:</strong> every configuration change across 4 nodes is tracked in Git with timestamps and diffs.</li>
+                                        <li><strong>Consistency:</strong> one policy enforced identically on Windows and Linux.</li>
+                                        <li><strong>Self-documenting:</strong> each capture includes system specs, services, and health data, so the repository doubles as live infrastructure documentation.</li>
                                     </ul>
                                 </div>
                             </div>
 
+                            <!-- Lessons Learned -->
                             <div class="card shadow border-0 rounded-4 mb-4">
                                 <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-lightbulb me-2"></i>Lessons Learned</h2>
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-lightbulb me-2"></i>Lessons &amp; Next Steps</h2>
                                     <ul class="text-muted">
-                                        <li><strong>Defense in depth for secrets.</strong> One layer isn't enough. The sanitize script catches known patterns locally; the CI gate catches anything that evolves past the local filter.</li>
-                                        <li><strong>Windows and Linux need different tooling, same policy.</strong> PowerShell and Bash scripts look different but enforce identical backup and sanitization rules.</li>
-                                        <li><strong>Backups you don't test aren't backups.</strong> The restore runbook is tested by actually rebuilding nodes from the repo.</li>
-                                        <li><strong>Git as a backup medium is underrated.</strong> Free, versioned, diffable, hosted offsite, with built-in CI hooks.</li>
+                                        <li><strong>Defense in depth for secrets.</strong> One layer is not enough. The sanitizer catches known patterns locally; the CI gate catches anything that evolves past the local filter.</li>
+                                        <li><strong>Different tooling, one policy.</strong> PowerShell and Bash implementations look different but enforce identical capture and sanitization rules.</li>
+                                        <li><strong>Untested backups are not backups.</strong> The restore runbook is validated by actually rebuilding nodes from the repository.</li>
+                                        <li><strong>Git is a strong state store.</strong> Versioned, diffable, hosted off-site, and with CI hooks built in.</li>
                                     </ul>
                                     <h6 class="fw-bolder mt-4">Next Steps</h6>
                                     <ul class="small text-muted">
@@ -197,7 +219,7 @@
                                 <div class="results-grid mt-3">
                                     <div class="result-item"><div class="number">4</div><div class="label">Nodes backed up</div></div>
                                     <div class="result-item"><div class="number">11</div><div class="label">Patterns blocked</div></div>
-                                    <div class="result-item"><div class="number">0</div><div class="label">Credential leaks</div></div>
+                                    <div class="result-item"><div class="number">0</div><div class="label">Credential exposures</div></div>
                                     <div class="result-item"><div class="number">24h</div><div class="label">Max data loss</div></div>
                                     <div class="result-item"><div class="number">30m</div><div class="label">Node rebuild time</div></div>
                                 </div>

@@ -21,7 +21,7 @@ Infrastructure Automation · Reliability Engineering · Distributed Systems · L
 ## Experience
 
 ### Infrastructure & Reliability Engineer
-**Independent / Home Lab** | 2024 – Present
+**Independent / Self-Hosted Private Cloud** | 2024 – Present
 
 - Designed and operate a distributed orchestration platform coordinating four compute nodes with health-aware task routing and automated recovery workflows
 - Implemented adaptive routing engine that scores task assignments based on node health, role fitness, and observed execution performance

@@ -4,17 +4,17 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-        <meta name="description" content="How I built an SRE reliability pipeline in a homelab — SLOs, burn-rate alerting, incident management, and postmortem automation." />
+        <meta name="description" content="How I built an SRE reliability pipeline for a self-hosted four-node private cloud — SLOs, burn-rate alerting, incident management, and postmortem automation." />
         <meta name="author" content="Micheal Breedlove" />
-        <title>Building an SRE Reliability Pipeline in a Homelab | Micheal Breedlove</title>
+        <title>Building an SRE Reliability Pipeline for a Self-Hosted Private Cloud | Micheal Breedlove</title>
         <link rel="canonical" href="https://www.michealbreedlove.com/article-sre-pipeline.html" />
-        <meta property="og:title" content="Building an SRE Reliability Pipeline in a Homelab" />
+        <meta property="og:title" content="Building an SRE Reliability Pipeline for a Self-Hosted Private Cloud" />
         <meta property="og:description" content="SLOs, burn-rate alerting, incident management, and postmortem automation — applied to real infrastructure." />
         <meta property="og:url" content="https://www.michealbreedlove.com/article-sre-pipeline.html" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-article-sre.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Building an SRE Reliability Pipeline in a Homelab" />
+        <meta name="twitter:title" content="Building an SRE Reliability Pipeline for a Self-Hosted Private Cloud" />
         <meta name="twitter:description" content="SLOs, burn-rate alerting, incident management, and postmortem automation — applied to real infrastructure." />
         <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-article-sre.png" />
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -49,7 +49,7 @@
             <!-- Open to roles -->
             <div class="subnav-strip">
                 <div class="container">
-                    Security · Infrastructure · Reliability Engineering — Fairfield, CA. <a href="/contact.html">Get in touch →</a>
+                    Actively seeking DevSecOps · SRE · Security Engineering roles &nbsp;·&nbsp; Prior TS/SCI (eligible for reinvestigation) &nbsp;·&nbsp; Fairfield, CA / Remote &nbsp;·&nbsp; <a href="/contact.html">Get in touch →</a>
                 </div>
             </div>
 
@@ -59,15 +59,15 @@
                     <div class="col-lg-8">
 
                         <p class="small text-muted mb-2">2026-03-05 · 8 min read</p>
-                        <h1 class="display-5 fw-bolder mb-4">Building an SRE Reliability Pipeline in a Homelab</h1>
+                        <h1 class="display-5 fw-bolder mb-4">Building an SRE Reliability Pipeline for a Self-Hosted Private Cloud</h1>
 
-                        <p class="lead text-muted mb-5">Most homelab projects stop at "it works." This one adds SLOs, burn-rate alerting, incident management, and auto-generated postmortems — the same practices used at companies running production infrastructure at scale.</p>
+                        <p class="lead text-muted mb-5">Most self-hosted infrastructure stops at "it works." This one adds SLOs, burn-rate alerting, incident management, and auto-generated postmortems — the same practices used at companies running production infrastructure at scale.</p>
 
                         <!-- Why Reliability Matters -->
-                        <h2 class="fw-bolder mb-3">Why reliability matters (even in a homelab)</h2>
+                        <h2 class="fw-bolder mb-3">Why reliability matters (even at four nodes)</h2>
                         <p>"It's up" is not a reliability strategy. Services fail. Disks fill. Configs drift. Without measurement, you don't know if your systems are reliable — you just know they haven't broken yet.</p>
                         <p>SRE practices give you a framework to answer: <em>How reliable is this? Is it getting better or worse? When should I invest in fixing it?</em></p>
-                        <p>Applying this to a homelab also builds real skills. Employers hiring for SRE, platform, and DevSecOps roles want to see that you understand error budgets, incident response, and operational discipline — not just that you can spin up a VM.</p>
+                        <p>Applying this at small scale also builds real skills. Employers hiring for SRE, platform, and DevSecOps roles want to see that you understand error budgets, incident response, and operational discipline — not just that you can spin up a VM.</p>
 
                         <!-- Architecture -->
                         <h2 class="fw-bolder mt-5 mb-3">Architecture of the lab</h2>
@@ -110,7 +110,7 @@
                             <li><strong>1.0× – 2.0×</strong> — Warning. Budget will be exhausted before the window closes at this rate.</li>
                             <li><strong>&gt; 2.0×</strong> — Critical. SLO breach is likely. Safety gates activate.</li>
                         </ul>
-                        <p>This is the same approach Google describes in the <em>SRE Workbook</em>, adapted to a homelab scale. The math is identical — the difference is the number of services, not the methodology.</p>
+                        <p>This is the same approach Google describes in the <em>SRE Workbook</em>, adapted to four-node scale. The math is identical — the difference is the number of services, not the methodology.</p>
 
                         <!-- Incident Management -->
                         <h2 class="fw-bolder mt-5 mb-3">Incident management workflow</h2>
