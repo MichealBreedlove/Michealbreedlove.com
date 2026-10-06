@@ -3,19 +3,19 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Case study: Building a Google-style SRE pipeline for a homelab — SLOs, error budgets, burn rates, incident management, and postmortem generation." />
+        <meta name="description" content="STAR case study: SLO-driven reliability engineering for a four-node private cloud — error budgets, multi-window burn-rate alerting, automated incident lifecycle, generated postmortems, and safety gates that limit blast radius. 13-minute average TTR, zero false positives." />
         <meta name="author" content="Micheal Breedlove" />
-        <title>Case Study: SRE Pipeline | Micheal Breedlove</title>
+        <title>Case Study: SRE Reliability Pipeline (STAR) | Micheal Breedlove</title>
         <link rel="canonical" href="https://www.michealbreedlove.com/case-study-sre-pipeline.html" />
         <meta property="og:title" content="Case Study: SRE Pipeline — Micheal Breedlove" />
-        <meta property="og:description" content="Google-style SRE for a homelab: SLOs, error budgets, burn rates, incident management, postmortems." />
+        <meta property="og:description" content="SLO-driven SRE for a four-node private cloud: error budgets, burn-rate alerting, automated incidents, postmortems, safety gates." />
         <meta property="og:url" content="https://www.michealbreedlove.com/case-study-sre-pipeline.html" />
         <meta property="og:type" content="article" />
         <meta property="og:image" content="https://www.michealbreedlove.com/assets/og/og-case-sre.png" />
         <meta name="twitter:card" content="summary_large_image" />
         
         <meta name="twitter:title" content="Case Study: SRE Pipeline — Micheal Breedlove" />
-        <meta name="twitter:description" content="Google-style SRE for a homelab: SLOs, error budgets, burn rates, incident management, postmortems." />
+        <meta name="twitter:description" content="SLO-driven SRE for a four-node private cloud: error budgets, burn-rate alerting, automated incidents, postmortems, safety gates." />
         <meta name="twitter:image" content="https://www.michealbreedlove.com/assets/og/og-case-sre.png" />
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,6 +23,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://www.michealbreedlove.com/case-study-sre-pipeline.html#article","url":"https://www.michealbreedlove.com/case-study-sre-pipeline.html","headline":"SRE Reliability Pipeline: SLOs, Error Budgets & Automated Incident Response (STAR Case Study)","description":"SLO-driven reliability engineering for a four-node private cloud: 6 SLOs across 5 rolling windows, multi-window burn-rate alerting, automated incident lifecycle with generated postmortems, and a safety gatekeeper that blocks risky automation during error-budget burn. 13-minute average time to resolve, zero false-positive alerts.","author":{"@type":"Person","@id":"https://www.michealbreedlove.com/#person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com/"},"publisher":{"@type":"Person","@id":"https://www.michealbreedlove.com/#person","name":"Micheal Breedlove"},"inLanguage":"en-US","dateModified":"2026-10-06","about":["Site Reliability Engineering","Service Level Objectives","Error Budgets","Burn-Rate Alerting","Incident Management","Postmortems","Blast Radius Reduction"],"isPartOf":{"@type":"WebSite","@id":"https://www.michealbreedlove.com/#website"}}</script>
             <!-- Analytics: uncomment and set domain for Plausible (privacy-friendly, no cookies) -->
         <!-- <script defer data-domain="michealbreedlove.com" src="https://plausible.io/js/script.js"></script> -->
     </head>
@@ -50,7 +51,7 @@
             <!-- Open to roles -->
             <div class="subnav-strip">
                 <div class="container">
-                    Security · Infrastructure · Reliability Engineering — Fairfield, CA. <a href="/contact.html">Get in touch →</a>
+                    Actively seeking DevSecOps · SRE · Security Engineering roles &nbsp;·&nbsp; Prior TS/SCI (eligible for reinvestigation) &nbsp;·&nbsp; Fairfield, CA / Remote &nbsp;·&nbsp; <a href="/contact.html">Get in touch →</a>
                 </div>
             </div>
 
@@ -64,43 +65,58 @@
                             <div class="d-flex align-items-start justify-content-between flex-wrap gap-2">
                                 <div>
                                     <span class="badge bg-danger mb-3">Flagship Case Study</span>
-                                    <h1 class="display-5 fw-bolder mb-3">SRE Automation Pipeline</h1>
+                                    <h1 class="display-5 fw-bolder mb-3">SRE Reliability Pipeline: SLOs, Error Budgets &amp; Automated Incident Response</h1>
                                 </div>
                                 <button class="btn-copy-link mt-2" onclick="copyPageLink(this)" aria-label="Copy link to this case study"><i class="bi bi-link-45deg me-1"></i>Copy link</button>
                             </div>
-                            <p class="lead text-muted">Google-style site reliability engineering applied to a 4-node homelab — because even personal infrastructure deserves production-grade reliability.</p>
+                            <p class="lead text-muted">SLO-driven reliability engineering for a four-node private cloud: error budgets, multi-window burn-rate alerting, an automated incident lifecycle, and safety gates that shrink the blast radius of automation while reliability is degraded.</p>
 
-                            <!-- Problem -->
+                            <!-- STAR: Situation -->
                             <div class="card shadow border-0 rounded-4 mb-4">
                                 <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Problem</h2>
-                                    <p>Manual monitoring doesn't scale. Even on a 4-node homelab, I was spending time SSH-ing into machines to check if services were healthy. When something broke, I'd discover it hours later. No structured way to track reliability, no history of incidents, no way to prove operational maturity to a hiring manager.</p>
-                                    <p class="mb-0 text-muted"><strong>Real constraint:</strong> This is a homelab, not a cloud environment. No Datadog, no PagerDuty, no SaaS monitoring. Everything had to be built from scratch, self-hosted, and cost $0.</p>
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-exclamation-triangle me-2"></i>Situation</h2>
+                                    <p>A four-node private cloud running GPU inference, storage, and automation services had no reliability instrumentation. Service health was verified by hand over SSH, failures were discovered hours after they began, and there was no incident history, no error budget, and no objective signal for when automation was safe to run.</p>
+                                    <p class="mb-0 text-muted"><strong>Constraints:</strong> fully self-hosted at zero recurring cost — no SaaS observability or paging (no Datadog, no PagerDuty). Reliability had to be engineered from first principles and hold up to review by an SRE hiring panel.</p>
                                 </div>
                             </div>
 
-                            <!-- Architecture -->
+                            <!-- STAR: Task -->
                             <div class="card shadow border-0 rounded-4 mb-4">
                                 <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-diagram-3 me-2"></i>Architecture</h2>
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-bullseye me-2"></i>Task</h2>
+                                    <p>Design and ship a production-grade reliability control loop:</p>
+                                    <ul class="mb-0 star-list">
+                                        <li>Define SLIs and SLOs per service and track error budgets across multiple rolling windows.</li>
+                                        <li>Alert on burn rate instead of static thresholds, so fast outages and slow degradation both surface without paging noise.</li>
+                                        <li>Open, track, and close incidents automatically with a timeline and evidence attached, and generate the postmortem.</li>
+                                        <li>Feed reliability state into a safety gatekeeper so automation that could widen an outage is blocked while the budget is burning — blast-radius reduction by design.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- STAR: Action -->
+                            <div class="card shadow border-0 rounded-4 mb-4">
+                                <div class="card-body p-5">
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-diagram-3 me-2"></i>Action</h2>
                                     <div class="bg-light rounded-4 p-4 mb-3" style="font-family: monospace; font-size: 0.85rem; line-height: 1.8;">
                                         Snapshots → SLI Sources → SLI Compute → Error Budget<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Burn Rate → Alerts → Incidents<br>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Burn Rate → Alerts → Incidents → Gatekeeper<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Timeline → Evidence → Postmortem → Dashboard
                                     </div>
-                                    <p class="small text-muted">Each box is a Python module. The pipeline runs on every SLO evaluation tick and feeds into the safety gatekeeper to block risky automation when reliability is degraded.</p>
-                                </div>
-                            </div>
-
-                            <!-- Implementation -->
-                            <div class="card shadow border-0 rounded-4 mb-4">
-                                <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-gear me-2"></i>Implementation</h2>
+                                    <p class="small text-muted">Each stage is an independent Python module. The pipeline runs on every SLO evaluation tick and publishes state to both the dashboard and the safety gatekeeper.</p>
+                                    <ul class="text-muted star-list">
+                                        <li><strong>Modeled the SLOs.</strong> Availability objectives for the inference gateway (99.9%), model serving (99.5%), dashboard (99%), and node connectivity (99.5%), with error budgets computed over 1h, 6h, 24h, 7d, and 30d rolling windows.</li>
+                                        <li><strong>Implemented multi-window burn-rate alerting.</strong> Fast (14x over 1h), medium (6x over 6h), and slow (2x over 24h) thresholds catch sharp outages and slow bleeds alike; a single static threshold did neither.</li>
+                                        <li><strong>Built the Incident Commander.</strong> Auto-opens an incident when burn crosses threshold, records a timestamped timeline, links the evidence pack, enforces a cooldown against alert storms, auto-closes after a configurable TTL, and renders the postmortem.</li>
+                                        <li><strong>Wired reliability into the safety gatekeeper.</strong> Automation classified as risky is denied while any SLO is in fast or medium burn, so the control plane cannot compound an active incident.</li>
+                                        <li><strong>Verified it.</strong> 38 automated tests cover SLI computation, budget math, burn-rate windows, and the incident lifecycle. Reports publish to the dashboard and Telegram.</li>
+                                    </ul>
+                                    <h6 class="fw-bolder mt-4 mb-3">Implementation</h6>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <h6 class="fw-bolder">SLO Engine</h6>
+                                            <h6 class="fw-bolder small text-uppercase text-muted">SLO Engine</h6>
                                             <ul class="small text-muted">
                                                 <li><code>sli_sources.py</code> — Load raw signals from snapshots</li>
                                                 <li><code>sli_compute.py</code> — Compute SLIs per rolling window</li>
@@ -112,7 +128,7 @@
                                             </ul>
                                         </div>
                                         <div class="col-md-6">
-                                            <h6 class="fw-bolder">Incident Commander</h6>
+                                            <h6 class="fw-bolder small text-uppercase text-muted">Incident Commander</h6>
                                             <ul class="small text-muted">
                                                 <li><code>incident_state.py</code> — Lifecycle (create/update/close)</li>
                                                 <li><code>incident_manager.py</code> — CLI + auto-trigger engine</li>
@@ -127,10 +143,10 @@
                                 </div>
                             </div>
 
-                            <!-- Results -->
+                            <!-- STAR: Result -->
                             <div class="card shadow border-0 rounded-4 mb-4">
                                 <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-graph-up me-2"></i>Results</h2>
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-graph-up me-2"></i>Result</h2>
                                     <div class="row row-cols-2 row-cols-md-4 g-3 mb-3">
                                         <div class="col text-center">
                                             <div class="display-6 fw-bolder text-primary">6</div>
@@ -141,19 +157,21 @@
                                             <small class="text-muted">Rolling windows</small>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="display-6 fw-bolder text-primary">38</div>
-                                            <small class="text-muted">Tests passing</small>
+                                            <div class="display-6 fw-bolder text-primary">13m</div>
+                                            <small class="text-muted">Avg time to resolve</small>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="display-6 fw-bolder text-primary">13m</div>
-                                            <small class="text-muted">Avg incident TTR</small>
+                                            <div class="display-6 fw-bolder text-primary">0</div>
+                                            <small class="text-muted">False-positive alerts</small>
                                         </div>
                                     </div>
-                                    <ul class="small text-muted">
-                                        <li>SLO targets: Gateway 99.9%, Ollama 99.5%, Dashboard 99%, Node connectivity 99.5%</li>
-                                        <li>Burn rate thresholds: fast (14x/1h), medium (6x/6h), slow (2x/24h)</li>
-                                        <li>Incidents auto-created within 2 minutes of SLO degradation</li>
-                                        <li>Postmortems auto-generated with root cause, timeline, lessons, action items</li>
+                                    <ul class="text-muted star-list mb-0">
+                                        <li><strong>Detection:</strong> incidents open automatically within 2 minutes of SLO degradation, replacing hours of undetected downtime.</li>
+                                        <li><strong>Resolution:</strong> 13-minute average time to resolve, with every incident carrying a timeline and linked evidence.</li>
+                                        <li><strong>Signal quality:</strong> zero false-positive alerts since multi-window burn rates replaced static thresholds.</li>
+                                        <li><strong>Audit trail:</strong> every incident produces a postmortem with root cause, timeline, lessons, and action items.</li>
+                                        <li><strong>Blast radius:</strong> risky automation is blocked during budget burn, so self-healing actions can never widen an outage.</li>
+                                        <li><strong>Confidence:</strong> 38 passing tests across the pipeline; SLO targets of 99.9% (gateway), 99.5% (inference, connectivity), and 99% (dashboard).</li>
                                     </ul>
                                 </div>
                             </div>
@@ -161,12 +179,12 @@
                             <!-- Lessons Learned -->
                             <div class="card shadow border-0 rounded-4 mb-4">
                                 <div class="card-body p-5">
-                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-lightbulb me-2"></i>Lessons Learned</h2>
+                                    <h2 class="h4 fw-bolder text-primary mb-3"><i class="bi bi-lightbulb me-2"></i>Lessons &amp; Next Steps</h2>
                                     <ul class="text-muted">
-                                        <li><strong>SLOs without error budgets are just dashboards.</strong> The budget math is what makes SLOs actionable — it tells you when to stop shipping and start fixing.</li>
-                                        <li><strong>Burn rate > threshold alerting.</strong> A single threshold fires too late or too often. Multi-window burn rates catch both fast spikes and slow degradation.</li>
-                                        <li><strong>Postmortems are documentation you'll actually read.</strong> They're not just for compliance — they're the best way to learn from incidents and build organizational memory.</li>
-                                        <li><strong>Safety gates save you from yourself.</strong> The gatekeeper blocking risky actions during high burn prevented me from making incidents worse.</li>
+                                        <li><strong>SLOs without error budgets are dashboards.</strong> Budget math is what makes reliability actionable — it says when to stop shipping and start fixing.</li>
+                                        <li><strong>Burn rate beats thresholds.</strong> A single threshold fires too late or too often. Multi-window burn rates catch fast spikes and slow degradation.</li>
+                                        <li><strong>Generated postmortems are organizational memory.</strong> Because they are produced automatically, they get written every time and read later.</li>
+                                        <li><strong>Safety gates reduce blast radius.</strong> Blocking risky automation during high burn kept the platform from compounding its own incidents.</li>
                                     </ul>
                                     <h6 class="fw-bolder mt-4">Next Steps</h6>
                                     <ul class="small text-muted">
@@ -179,7 +197,7 @@
 
                             <!-- Screenshot -->
                             <div class="mb-4">
-                                <img src="/assets/proof/sre-dashboard.svg" alt="SRE dashboard showing SLO status bars, burn-rate gauges, and incident count for a 4-node homelab cluster" class="img-fluid rounded-4 border" style="border-color: #e2e8f0 !important;" loading="lazy" />
+                                <img src="/assets/proof/sre-dashboard.svg" alt="SRE dashboard showing SLO status bars, burn-rate gauges, and incident count for a four-node private cloud" class="img-fluid rounded-4 border" style="border-color: #e2e8f0 !important;" loading="lazy" />
                                 <p class="small text-muted mt-2 mb-1">Redacted sample (structure accurate; sensitive values removed).</p>
                                 <p class="small text-muted mb-0"><strong>What to look at:</strong> SLO budget bars per service, burn-rate gauges across alert windows, and active incident count with average TTR.</p>
                             </div>
@@ -203,7 +221,7 @@ ollama_availability:
                                     <div class="result-item"><div class="number">6</div><div class="label">SLOs tracked</div></div>
                                     <div class="result-item"><div class="number">5</div><div class="label">Rolling windows</div></div>
                                     <div class="result-item"><div class="number">38</div><div class="label">Tests passing</div></div>
-                                    <div class="result-item"><div class="number">13m</div><div class="label">Avg TTR</div></div>
+                                    <div class="result-item"><div class="number">13m</div><div class="label">Avg time to resolve</div></div>
                                     <div class="result-item"><div class="number">0</div><div class="label">False positives</div></div>
                                 </div>
                                 <p class="small text-muted mt-3 mb-0">Related artifacts: <a href="/proof.html" class="text-decoration-none">Proof Pack →</a></p>

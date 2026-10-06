@@ -12036,6 +12036,24 @@ h3.h4 { font-size: 1.1rem; }
   max-width: 36rem;
 }
 .tldr-block strong { color: #0f172a; }
+.tldr-block .candidate-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.35rem 0.9rem;
+  margin: 0;
+  text-align: left;
+}
+.tldr-block .candidate-facts dt {
+  color: #0f172a;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tldr-block .candidate-facts dd { margin: 0; }
+@media (max-width: 575.98px) {
+  .tldr-block .candidate-facts { grid-template-columns: 1fr; gap: 0.1rem; }
+  .tldr-block .candidate-facts dd { margin-bottom: 0.5rem; }
+}
+.star-list li { margin-bottom: 0.4rem; }
 
 /* --- Featured Work Module --- */
 .featured-work .card {

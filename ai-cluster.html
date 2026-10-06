@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-        <meta name="description" content="AI Cluster Orchestration Platform — a self-healing distributed control plane with adaptive routing, shared knowledge, and automated reliability workflows." />
+        <meta name="description" content="AI Cluster Orchestration Platform — self-healing control plane for a four-node high-availability private cloud: adaptive scheduling, distributed immutable state, blast-radius-limited automation with approval gates, and monthly validated disaster recovery. STAR case study by Micheal Breedlove." />
         <meta name="author" content="Micheal Breedlove" />
         <title>Platform Architecture | Micheal Breedlove</title>
         <link rel="canonical" href="https://www.michealbreedlove.com/ai-cluster.html" />
@@ -24,7 +24,8 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <link href="assets/cluster/cluster-diagram.css" rel="stylesheet" />
-        <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com","sameAs":["https://github.com/MichealBreedlove","https://www.linkedin.com/in/micheal-breedlove"],"jobTitle":"Infrastructure & Reliability Engineer","alumniOf":"Western Governors University","knowsAbout":["Infrastructure Automation","Distributed Systems","Reliability Engineering","AI Orchestration","Proxmox"]}</script>
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://www.michealbreedlove.com/#person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com/","image":"https://www.michealbreedlove.com/assets/profile-800.png","email":"mailto:mikejohnbreedlove@gmail.com","jobTitle":"Security & Infrastructure Engineer (DevSecOps / SRE)","description":"Security & Infrastructure Engineer specializing in DevSecOps and site reliability engineering. Former U.S. Army Signals Intelligence Analyst (35N) with a prior TS/SCI clearance (inactive since 2022, eligible for reinvestigation). CompTIA Tech+ certified; CompTIA Security+ in progress; B.S. Cybersecurity & Information Assurance at Western Governors University in progress. Designs and operates a self-healing, zero-trust private cloud with SLO-driven reliability, automated incident response, CI-enforced secrets controls, and monthly validated disaster recovery. Actively seeking full-time Security Engineer, DevSecOps, SRE, and Platform Engineer roles (remote or Northern California).","address":{"@type":"PostalAddress","addressLocality":"Fairfield","addressRegion":"CA","addressCountry":"US"},"sameAs":["https://github.com/MichealBreedlove","https://www.linkedin.com/in/micheal-breedlove"],"hasOccupation":{"@type":"Occupation","name":"Security & Infrastructure Engineer","occupationalCategory":["15-1212.00 Information Security Analysts","15-1244.00 Network and Computer Systems Administrators"],"skills":"DevSecOps; Site Reliability Engineering (SLOs, error budgets, burn-rate alerting); Zero-Trust Network Segmentation; Infrastructure as Code (Ansible, GitHub Actions, GitOps); Disaster Recovery & Chaos Engineering; Incident Response; Proxmox VE; ZFS/TrueNAS; OPNsense; Tailscale; Linux; Windows; Python; PowerShell; Bash"},"seeks":{"@type":"Demand","name":"Full-time Security Engineer / DevSecOps / SRE / Platform Engineer role","description":"Actively seeking and available for interviews. Remote or on-site in Northern California. Prior TS/SCI clearance, eligible for reinvestigation."},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"CompTIA Tech+","credentialCategory":"Professional Certification","dateCreated":"2025","recognizedBy":{"@type":"Organization","name":"CompTIA"}},{"@type":"EducationalOccupationalCredential","name":"CompTIA Security+ (in progress, target 2026)","credentialCategory":"Professional Certification","recognizedBy":{"@type":"Organization","name":"CompTIA"}},{"@type":"EducationalOccupationalCredential","name":"U.S. Government Top Secret / SCI Security Clearance (prior; inactive since 2022; eligible for reinvestigation)","credentialCategory":"Security Clearance","recognizedBy":{"@type":"Organization","name":"United States Army"}}],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Western Governors University","description":"B.S. Cybersecurity & Information Assurance (in progress, 2026–)"},{"@type":"CollegeOrUniversity","name":"The Culinary Institute of America","description":"AOS, Culinary Arts (2018)"}],"knowsAbout":["DevSecOps","Site Reliability Engineering","Service Level Objectives","Error Budgets","Burn-Rate Alerting","Incident Response","Postmortems","Disaster Recovery","Chaos Engineering","Zero Trust Architecture","Network Segmentation","VLANs","OPNsense","Tailscale","Infrastructure as Code","Ansible","GitHub Actions","CI/CD Security Gates","Secret Scanning","GitOps","Proxmox VE","KVM","ZFS","TrueNAS","NFS","Linux Administration","Windows Server","PowerShell","Python","Bash","Distributed Systems","Self-Hosted LLM Inference","Ollama","Signals Intelligence","Cybersecurity"]}</script>
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","@id":"https://www.michealbreedlove.com/ai-cluster.html#article","url":"https://www.michealbreedlove.com/ai-cluster.html","headline":"AI Cluster Orchestration Platform: Self-Healing Control Plane for a Four-Node Private Cloud (STAR Case Study)","description":"Architecture and STAR case study of a self-healing orchestration control plane: five-plane design, adaptive health-aware scheduling, database-free durable work queue, distributed immutable state on ZFS, watchdog-driven recovery, approval-gated automation for blast-radius reduction, portable recovery bundle, and monthly sandboxed disaster-recovery drills.","author":{"@type":"Person","@id":"https://www.michealbreedlove.com/#person","name":"Micheal Breedlove","url":"https://www.michealbreedlove.com/"},"publisher":{"@type":"Person","@id":"https://www.michealbreedlove.com/#person","name":"Micheal Breedlove"},"inLanguage":"en-US","dateModified":"2026-10-06","about":["Distributed Systems","Self-Healing Infrastructure","Disaster Recovery","Zero Trust Architecture","Proxmox VE","ZFS","Infrastructure Automation","Self-Hosted LLM Inference"],"isPartOf":{"@type":"WebSite","@id":"https://www.michealbreedlove.com/#website"}}</script>
     </head>
     <body class="d-flex flex-column h-100">
         <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 p-2 bg-white rounded" href="#page-main">Skip to content</a>
@@ -51,7 +52,7 @@
             <!-- Open to roles -->
             <div class="subnav-strip">
                 <div class="container">
-                    Security · Infrastructure · Reliability Engineering — Fairfield, CA. <a href="/contact.html">Get in touch →</a>
+                    Actively seeking DevSecOps · SRE · Security Engineering roles &nbsp;·&nbsp; Prior TS/SCI (eligible for reinvestigation) &nbsp;·&nbsp; Fairfield, CA / Remote &nbsp;·&nbsp; <a href="/contact.html">Get in touch →</a>
                 </div>
             </div>
 
@@ -62,7 +63,7 @@
                         <div class="col-lg-10">
                             <p class="text-uppercase small fw-semibold text-muted mb-2" style="letter-spacing:0.08em;">Platform Architecture</p>
                             <h1 class="display-5 fw-bolder mb-3"><span class="text-gradient d-inline">AI Cluster Orchestration Platform</span></h1>
-                            <p class="lead fw-light text-muted mb-4" style="max-width:52rem;">An AI-assisted orchestration platform built to automate infrastructure tasks, coordinate distributed worker nodes, and maintain a shared operational knowledge system across a 4-node homelab cluster.</p>
+                            <p class="lead fw-light text-muted mb-4" style="max-width:52rem;">A self-healing orchestration control plane for a four-node high-availability private cloud. It schedules infrastructure work by node health and role, maintains distributed operational state on snapshot-protected storage, and automates recovery — with human approval gates on anything destructive.</p>
                             <p class="text-muted" style="max-width:52rem;">The platform is designed around five architectural planes — control, compute, knowledge, reliability, and observability — each with clear responsibilities and well-defined interfaces. Every subsystem is built for independent operation: nodes can function when the coordinator is unavailable, shared knowledge survives individual node failures, and the entire orchestrator can be rebuilt from a portable recovery bundle.</p>
                             <div class="d-flex flex-wrap gap-2 mt-4">
                                 <a href="/status.html" class="btn btn-primary btn-sm px-4"><i class="bi bi-activity me-1"></i>Live Status</a>
@@ -88,7 +89,7 @@
                             </div>
                             <!-- Platform Overview -->
                             <div class="d-flex flex-wrap gap-3 mb-4 justify-content-center">
-                                <span class="badge rounded-pill px-3 py-2" style="background:rgba(108,99,255,0.12);color:#6C63FF;font-size:0.8rem;">4-Node Cluster</span>
+                                <span class="badge rounded-pill px-3 py-2" style="background:rgba(108,99,255,0.12);color:#6C63FF;font-size:0.8rem;">4-Node Private Cloud</span>
                                 <span class="badge rounded-pill px-3 py-2" style="background:rgba(0,201,167,0.12);color:#00C9A7;font-size:0.8rem;">Distributed Orchestration</span>
                                 <span class="badge rounded-pill px-3 py-2" style="background:rgba(255,215,0,0.12);color:#d4a800;font-size:0.8rem;">Shared Knowledge Corpus</span>
                                 <span class="badge rounded-pill px-3 py-2" style="background:rgba(255,107,107,0.12);color:#FF6B6B;font-size:0.8rem;">Adaptive Routing</span>
@@ -105,7 +106,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <h6 class="fw-bolder" style="color:#FFD700;"><i class="bi bi-journal-text me-1"></i>Knowledge Plane</h6>
-                                    <p class="text-muted small mb-0">Shared Markdown corpus on NAS-backed storage provides durable operational knowledge. Each node maintains a local semantic index for fast retrieval.</p>
+                                    <p class="text-muted small mb-0">Distributed operational state stored as plain-text records on snapshot-protected network storage (immutable, versioned, diffable). Each node maintains a rebuildable local semantic index.</p>
                                 </div>
                                 <div class="col-md-4">
                                     <h6 class="fw-bolder" style="color:#FF6B6B;"><i class="bi bi-heart-pulse me-1"></i>Reliability Plane</h6>
@@ -195,8 +196,8 @@
                                 <div class="col-md-4">
                                     <div class="card shadow border-0 rounded-4 h-100">
                                         <div class="card-body p-4">
-                                            <h6 class="fw-bolder"><i class="bi bi-journal-text text-primary me-2"></i>Markdown Corpus</h6>
-                                            <p class="text-muted small mb-0">A NAS-backed Markdown corpus serves as the cluster's durable memory. Each node contributes daily observations. The coordinator is the primary curator, maintaining long-term knowledge documents and cluster-wide context.</p>
+                                            <h6 class="fw-bolder"><i class="bi bi-journal-text text-primary me-2"></i>Immutable State Corpus</h6>
+                                            <p class="text-muted small mb-0">Plain-text operational records on snapshot-protected ZFS storage serve as the cluster's durable memory. Each node contributes daily observations; the control node curates long-term knowledge and cluster-wide context.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -395,7 +396,7 @@
                                     <div class="card shadow border-0 rounded-4 h-100">
                                         <div class="card-body p-4">
                                             <h6 class="fw-bolder"><i class="bi bi-hdd-rack text-primary me-2"></i>Proxmox Cluster</h6>
-                                            <p class="text-muted small mb-0">3-node Proxmox cluster for VM management. Centralized storage via TrueNAS with ZFS. Network segmentation via OPNsense.</p>
+                                            <p class="text-muted small mb-0">Three-node Proxmox VE hypervisor cluster with centralized TrueNAS/ZFS software-defined storage and OPNsense network segmentation.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -403,7 +404,7 @@
                                     <div class="card shadow border-0 rounded-4 h-100">
                                         <div class="card-body p-4">
                                             <h6 class="fw-bolder"><i class="bi bi-shield-check text-primary me-2"></i>Security Posture</h6>
-                                            <p class="text-muted small mb-0">OPNsense firewall, VLAN segmentation, SSH key-only authentication, CI-enforced secret scanning, and credential hygiene policies.</p>
+                                            <p class="text-muted small mb-0">Zero-trust posture: OPNsense perimeter firewall, VLAN micro-segmentation, identity-based mesh access (Tailscale), SSH key-only authentication, CI-enforced secret scanning, and a written credential hygiene policy.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -413,51 +414,59 @@
                 </div>
             </section>
 
-            <!-- Engineering Outcomes -->
-            <section class="py-5">
+            <!-- Engineering Outcomes (STAR) -->
+            <section class="py-5" id="star">
                 <div class="container px-5">
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
-                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Engineering Outcomes</span></h2>
-                            <p class="text-muted mb-4">Beyond the technical implementation, this platform solves real engineering problems — reducing operational friction, improving system resilience, and creating a foundation that can be extended without fragility.</p>
+                            <h2 class="h3 fw-bolder mb-3"><span class="text-gradient d-inline">Case Study: Situation, Task, Action, Result</span></h2>
+                            <p class="text-muted mb-4">The platform in STAR form — what existed, what had to change, what was built, and what it delivers.</p>
                             <div class="row gx-4 gy-3">
                                 <div class="col-md-6">
                                     <div class="card shadow border-0 rounded-4 h-100">
                                         <div class="card-body p-4">
-                                            <h6 class="fw-bolder"><i class="bi bi-arrow-repeat text-primary me-2"></i>Reliable Automation at Scale</h6>
-                                            <p class="text-muted small mb-0">Distributed orchestration with adaptive routing removes the operator from the dispatch loop. Tasks are assigned to the best available node based on role fitness, health status, and observed success rates. As execution history builds, routing decisions improve without manual tuning — reducing operational overhead while increasing reliability.</p>
+                                            <h6 class="fw-bolder"><i class="bi bi-exclamation-triangle text-primary me-2"></i>Situation</h6>
+                                            <p class="text-muted small mb-0">Four heterogeneous nodes — a GPU inference gateway, a hypervisor and storage controller, and two compute workers — ran independent scripts with no shared scheduler, no shared state, and no automated recovery. Every failure required manual diagnosis over SSH, and losing the coordinator meant rebuilding it from memory with an unbounded recovery time.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="card shadow border-0 rounded-4 h-100">
                                         <div class="card-body p-4">
-                                            <h6 class="fw-bolder"><i class="bi bi-shield-check text-primary me-2"></i>Recovery-First Infrastructure</h6>
-                                            <p class="text-muted small mb-0">The system is designed to survive its own failures. Runtime watchdogs detect degradation and restore from verified backups without operator intervention. A portable recovery bundle means the entire orchestrator can be rebuilt on clean infrastructure. Monthly DR drills validate this capability in a sandboxed environment — recovery is tested, not assumed.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card shadow border-0 rounded-4 h-100">
-                                        <div class="card-body p-4">
-                                            <h6 class="fw-bolder"><i class="bi bi-journal-text text-primary me-2"></i>Shared Operational Knowledge</h6>
-                                            <p class="text-muted small mb-0">Operational knowledge is captured in a shared Markdown corpus on ZFS-backed storage, accessible to all nodes. Each node maintains a local semantic index for fast retrieval without shared database dependencies. Nightly curation promotes durable facts and archives noise — the knowledge base improves over time rather than growing unbounded.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card shadow border-0 rounded-4 h-100">
-                                        <div class="card-body p-4">
-                                            <h6 class="fw-bolder"><i class="bi bi-robot text-primary me-2"></i>Safe Autonomous Operations</h6>
-                                            <p class="text-muted small mb-0">The platform generates its own maintenance work by evaluating cluster health signals against a rule engine. Safe operations execute without intervention. Risky or potentially destructive actions are routed to an approval queue for human review. Cooldown tracking prevents duplicate task creation — the system self-regulates without task storms.</p>
+                                            <h6 class="fw-bolder"><i class="bi bi-bullseye text-primary me-2"></i>Task</h6>
+                                            <p class="text-muted small mb-0">Design a control plane that schedules work across the fleet by health and role, keeps operational state durable and shared without a database single point of failure, detects and repairs its own degradation, bounds the blast radius of any automated action, and can be rebuilt from scratch on demand — then prove that recovery on a schedule instead of assuming it.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="card shadow border-0 rounded-4 h-100">
                                         <div class="card-body p-4">
-                                            <h6 class="fw-bolder"><i class="bi bi-clipboard-check text-primary me-2"></i>Continuous System Validation</h6>
-                                            <p class="text-muted small mb-0">Weekly operational snapshots capture node health, queue state, archive growth, and curation metrics across the cluster — creating a historical record that surfaces trends before they become incidents. Monthly disaster recovery drills validate the recovery bundle end-to-end in a sandboxed environment, confirming the live system can be rebuilt from backup without touching production state. Together, these create a validation loop: the system doesn't just run — it continuously proves it can recover.</p>
+                                            <h6 class="fw-bolder"><i class="bi bi-diagram-3 text-primary me-2"></i>Action</h6>
+                                            <ul class="text-muted small mb-0 star-list">
+                                                <li><strong>Separated concerns into five planes</strong> (control, compute, knowledge, reliability, observability) with well-defined interfaces on shared storage, so each plane degrades and evolves independently.</li>
+                                                <li><strong>Built an adaptive scheduler</strong> that scores each job against node role fitness, historical success rate, execution time, and recency, so routing policy self-tunes from execution data.</li>
+                                                <li><strong>Implemented a database-free durable work queue</strong> — jobs as individual records moving through pending, running, done, and failed states on shared storage, with stale-lease detection returning crashed work to the queue.</li>
+                                                <li><strong>Designed shared-nothing state management</strong>: plain-text operational records on ZFS with three-tier snapshot retention, rebuildable per-node semantic indexes, and nightly curation that promotes durable facts and archives noise.</li>
+                                                <li><strong>Added self-healing</strong>: a runtime watchdog checks service health, mount integrity, and index consistency, quarantines corrupt state, and restores from verified backups; preflight guards refuse to start on inconsistent state.</li>
+                                                <li><strong>Bounded the blast radius</strong>: a rule engine turns health signals into tasks, safe actions run automatically, destructive or high-impact actions wait in an approval queue, and cooldowns prevent task storms.</li>
+                                                <li><strong>Made recovery a tested property</strong>: packaged the entire control plane into a portable recovery bundle and run monthly sandboxed DR drills that validate the rebuild without touching production state.</li>
+                                                <li><strong>Instrumented everything</strong>: weekly operational snapshots of node health, mount status, queue state, archive growth, and curation metrics feed the status dashboard and the SRE pipeline.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="card shadow border-0 rounded-4 h-100">
+                                        <div class="card-body p-4">
+                                            <h6 class="fw-bolder"><i class="bi bi-graph-up text-primary me-2"></i>Result</h6>
+                                            <ul class="text-muted small mb-0 star-list">
+                                                <li><strong>Graceful degradation:</strong> workers keep executing when the coordinator is offline, and shared state survives any single node failure.</li>
+                                                <li><strong>Rehearsed recovery:</strong> the full control plane is rebuilt from the recovery bundle in a sandbox every month, so recovery is measured rather than assumed.</li>
+                                                <li><strong>Contained automation:</strong> no destructive action has ever executed without human approval; safe remediation runs without an operator in the loop.</li>
+                                                <li><strong>Self-tuning operations:</strong> routing quality improves as execution history grows, with no manual rebalancing.</li>
+                                                <li><strong>Operator time reclaimed:</strong> manual effort is reserved for approval decisions and architecture changes, not for keeping services alive.</li>
+                                                <li><strong>No external inference dependency:</strong> self-hosted LLM inference on the RTX 4090 gateway removes per-token cost and third-party availability risk from core workloads.</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
