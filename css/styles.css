@@ -11789,24 +11789,27 @@ a.card:hover,
 }
 
 /* --- Profile Image (cleaner) --- */
+/* The card is a frame for the photo: its width always equals the photo's width,
+   so the photo's cropped shoulder edges land exactly on the card border instead
+   of floating inside it. The card is shorter than the photo (8:9 vs the photo's
+   ~8:10.5) so the head still rises above the frame. */
 .profile {
   position: relative;
-  height: 75vw;
   width: 75vw;
+  max-width: 28rem;
+  aspect-ratio: 8 / 9;
   border-radius: 1rem;
   margin-top: 2rem;
-  max-height: 28rem;
-  max-width: 28rem;
   background: #eff6ff !important;
   border: 2px solid #e2e8f0;
 }
 .profile .profile-img {
-  height: 80vw;
-  max-height: 32rem;
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 0 0 calc(1rem - 2px) calc(1rem - 2px);
 }
 /* Hide decorative dots for cleaner look */
 .profile .dots-1,
@@ -11817,20 +11820,16 @@ a.card:hover,
 }
 
 @media (min-width: 576px) {
-  .profile { height: 50vw; width: 50vw; }
-  .profile .profile-img { height: 55vw; }
+  .profile { width: 50vw; }
 }
 @media (min-width: 768px) {
-  .profile { height: 40vw; width: 40vw; }
-  .profile .profile-img { height: 45vw; }
+  .profile { width: 40vw; }
 }
 @media (min-width: 992px) {
-  .profile { height: 30vw; width: 30vw; }
-  .profile .profile-img { height: 35vw; }
+  .profile { width: 30vw; }
 }
 @media (min-width: 1200px) {
-  .profile { height: 25vw; width: 25vw; }
-  .profile .profile-img { height: 30vw; }
+  .profile { width: 25vw; }
 }
 
 /* --- Footer --- */
