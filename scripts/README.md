@@ -49,10 +49,12 @@ git -C C:\Users\mikej\Michealbreedlove.com checkout -- assets/cluster/dashboard-
 
 Always live regardless of config: `last_updated` (UTC, no suffix —
 status.html appends `Z`), node statuses from ping, `nodes_online`,
-`nodes_total`, `cluster_status` (Healthy / Degraded / Offline), and
-`reliability.last_weekly_snapshot` (the run date — the weekly run *is* the
-snapshot). `capabilities` and `orchestrator` flags carry forward from the
-previous snapshot.
+`nodes_total` and `cluster_status` (Healthy / Degraded / Offline).
+`capabilities`, `orchestrator` flags and `reliability.last_weekly_snapshot`
+carry forward from the previous snapshot. `metrics_measured_at` records when
+the non-ping metrics were last really measured: it moves to the run date only
+when at least one configured path was read, and status.html shows a note
+whenever it is older than `last_updated`.
 
 ## How shipping works
 

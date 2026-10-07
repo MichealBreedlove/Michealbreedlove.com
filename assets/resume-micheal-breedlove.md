@@ -1,6 +1,6 @@
 # Micheal Breedlove
 
-**Security & Infrastructure Engineer**
+**Cybersecurity Student | Seeking entry-level SOC Analyst / Security Analyst / IT Operations roles**
 Fairfield, CA | mikejohnbreedlove@gmail.com
 [michealbreedlove.com](https://www.michealbreedlove.com) | [GitHub](https://github.com/MichealBreedlove) | [LinkedIn](https://www.linkedin.com/in/micheal-breedlove)
 
@@ -8,7 +8,7 @@ Fairfield, CA | mikejohnbreedlove@gmail.com
 
 ## Summary
 
-Security and infrastructure engineer and U.S. Army veteran (Unit Supply Specialist, 92Y; Signals Intelligence Analyst (35N) training; prior TS/SCI, eligible for reinvestigation) with operations leadership experience. Designed and operate a distributed AI cluster orchestration platform with adaptive task routing, shared operational memory, automated recovery workflows, and recurring disaster recovery validation. Focus areas include infrastructure automation, distributed systems, reliability engineering, recovery-first design, and operational documentation.
+Cybersecurity student, career changer and U.S. Army veteran (Unit Supply Specialist, 92Y; Signals Intelligence Analyst (35N) training; prior TS/SCI, eligible for reinvestigation) with operations leadership experience. Designed and operate a distributed AI cluster orchestration platform with adaptive task routing, shared operational memory, automated recovery workflows, and recurring disaster recovery validation. Focus areas include infrastructure automation, distributed systems, reliability engineering, recovery-first design, and operational documentation.
 
 ---
 
@@ -20,8 +20,8 @@ Infrastructure Automation · Reliability Engineering · Distributed Systems · L
 
 ## Experience
 
-### Infrastructure & Reliability Engineer
-**Independent / Self-Hosted Private Cloud** | 2024 – Present
+### Self-Hosted Private Cloud
+**Personal lab project (unpaid)** | 2024 – Present
 
 - Designed and operate a distributed orchestration platform coordinating four compute nodes with health-aware task routing and automated recovery workflows
 - Implemented adaptive routing engine that scores task assignments based on node health, role fitness, and observed execution performance
@@ -30,7 +30,7 @@ Infrastructure Automation · Reliability Engineering · Distributed Systems · L
 - Deployed automated watchdog and recovery workflows that detect runtime degradation, quarantine bad state, and restore from verified backups
 - Created a portable recovery bundle and monthly sandboxed DR drills to validate rebuild capability without touching live systems
 - Implemented autonomous task generation with approval gating — safe operations execute automatically, risky actions require human review
-- Managed a 3-node Proxmox virtualization cluster with ZFS-backed storage and automated snapshot policies at three retention tiers
+- Managed a 3-node Proxmox virtualization cluster (three of the four nodes; the fourth is the Windows inference gateway) with ZFS-backed storage and automated snapshot policies at three retention tiers
 - Configured OPNsense firewall with VLAN segmentation, SSH key-only authentication, and CI-enforced credential scanning
 - Built SRE automation pipeline with SLO tracking, burn-rate alerting, automated incident management, and postmortem generation
 
@@ -41,6 +41,8 @@ Infrastructure Automation · Reliability Engineering · Distributed Systems · L
 - Improved crop yield utilization through targeted planting strategies and data-informed seasonal adjustments
 - Implemented inventory and tracking systems to optimize crop cycles and minimize waste
 - Previously served as Chef de Partie (2022–2024), executing precision work in a high-volume, high-pressure kitchen environment
+- Run the fermentation and koji program for both restaurants and wrote the process documents, batch log and food-safety references the kitchen works from
+- Built and run pressfarm.io, the farm-to-kitchen ordering web app (Next.js, TypeScript, Supabase), using AI coding agents
 
 ### Director of Operations
 **Empyrean Commerce** | 2019 – 2025
@@ -97,5 +99,7 @@ Automated backups with CI-enforced secret scanning and credential hygiene. [Case
 ---
 
 ## Technical Tools
+
+AI: Claude · Claude Code · ChatGPT · OpenClaw · Hermes · Ollama (local LLMs)
 
 Python · Bash · PowerShell · Ansible · YAML · Jinja2 · Proxmox · KVM · systemd · OPNsense · VLANs · Tailscale · ZFS · TrueNAS · NFS · Git · GitHub Actions · CI/CD · SQLite · JSON · Docker · Linux · Windows Server · HTML · CSS · JavaScript

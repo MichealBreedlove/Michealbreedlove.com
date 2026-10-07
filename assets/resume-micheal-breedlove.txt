@@ -1,5 +1,5 @@
 MICHEAL BREEDLOVE
-Security & Infrastructure Engineer
+Cybersecurity Student | Seeking entry-level SOC Analyst / Security Analyst roles
 Fairfield, CA | mikejohnbreedlove@gmail.com
 michealbreedlove.com | github.com/MichealBreedlove | linkedin.com/in/micheal-breedlove
 
@@ -7,7 +7,7 @@ michealbreedlove.com | github.com/MichealBreedlove | linkedin.com/in/micheal-bre
 SUMMARY
 ================================================================================
 
-Security and infrastructure engineer and U.S. Army veteran (Unit Supply
+Cybersecurity student, career changer and U.S. Army veteran (Unit Supply
 Specialist, 92Y; Signals Intelligence Analyst (35N) training; prior TS/SCI,
 eligible for reinvestigation) with operations leadership experience. Designed
 and operate a distributed AI cluster orchestration platform with adaptive task
@@ -28,8 +28,8 @@ Observability & Monitoring | Network Security | Configuration Management
 EXPERIENCE
 ================================================================================
 
-INFRASTRUCTURE & RELIABILITY ENGINEER
-Independent / Self-Hosted Private Cloud | 2024 - Present
+SELF-HOSTED PRIVATE CLOUD
+Personal lab project (unpaid) | 2024 - Present
 
   * Designed and operate a distributed orchestration platform coordinating four
     compute nodes with health-aware task routing and automated recovery workflows
@@ -45,7 +45,8 @@ Independent / Self-Hosted Private Cloud | 2024 - Present
     validate rebuild capability without touching live systems
   * Implemented autonomous task generation with approval gating - safe
     operations execute automatically, risky actions require human review
-  * Managed a 3-node Proxmox virtualization cluster with ZFS-backed storage
+  * Managed a 3-node Proxmox virtualization cluster (three of the four nodes;
+    the fourth is the Windows inference gateway) with ZFS-backed storage
     and automated snapshot policies at three retention tiers
   * Configured OPNsense firewall with VLAN segmentation, SSH key-only
     authentication, and CI-enforced credential scanning
@@ -63,6 +64,10 @@ PRESS Napa Valley, St. Helena, CA | 2022 - Present
     minimize waste
   * Previously served as Chef de Partie (2022-2024), executing precision work
     in a high-volume, high-pressure kitchen environment
+  * Run the fermentation and koji program for both restaurants and wrote the
+    process documents, batch log and food-safety references the kitchen uses
+  * Built and run pressfarm.io, the farm-to-kitchen ordering web app (Next.js,
+    TypeScript, Supabase), using AI coding agents
 
 DIRECTOR OF OPERATIONS
 Empyrean Commerce | 2019 - 2025
@@ -144,3 +149,5 @@ TECHNICAL TOOLS
 Python, Bash, PowerShell, Ansible, YAML, Jinja2, Proxmox, KVM, systemd,
 OPNsense, VLANs, Tailscale, ZFS, TrueNAS, NFS, Git, GitHub Actions, CI/CD,
 SQLite, JSON, Docker, Linux, Windows Server, HTML, CSS, JavaScript
+
+AI: Claude, Claude Code, ChatGPT, OpenClaw, Hermes, Ollama (local LLMs)
