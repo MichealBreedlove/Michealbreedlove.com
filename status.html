@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
         <meta name="description" content="Infrastructure status — four-node AI private cloud with SLO tracking, burn-rate monitoring, and backup verification." />
         <meta name="author" content="Micheal Breedlove" />
-        <title>Status | Micheal Breedlove — Security &amp; Infrastructure Engineer</title>
+        <title>Status | Micheal Breedlove — Cybersecurity &amp; Infrastructure Portfolio</title>
         <link rel="canonical" href="https://www.michealbreedlove.com/status.html" />
         <meta property="og:title" content="Infrastructure Status - Micheal Breedlove" />
         <meta property="og:description" content="Infrastructure metrics for a 4-node AI cluster with SRE automation — node health, SLOs, backups, and orchestration status." />
@@ -49,7 +49,7 @@
             <!-- Open to roles -->
             <div class="subnav-strip">
                 <div class="container">
-                    Actively seeking DevSecOps · SRE · Security Engineering roles &nbsp;·&nbsp; Prior TS/SCI (eligible for reinvestigation) &nbsp;·&nbsp; Fairfield, CA / Remote &nbsp;·&nbsp; <a href="/contact.html">Get in touch →</a>
+                    Seeking entry-level SOC Analyst · Security Analyst · IT Operations roles &nbsp;·&nbsp; Prior TS/SCI (eligible for reinvestigation) &nbsp;·&nbsp; Fairfield, CA / Remote &nbsp;·&nbsp; <a href="/contact.html">Get in touch →</a>
                 </div>
             </div>
 
@@ -70,6 +70,7 @@
                                 <span id="overall-dot" class="d-inline-block rounded-circle bg-success me-2" style="width:12px;height:12px;"></span>
                                 <span id="overall-status" class="fw-bolder">All Systems Operational</span>
                                 <div id="overall-note" class="small text-muted mt-1" style="display:none;"></div>
+                                <div id="measured-note" class="small text-muted mt-1" style="display:none;"></div>
                             </div>
                         </div>
 
@@ -343,6 +344,17 @@
                             const note = document.getElementById('overall-note');
                             note.textContent = 'Metrics below reflect the last published cluster snapshot (' + snapDate + '), not live state.';
                             note.style.display = 'block';
+                        }
+                    }
+                    // Only node reachability is re-checked by the weekly refresh. Say so.
+                    if (d.metrics_measured_at && d.last_updated && d.metrics_measured_at !== d.last_updated.slice(0, 10)) {
+                        const m = document.getElementById('measured-note');
+                        m.textContent = 'Node reachability was checked on ' + d.last_updated.slice(0, 10) +
+                            '. Queue, document, routing, drill, reliability and backup figures were last measured on ' + d.metrics_measured_at + '.';
+                        m.style.display = 'block';
+                        if (document.getElementById('overall-status').textContent === 'All Systems Operational') {
+                            document.getElementById('overall-status').textContent =
+                                d.nodes_online + ' of ' + d.nodes_total + ' nodes reachable';
                         }
                     }
                     document.getElementById('backup-snapshot').textContent =

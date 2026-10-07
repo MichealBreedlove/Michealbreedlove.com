@@ -218,8 +218,21 @@ try {
     # -----------------------------------------------------------------------
     # Reliability
     # -----------------------------------------------------------------------
-    # This scheduled run IS the weekly snapshot.
     $today = Get-Date -Format 'yyyy-MM-dd'
+    # The date the non-ping metrics were last really measured. It only moves
+    # forward when a configured path was read on this run; otherwise the old
+    # date is carried so status.html can say the numbers are not fresh.
+    $metricsMeasuredAt = $null
+    $prop = $prev.PSObject.Properties['metrics_measured_at']
+    if ($null -ne $prop -and $prop.Value) { $metricsMeasuredAt = [string]$prop.Value }
+    if (-not $metricsMeasuredAt) { $metricsMeasuredAt = ([string]$prev.last_updated).Substring(0, 10) }
+    $anyPathRead = $false
+    foreach ($name in 'queue_pending','queue_active','queue_completed','knowledge_docs','cluster_configs','dr_drill_marker') {
+        if (Get-ConfiguredPath $name) { $anyPathRead = $true }
+    }
+    if ($anyPathRead) { $metricsMeasuredAt = $today }
+    # The backup snapshot date is carried forward: this script does not verify backups.
+    $lastWeeklySnapshot = $prev.reliability.last_weekly_snapshot
     $lastDrDrill = $prev.reliability.last_dr_drill
     $p = Get-ConfiguredPath 'dr_drill_marker'
     if ($p) { $lastDrDrill = (Get-Item $p).LastWriteTime.ToString('yyyy-MM-dd') }
@@ -230,6 +243,7 @@ try {
     # -----------------------------------------------------------------------
     $snapshot = [ordered]@{
         last_updated   = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ss')
+        metrics_measured_at = $metricsMeasuredAt
         nodes          = $nodes
         nodes_online   = $nodesOnline
         nodes_total    = $nodesTotal
@@ -250,7 +264,7 @@ try {
         }
         capabilities   = @($prev.capabilities)
         reliability    = [ordered]@{
-            last_weekly_snapshot = $today
+            last_weekly_snapshot = $lastWeeklySnapshot
             last_dr_drill        = $lastDrDrill
             snapshots_active     = [bool]$prev.reliability.snapshots_active
             recovery_bundle      = [bool]$prev.reliability.recovery_bundle
@@ -277,7 +291,7 @@ try {
 
     Invoke-Git checkout -b $branch
     Invoke-Git add -A
-    Invoke-Git commit -m "chore: weekly cluster dashboard snapshot refresh ($today)"
+    Invoke-Git commit -m "chore: weekly status snapshot refresh ($today)"
 
     Invoke-WithRetry -What 'git push' -Action { Invoke-Git push -u origin $branch }
 
