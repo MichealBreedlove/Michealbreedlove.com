@@ -10,7 +10,7 @@
       1. Sync local clone to origin/main (handles stale index.lock).
       2. Probe each cluster node for reachability.
       3. Collect queue / knowledge metrics from configured paths, carrying
-         forward the previous snapshot's values for anything unavailable —
+         forward the previous snapshot's values for anything unavailable -
          the script never publishes a broken or partial snapshot.
       4. Write the new snapshot (schema matches what status.html reads).
       5. Branch, commit, push, open a PR, squash-merge it, resync main.
@@ -29,7 +29,7 @@
 [CmdletBinding()]
 param(
     [string]$ConfigPath = (Join-Path $env:USERPROFILE '.dashboard-refresh\config.json'),
-    # Regenerate the JSON but skip commit/PR/merge — for testing.
+    # Regenerate the JSON but skip commit/PR/merge - for testing.
     [switch]$NoShip
 )
 
@@ -65,7 +65,7 @@ function Invoke-WithRetry {
         } catch {
             if ($attempt -eq $MaxAttempts) { throw }
             $delay = [math]::Pow(2, $attempt)
-            Write-Step ("{0} failed (attempt {1}/{2}): {3} — retrying in {4}s" -f $What, $attempt, $MaxAttempts, $_.Exception.Message, $delay)
+            Write-Step ("{0} failed (attempt {1}/{2}): {3} - retrying in {4}s" -f $What, $attempt, $MaxAttempts, $_.Exception.Message, $delay)
             Start-Sleep -Seconds $delay
         }
     }
@@ -106,7 +106,7 @@ try {
         Write-Step "Loading config from $ConfigPath"
         $config = Get-Content $ConfigPath -Raw | ConvertFrom-Json
     } else {
-        Write-Step "No config at $ConfigPath — using built-in defaults (metrics carry forward from previous snapshot)"
+        Write-Step "No config at $ConfigPath - using built-in defaults (metrics carry forward from previous snapshot)"
         $config = New-Object psobject
     }
 
@@ -127,7 +127,7 @@ try {
         $prop = $pathsConfig.PSObject.Properties[$Name]
         if ($null -eq $prop -or [string]::IsNullOrWhiteSpace($prop.Value)) { return $null }
         if (-not (Test-Path $prop.Value)) {
-            Write-Step "WARNING: configured path '$Name' ($($prop.Value)) not found — carrying forward previous value"
+            Write-Step "WARNING: configured path '$Name' ($($prop.Value)) not found - carrying forward previous value"
             return $null
         }
         return $prop.Value
@@ -151,7 +151,7 @@ try {
 
     Invoke-WithRetry -What 'git fetch' -Action { Invoke-Git fetch origin main }
     Invoke-Git checkout main
-    # Never pull on main — squash merges make local history diverge; hard reset is the rule.
+    # Never pull on main - squash merges make local history diverge; hard reset is the rule.
     Invoke-Git reset --hard origin/main
 
     # -----------------------------------------------------------------------
@@ -238,7 +238,7 @@ try {
     if ($p) { $lastDrDrill = (Get-Item $p).LastWriteTime.ToString('yyyy-MM-dd') }
 
     # -----------------------------------------------------------------------
-    # Build snapshot — schema must match status.html exactly.
+    # Build snapshot - schema must match status.html exactly.
     # last_updated is UTC with no suffix: status.html appends 'Z' before parsing.
     # -----------------------------------------------------------------------
     $snapshot = [ordered]@{
@@ -271,7 +271,7 @@ try {
         }
     }
 
-    # PS 5.1 ConvertTo-Json escapes & < > ' as \uXXXX — undo for a clean diff.
+    # PS 5.1 ConvertTo-Json escapes & < > ' as \uXXXX - undo for a clean diff.
     $json = $snapshot | ConvertTo-Json -Depth 6
     $json = $json -replace '\\u0026', '&' -replace '\\u003c', '<' -replace '\\u003e', '>' -replace '\\u0027', "'"
     $json = $json + "`n"
@@ -279,12 +279,12 @@ try {
     Write-Step ("Snapshot written: {0}/{1} nodes online, cluster {2}" -f $nodesOnline, $nodesTotal, $clusterStatus)
 
     if ($NoShip) {
-        Write-Step "-NoShip set — skipping commit/PR/merge. Repo left with local change."
+        Write-Step "-NoShip set - skipping commit/PR/merge. Repo left with local change."
         exit 0
     }
 
     # -----------------------------------------------------------------------
-    # Ship: branch → commit → push → PR → squash merge → resync main
+    # Ship: branch -> commit -> push -> PR -> squash merge -> resync main
     # -----------------------------------------------------------------------
     $branch = "dashboard-refresh-{0}" -f (Get-Date -Format 'yyyyMMdd-HHmm')
     Write-Step "Shipping on branch $branch"
@@ -307,12 +307,12 @@ try {
             if ($LASTEXITCODE -ne 0) { throw "gh pr merge exited with code $LASTEXITCODE" }
         }
     } catch {
-        Write-Step "Direct merge failed — enabling auto-merge instead"
+        Write-Step "Direct merge failed - enabling auto-merge instead"
         & gh pr merge $branch --squash --delete-branch --auto --repo MichealBreedlove/Michealbreedlove.com
         if ($LASTEXITCODE -ne 0) { throw "gh pr merge --auto failed with code $LASTEXITCODE" }
     }
 
-    # After a squash merge never pull — always hard reset onto origin/main.
+    # After a squash merge never pull - always hard reset onto origin/main.
     Invoke-Git checkout main
     Invoke-WithRetry -What 'git fetch' -Action { Invoke-Git fetch origin main }
     Invoke-Git reset --hard origin/main
@@ -322,7 +322,7 @@ try {
     & git -C $script:RepoPath branch -D $branch 2>$null
     $ErrorActionPreference = 'Stop'
 
-    Write-Step "Done — snapshot shipped, main resynced."
+    Write-Step "Done - snapshot shipped, main resynced."
     exit 0
 } catch {
     Write-Step ("FATAL: {0}" -f $_.Exception.Message)
