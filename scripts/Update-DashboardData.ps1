@@ -295,7 +295,11 @@ try {
 
     Invoke-WithRetry -What 'git push' -Action { Invoke-Git push -u origin $branch }
 
-    & gh pr create --base main --fill --repo MichealBreedlove/Michealbreedlove.com
+    # The task does not run from inside the clone, so gh cannot infer the branch
+    # or read commits for --fill. Name the head and give the title explicitly.
+    & gh pr create --base main --head $branch --repo MichealBreedlove/Michealbreedlove.com `
+        --title "chore: weekly status snapshot refresh ($today)" `
+        --body "Automated weekly refresh of assets/cluster/dashboard-data.json (node reachability)."
     if ($LASTEXITCODE -ne 0) { throw "gh pr create failed with code $LASTEXITCODE" }
 
     # Merge commits are disabled repo-wide; squash is the allowed path. Retry
