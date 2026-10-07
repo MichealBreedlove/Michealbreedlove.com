@@ -10,7 +10,7 @@ Most homelab projects stop at "it works." This one adds SLOs, burn-rate alerting
 
 SRE practices give you a framework to answer: *How reliable is this? Is it getting better or worse? When should I invest in fixing it?*
 
-Applying this to a homelab also builds real skills. Employers hiring for SRE, platform, and DevSecOps roles want to see that you understand error budgets, incident response, and operational discipline — not just that you can spin up a VM.
+Applying this to a homelab also builds real skills. Employers hiring for SRE, platform, and security roles want to see that you understand error budgets, incident response, and operational discipline — not just that you can spin up a VM.
 
 ## Architecture of the lab
 
