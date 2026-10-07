@@ -6,7 +6,7 @@
 .DESCRIPTION
     Creates (or replaces) a scheduled task named "Dashboard Data Refresh" that
     runs weekly as the current user. StartWhenAvailable is on, so if Jasper is
-    off or asleep at the trigger time the task catches up at next boot — the
+    off or asleep at the trigger time the task catches up at next boot - the
     Status page staleness banner trips at 21 days, so a missed week is safe.
 
     Also seeds %USERPROFILE%\.dashboard-refresh\config.json from the sample if
@@ -41,7 +41,7 @@ $samplePath = Join-Path $PSScriptRoot 'dashboard-refresh.config.sample.json'
 if (-not (Test-Path $configPath)) {
     New-Item -ItemType Directory -Path $configDir -Force | Out-Null
     Copy-Item $samplePath $configPath
-    Write-Host "Seeded config: $configPath — edit node hosts and cluster paths there."
+    Write-Host "Seeded config: $configPath - edit node hosts and cluster paths there."
 } else {
     Write-Host "Config already present: $configPath"
 }
