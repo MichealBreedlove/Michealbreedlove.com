@@ -1,6 +1,6 @@
 # Micheal Breedlove
 
-**Infrastructure & Reliability Engineer**
+**Security & Infrastructure Engineer**
 Fairfield, CA | mikejohnbreedlove@gmail.com
 [michealbreedlove.com](https://www.michealbreedlove.com) | [GitHub](https://github.com/MichealBreedlove) | [LinkedIn](https://www.linkedin.com/in/micheal-breedlove)
 
@@ -8,7 +8,7 @@ Fairfield, CA | mikejohnbreedlove@gmail.com
 
 ## Summary
 
-Infrastructure and reliability engineer with a background in military intelligence and operations leadership. Designed and operate a distributed AI cluster orchestration platform with adaptive task routing, shared operational memory, automated recovery workflows, and recurring disaster recovery validation. Focus areas include infrastructure automation, distributed systems, reliability engineering, recovery-first design, and operational documentation.
+Security and infrastructure engineer and U.S. Army veteran (Unit Supply Specialist, 92Y; Signals Intelligence Analyst (35N) training; prior TS/SCI, eligible for reinvestigation) with operations leadership experience. Designed and operate a distributed AI cluster orchestration platform with adaptive task routing, shared operational memory, automated recovery workflows, and recurring disaster recovery validation. Focus areas include infrastructure automation, distributed systems, reliability engineering, recovery-first design, and operational documentation.
 
 ---
 
@@ -34,11 +34,11 @@ Infrastructure Automation · Reliability Engineering · Distributed Systems · L
 - Configured OPNsense firewall with VLAN segmentation, SSH key-only authentication, and CI-enforced credential scanning
 - Built SRE automation pipeline with SLO tracking, burn-rate alerting, automated incident management, and postmortem generation
 
-### Farm Manager
+### Culinary Farm Manager
 **PRESS Napa Valley, St. Helena, CA** | 2022 – Present
 
 - Lead all on-site operations for a Michelin-starred restaurant farm, managing vendor relationships, seasonal planning, and budget allocation
-- Increased crop yield utilization by 90% through targeted planting strategies and data-informed seasonal adjustments
+- Improved crop yield utilization through targeted planting strategies and data-informed seasonal adjustments
 - Implemented inventory and tracking systems to optimize crop cycles and minimize waste
 - Previously served as Chef de Partie (2022–2024), executing precision work in a high-volume, high-pressure kitchen environment
 
@@ -57,13 +57,14 @@ Infrastructure Automation · Reliability Engineering · Distributed Systems · L
 - Coordinated with guest chefs and participated in R&D projects under high-pressure service conditions
 - Developed expertise in process optimization, team coordination, and maintaining exceptional standards
 
-### Signals Intelligence Analyst (35N)
-**United States Army** | 2012 – 2015 | Prior TS/SCI (expired 2022)
+### Unit Supply Specialist (92Y); Signals Intelligence Analyst (35N) Trainee
+**United States Army** | 2012 – 2015 | Prior TS/SCI — eligible for reinvestigation
 
-- Collected, decrypted, and analyzed foreign intelligence signals with TS/SCI clearance
-- Created actionable intelligence reports and managed classified information systems
-- Supported tactical and strategic operations with threat analysis, data correlation, and secure communications
-- Developed analytical discipline directly applicable to incident response and infrastructure security
+- As Unit Supply Specialist, managed requisition, receipt, storage, issue, and accountability of organizational property including weapons, sensitive items, and controlled equipment.
+- Maintained property book and hand-receipt records in GCSS-Army; executed cyclic, sensitive-item, and change-of-command inventories with zero loss.
+- Managed arms room operations including physical security, key control, and access rosters.
+- Prepared supply documentation supporting audits and inspections.
+- Completed approximately 90% of Signals Intelligence Analyst (35N) Advanced Individual Training at Goodfellow AFB, Texas, including instruction in SIGINT collection fundamentals, traffic analysis, reporting procedures, and intelligence community security practices. Held fully adjudicated TS/SCI with CI polygraph throughout training. Reclassified to 92Y prior to course completion.
 
 ---
 
@@ -92,7 +93,6 @@ Automated backups with CI-enforced secret scanning and credential hygiene. [Case
 
 - CompTIA Tech+ (Earned 2025)
 - CompTIA Security+ (In Progress, Target 2026)
-- CompTIA Network+ (In Progress, Target 2026)
 
 ---
 
