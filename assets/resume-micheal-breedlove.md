@@ -8,7 +8,7 @@ Fairfield, CA | mikejohnbreedlove@gmail.com
 
 ## Summary
 
-Cybersecurity student, career changer and U.S. Army veteran (Unit Supply Specialist, 92Y; Signals Intelligence Analyst (35N) training; prior TS/SCI, eligible for reinvestigation) with operations leadership experience. Designed and operate a distributed AI cluster orchestration platform with adaptive task routing, shared operational memory, automated recovery workflows, and recurring disaster recovery validation. Focus areas include infrastructure automation, distributed systems, reliability engineering, recovery-first design, and operational documentation.
+Cybersecurity student, career changer and U.S. Army veteran (Unit Supply Specialist, 92Y; Signals Intelligence Analyst (35N) training; prior TS/SCI, eligible for reinvestigation) with operations leadership experience. Designed and operate a distributed AI cluster orchestration platform with adaptive task routing, shared operational memory, automated recovery workflows, and disaster recovery validation. Focus areas include infrastructure automation, distributed systems, reliability engineering, recovery-first design, and operational documentation.
 
 ---
 
@@ -28,7 +28,7 @@ Infrastructure Automation · Reliability Engineering · Distributed Systems · L
 - Built a durable file-based job queue with dispatch tracking, retry logic, stale-job detection, and failure isolation across shared storage
 - Architected a shared operational knowledge system using a NAS-backed Markdown corpus with per-node local semantic indexes
 - Deployed automated watchdog and recovery workflows that detect runtime degradation, quarantine bad state, and restore from verified backups
-- Created a portable recovery bundle and monthly sandboxed DR drills to validate rebuild capability without touching live systems
+- Created a portable recovery bundle and sandboxed DR drills to validate rebuild capability without touching live systems
 - Implemented autonomous task generation with approval gating — safe operations execute automatically, risky actions require human review
 - Managed a 3-node Proxmox virtualization cluster (three of the four nodes; the fourth is the Windows inference gateway) with ZFS-backed storage and automated snapshot policies at three retention tiers
 - Configured OPNsense firewall with VLAN segmentation, SSH key-only authentication, and CI-enforced credential scanning
