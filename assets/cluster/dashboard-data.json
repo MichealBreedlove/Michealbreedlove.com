@@ -1,5 +1,5 @@
 {
-    "last_updated":  "2026-11-09T17:00:05",
+    "last_updated":  "2026-11-16T17:00:05",
     "metrics_measured_at":  "2026-03-06",
     "nodes":  [
                   {
@@ -10,22 +10,22 @@
                   {
                       "name":  "Nova",
                       "role":  "Automation & Monitoring",
-                      "status":  "Online"
+                      "status":  "Offline"
                   },
                   {
                       "name":  "Mira",
                       "role":  "Network Analysis & Auditing",
-                      "status":  "Online"
+                      "status":  "Offline"
                   },
                   {
                       "name":  "Orin",
                       "role":  "Deep Analysis & Validation",
-                      "status":  "Online"
+                      "status":  "Offline"
                   }
               ],
-    "nodes_online":  4,
+    "nodes_online":  1,
     "nodes_total":  4,
-    "cluster_status":  "Healthy",
+    "cluster_status":  "Degraded",
     "queue":  {
                   "pending":  0,
                   "active":  0,
