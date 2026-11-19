@@ -11,8 +11,8 @@ Cybersecurity student, career changer and U.S. Army veteran (Unit Supply
 Specialist, 92Y; Signals Intelligence Analyst (35N) training; prior TS/SCI,
 eligible for reinvestigation) with operations leadership experience. Designed
 and operate a distributed AI cluster orchestration platform with adaptive task
-routing, shared operational memory, automated recovery workflows, and recurring
-disaster recovery validation. Focus areas include infrastructure automation,
+routing, shared operational memory, automated recovery workflows, and disaster
+recovery validation. Focus areas include infrastructure automation,
 distributed systems, reliability engineering, recovery-first design, and
 operational documentation.
 
@@ -41,7 +41,7 @@ Personal lab project (unpaid) | 2024 - Present
     Markdown corpus with per-node local semantic indexes
   * Deployed automated watchdog and recovery workflows that detect runtime
     degradation, quarantine bad state, and restore from verified backups
-  * Created a portable recovery bundle and monthly sandboxed DR drills to
+  * Created a portable recovery bundle and sandboxed DR drills to
     validate rebuild capability without touching live systems
   * Implemented autonomous task generation with approval gating - safe
     operations execute automatically, risky actions require human review

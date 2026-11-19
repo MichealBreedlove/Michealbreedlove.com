@@ -47,7 +47,7 @@
                          "Shared Markdown memory corpus with local semantic indexing per node",
                          "Nightly automated knowledge curation and archival",
                          "Weekly cluster health snapshots",
-                         "Monthly disaster recovery validation drills",
+                         "Disaster recovery validation drills",
                          "Portable recovery bundle for rapid cluster rebuilds",
                          "Self-healing runtime watchdog with automated incident response",
                          "File-based durable job queue with retry and timeout handling",
